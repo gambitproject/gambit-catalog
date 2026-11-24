@@ -948,6 +948,99 @@
       "n_strategies": 4
     },
     {
+      "slug": "journals/apsr/guarnaschellimckelveypalfrey2000/majority",
+      "title": "Guarnaschelli et al. (2000), Majority rule",
+      "description": "A Condorcet jury game under majority rule, in the form studied by Feddersen and Pesendorfer: the defendant is convicted if at least two jurors vote to convict. Three jurors each privately observe a signal about the defendant, then vote simultaneously to Convict or Acquit. The defendant is Guilty or Innocent with probability 1/2 each; each juror's signal matches the true state with probability 7/10, independently. Every juror receives 1 if the verdict is correct and -1 if it is wrong. This game was transcribed from Gambit's earlier example file and has not been checked against the paper.",
+      "format": "efg",
+      "game": "journals/apsr/guarnaschellimckelveypalfrey2000/majority/majority.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/apsr/guarnaschellimckelveypalfrey2000/majority/majority.ef"
+        }
+      ],
+      "source": {
+        "key": "GuaMcKPal00",
+        "locator": "Majority rule",
+        "citation": "Guarnaschelli et al. (2000)",
+        "authors": [
+          "S. Guarnaschelli",
+          "R. D. McKelvey",
+          "T. R. Palfrey"
+        ],
+        "year": 2000,
+        "title": "An experimental study of jury decision rules",
+        "kind": "article",
+        "venue": "American Political Science Review"
+      },
+      "n_players": 3,
+      "is_const_sum": false,
+      "n_strategies": 12
+    },
+    {
+      "slug": "journals/apsr/guarnaschellimckelveypalfrey2000/majority_p3over4",
+      "title": "Guarnaschelli et al. (2000), Majority rule (signal precision 3/4)",
+      "description": "A Condorcet jury game under majority rule, in the form studied by Feddersen and Pesendorfer: the defendant is convicted if at least two jurors vote to convict. It differs from the majority-rule entry of this paper only in the signal precision, 3/4 instead of 7/10. Three jurors each privately observe a signal about the defendant, then vote simultaneously to Convict or Acquit. The defendant is Guilty or Innocent with probability 1/2 each; each juror's signal matches the true state with probability 3/4, independently. Every juror receives 1 if the verdict is correct and -1 if it is wrong. The game was transcribed from Gambit's earlier example file and has not been checked against the paper, which may not use this precision.",
+      "format": "efg",
+      "game": "journals/apsr/guarnaschellimckelveypalfrey2000/majority_p3over4/majority_p3over4.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/apsr/guarnaschellimckelveypalfrey2000/majority_p3over4/majority_p3over4.ef"
+        }
+      ],
+      "source": {
+        "key": "GuaMcKPal00",
+        "locator": "Majority rule (signal precision 3/4)",
+        "citation": "Guarnaschelli et al. (2000)",
+        "authors": [
+          "S. Guarnaschelli",
+          "R. D. McKelvey",
+          "T. R. Palfrey"
+        ],
+        "year": 2000,
+        "title": "An experimental study of jury decision rules",
+        "kind": "article",
+        "venue": "American Political Science Review"
+      },
+      "n_players": 3,
+      "is_const_sum": false,
+      "n_strategies": 12
+    },
+    {
+      "slug": "journals/apsr/guarnaschellimckelveypalfrey2000/unanimity",
+      "title": "Guarnaschelli et al. (2000), Unanimity rule",
+      "description": "A Condorcet jury game under a unanimity rule, in the form studied by Feddersen and Pesendorfer: the defendant is convicted only if all three jurors vote to convict. Three jurors each privately observe a signal about the defendant, then vote simultaneously to Convict or Acquit. The defendant is Guilty or Innocent with probability 1/2 each; each juror's signal matches the true state with probability 7/10, independently. Every juror receives 1 if the verdict is correct and -1 if it is wrong. This game was transcribed from Gambit's earlier example file and has not been checked against the paper.",
+      "format": "efg",
+      "game": "journals/apsr/guarnaschellimckelveypalfrey2000/unanimity/unanimity.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/apsr/guarnaschellimckelveypalfrey2000/unanimity/unanimity.ef"
+        }
+      ],
+      "source": {
+        "key": "GuaMcKPal00",
+        "locator": "Unanimity rule",
+        "citation": "Guarnaschelli et al. (2000)",
+        "authors": [
+          "S. Guarnaschelli",
+          "R. D. McKelvey",
+          "T. R. Palfrey"
+        ],
+        "year": 2000,
+        "title": "An experimental study of jury decision rules",
+        "kind": "article",
+        "venue": "American Political Science Review"
+      },
+      "n_players": 3,
+      "is_const_sum": false,
+      "n_strategies": 12
+    },
+    {
       "slug": "journals/dcg/vonstengel1999/6x6_game_with_75_eq",
       "title": "von Stengel (1999)",
       "description": "A 6x6 bimatrix game with 75 equilibria,\nwhich is more than the previously conjectured bound of :math:`2^6 - 1 = 63`.\nThe example first appeared in (von Stengel 1997).",
@@ -1013,6 +1106,1147 @@
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 12
+    },
+    {
+      "slug": "journals/econometrica/bankssobel1987/fig1",
+      "title": "Banks and Sobel (1987), Figure 1",
+      "description": "A sequential settlement game, a signaling game in which the Sender is a defendant of type t1 (not negligent) or t2 (negligent) and the Receiver is the plaintiff. The Sender offers a low settlement m1 or a high settlement m2, and the Receiver accepts (a1) or rejects (a2). The paper tabulates payoffs by message, with one bimatrix for each message, a row for each type and a column for each Receiver action. This file enters them as an extensive game: chance chooses the type, the Sender chooses a message, and the Receiver chooses an action at one information set for each message.\n\nThere are two kinds of sequential equilibria. In one, both types offer m1 and the Receiver accepts any offer. In the other, both types offer m2 and the Receiver accepts m2 and rejects m1, which requires the Receiver to believe, after m1, that the Sender is type t1 with probability at most 2/5. The paper rejects the second as implausible: t1 prefers to defect whenever t2 does, so after m1 the relative probability of t1 should increase. The prior is that each type has probability 1/2.",
+      "format": "efg",
+      "game": "journals/econometrica/bankssobel1987/fig1/fig1.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/bankssobel1987/fig1/fig1.ef"
+        }
+      ],
+      "source": {
+        "key": "BanSob87",
+        "locator": "Figure 1",
+        "citation": "Banks and Sobel (1987)",
+        "authors": [
+          "J. S. Banks",
+          "J. Sobel"
+        ],
+        "year": 1987,
+        "title": "Equilibrium selection in signaling games",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/econometrica/bankssobel1987/fig3",
+      "title": "Banks and Sobel (1987), Figure 3",
+      "description": "A signaling game with a universally divine equilibrium that is not stable. The paper tabulates payoffs by message, with one bimatrix for each message, a row for each type and a column for each Receiver action; this file enters them as an extensive game in which chance chooses the type, the Sender chooses a message, and the Receiver chooses an action at one information set for each message (message m1 allows only the action a). The prior is that t1 has probability 2/5 (the paper writes .4).\n\nThere is a sequential equilibrium in which both types send m1 and the Receiver responds to m2 with a1, supported by the belief that t1 sent m2 with probability at least 2/3. It is universally divine but not stable. The stable equilibrium has both types sending m2, with the Receiver responding with a3. The game motivates the notion of stable beliefs.",
+      "format": "efg",
+      "game": "journals/econometrica/bankssobel1987/fig3/fig3.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/bankssobel1987/fig3/fig3.ef"
+        }
+      ],
+      "source": {
+        "key": "BanSob87",
+        "locator": "Figure 3",
+        "citation": "Banks and Sobel (1987)",
+        "authors": [
+          "J. S. Banks",
+          "J. Sobel"
+        ],
+        "year": 1987,
+        "title": "Equilibrium selection in signaling games",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/delta",
+      "title": "Kohlberg and Mertens (1986), Section 2.8 (game Delta)",
+      "description": "A zero-sum game used to show that the requirement of sequentiality in every equivalent tree may be impossible to satisfy: every tree with this reduced normal form (such as the trees of Figures 7 and 10) must have a sequential equilibrium, but the unique sequential equilibria of different trees differ. Its Nash equilibria form a single connected component; the paper's stable set contains the equilibria (T,(1/4,3/4)) and (T,(3/4,1/4)).\n\nThe paper calls this game :math:`\\Delta`. Player I's strategies are T, M and B; player II's are L and R.",
+      "format": "nfg",
+      "game": "journals/econometrica/kohlbergmertens1986/delta/delta.nfg",
+      "drawings": [],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Section 2.8 (game Delta)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig1",
+      "title": "Kohlberg and Mertens (1986), Figure 1",
+      "description": "A perfect-information game showing that not every Nash equilibrium is strategically stable. The profile (T,R) is a Nash equilibrium, but even though communication is impossible, player II will deviate to L whenever he has to move, which upsets it; the backwards induction equilibrium is (M,L).\n\nPlayer I chooses T, which ends the game, or M, which gives II the move; II then chooses L or R.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig1/fig1.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig1/fig1.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 1",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig10",
+      "title": "Kohlberg and Mertens (1986), Figure 10",
+      "description": "A presentation of the game :math:`\\Delta` showing that stable sets need not satisfy backwards induction. The set of equilibria containing (T,(1/4,3/4)) and (T,(3/4,1/4)) is stable, but in this presentation the unique sequential equilibrium is (T,(1/2,1/2)).\n\nPlayer I chooses T, which ends the game with payoffs (1,-1), or continue; he then chooses M or B; player II, not told which, chooses L or R. The payoffs are those of the matrix game :math:`\\Delta`.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig10/fig10.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig10/fig10.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 10",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig11",
+      "title": "Kohlberg and Mertens (1986), Figure 11",
+      "description": "A three-player game, suggested by Faruk Gul, showing that a stable set can contain equilibria from different connected components of the Nash equilibria and give different payoffs from the unique sequential equilibrium. The set {(T,L,l), (T,R,r)} is stable and gives the payoffs (2,0,0), whereas the unique sequential equilibrium is ((0,1/2,1/2),(1/2,1/2),(1/2,1/2)), with payoffs (11/4,5/4,5/4).\n\nPlayer I chooses T, which ends the game, or continue; he then chooses M or B. Player II, not told which, chooses L or R, and player III, told neither choice, chooses l or r.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig11/fig11.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig11/fig11.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 11",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 3,
+      "is_const_sum": false,
+      "n_strategies": 7
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig12",
+      "title": "Kohlberg and Mertens (1986), Figure 12",
+      "description": "A perfect-information game showing that a single-valued concept of strategic stability cannot require an equilibrium to stay stable after deletion of an inferior response. The unique backwards induction equilibrium is (T,R), with payoffs (2,0); but when the inferior response B is deleted (Figure 13), the unique backwards induction equilibrium is (M,L), with payoffs (3,1). The unique stable set of this game includes (T,(1/2,1/2)), at which B is not an inferior response.\n\nPlayer I chooses T, which ends the game, or continue; player II then chooses L, which ends the game, or R; player I then chooses M or B.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig12/fig12.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig12/fig12.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 12",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig12_nfg",
+      "title": "Kohlberg and Mertens (1986), Figure 12 (normal form)",
+      "description": "The normal form of a perfect-information game showing that a single-valued concept of strategic stability cannot require an equilibrium to stay stable after deletion of an inferior response: the unique backwards induction equilibrium is (T,R), with payoffs (2,0), but when B is deleted it is (M,L), with payoffs (3,1).\n\nPlayer I's strategies M and B are the choices at his second move, after continue at the first.",
+      "format": "nfg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig12_nfg/fig12_nfg.nfg",
+      "drawings": [],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 12 (normal form)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig13",
+      "title": "Kohlberg and Mertens (1986), Figure 13",
+      "description": "The game of Figure 12 after deletion of B, player I's inferior response. Its unique backwards induction equilibrium is (M,L), with payoffs (3,1), whereas the unique backwards induction equilibrium of the game before the deletion is (T,R), with payoffs (2,0); this shows that a single-valued concept cannot be stable after deletion of an inferior response.\n\nPlayer I chooses T, which ends the game, or M, which gives II the move; II then chooses L or R.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig13/fig13.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig13/fig13.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 13",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig13_nfg",
+      "title": "Kohlberg and Mertens (1986), Figure 13 (normal form)",
+      "description": "The normal form of the game of Figure 12 after deletion of B, player I's inferior response. Its unique admissible equilibrium, and its unique backwards induction equilibrium, is (M,L), with payoffs (3,1), whereas before the deletion the unique backwards induction equilibrium is (T,R), with payoffs (2,0).",
+      "format": "nfg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig13_nfg/fig13_nfg.nfg",
+      "drawings": [],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 13 (normal form)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig14",
+      "title": "Kohlberg and Mertens (1986), Figure 14",
+      "description": "The stage game of the chain store paradox, an example from information economics due to Kreps, in which stability distinguishes between two components of Nash equilibria that are all sequential, perfect and proper. Only the component in which the chosen player sends a strong signal is stable.\n\nNature chooses Weak (W) with probability 1/10 or Strong (S) with probability 9/10. The chosen player sends a strong signal s or a weak signal w; a true signal is costless and a false signal costs 1 unit. The Entrant, informed only of the signal, chooses f (fight) or r (retreat). If he fights he wins 1 against Weak and loses 1 against Strong; the signaling player loses 2 whenever there is a fight. Payoffs are in the order Weak, Strong, Entrant.\n\nThe Nash equilibria form two connected components: (1) the chosen player sends a strong signal, the Entrant retreats after a strong signal and fights with probability at least 1/2 after a weak signal; (2) the chosen player sends a weak signal, the Entrant retreats after a weak signal and fights with probability at least 1/2 after a strong signal. Component (2) is not stable: sending a strong signal is an inferior response for Weak, and once it is deleted the Entrant's fighting after a strong signal is dominated.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig14/fig14.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig14/fig14.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 14",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 3,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig17",
+      "title": "Kohlberg and Mertens (1986), Figure 17",
+      "description": "A game used to show that requiring sequentiality in every tree with the same reduced normal form is insufficient for strategic stability. Its unique backwards induction equilibrium is (continue, R, B) with payoffs (3,3). If one dummy player per cell of the strategic form is added, each receiving 1 in that cell and 0 otherwise, the equilibrium with payoffs (2,2) (T,R) becomes sequential in every tree with the same reduced normal form, although (3,3) should remain the only strategically stable equilibrium.\n\nPlayer I chooses T, which ends the game, or continue; player II then chooses L, which ends the game, or R; player I then chooses M or B. The paper prints no action labels for this figure; the labels here follow those of Figure 12.\n\nThe dummy players of the paper's argument are described only in words and are not included.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig17/fig17.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig17/fig17.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 17",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig17_nfg",
+      "title": "Kohlberg and Mertens (1986), Figure 17 (normal form)",
+      "description": "The strategic form of a game used to show that requiring sequentiality in every tree with the same reduced normal form is insufficient for strategic stability. Its backwards induction equilibrium (B,R) has payoffs (3,3), while (T,R) with payoffs (2,2) is sequential in every tree with this reduced normal form once suitable dummy players are added.\n\nThe paper prints the matrix without labels. Here the rows are, in the printed order, T, B and M, where B and M are player I's choices at his second move after continue at the first, as in the tree of Figure 17; the columns are L and R.",
+      "format": "nfg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig17_nfg/fig17_nfg.nfg",
+      "drawings": [],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 17 (normal form)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig2_x0",
+      "title": "Kohlberg and Mertens (1986), Figure 2 (x = 0)",
+      "description": "The game :math:`\\Gamma(x)`, showing that conformity with backwards induction is necessary but not sufficient for strategic stability. Player I chooses T, which ends the game, M or B; player II, who is not told whether I chose M or B, chooses L or R.\n\nThe equilibrium (T,R) with payoffs (2,2) is sequential, but strategically unstable: B is strictly dominated by T, so if II has to move he should infer that I played M, hence play L, and I should then deviate to M; the unique strategically stable equilibrium is (M,L) with payoffs (3,3). The paper notes that (T,R) is also proper here. The Nash equilibria form two connected components: the singleton (M,L) with payoffs (3,3), and the interval from (T,R) to (T,(2/3,1/3)), with payoffs (2,2).\n\nThe parameter x is 0 in this file, the game written :math:`\\Gamma(0)` in the paper; the paper allows any :math:`x \\le 2`, and uses :math:`1 < x \\le 2` in its main discussion.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig2_x0/fig2_x0.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig2_x0/fig2_x0.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 2 (x = 0)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig2_x2",
+      "title": "Kohlberg and Mertens (1986), Figure 2 (x = 2)",
+      "description": "The game :math:`\\Gamma(x)`, showing that conformity with backwards induction is necessary but not sufficient for strategic stability. Player I chooses T, which ends the game, M or B; player II, who is not told whether I chose M or B, chooses L or R.\n\nThe equilibrium (T,R) with payoffs (2,2) is sequential, but strategically unstable: B is strictly dominated by T, so if II has to move he should infer that I played M, hence play L, and I should then deviate to M; the unique strategically stable equilibrium is (M,L) with payoffs (3,3). For x > 1, B is also strictly dominated by M, and for x = 2 player I has the additional, more direct reason to deviate from T that T is dominated by M. The Nash equilibria form two connected components: the singleton (M,L) with payoffs (3,3), and the interval from (T,R) to (T,(0,1)), which is (T,R) itself, so that the second component is the single point (T,R), with payoffs (2,2).\n\nThe parameter x is 2 in this file, the upper end of the range :math:`1 < x \\le 2` that the paper uses in its main discussion (the paper allows any :math:`x \\le 2`).",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig2_x2/fig2_x2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig2_x2/fig2_x2.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 2 (x = 2)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig2_x3over2",
+      "title": "Kohlberg and Mertens (1986), Figure 2 (x = 3/2)",
+      "description": "The game :math:`\\Gamma(x)`, showing that conformity with backwards induction is necessary but not sufficient for strategic stability. Player I chooses T, which ends the game, M or B; player II, who is not told whether I chose M or B, chooses L or R.\n\nThe equilibrium (T,R) with payoffs (2,2) is sequential, but strategically unstable: B is strictly dominated by T, so if II has to move he should infer that I played M, hence play L, and I should then deviate to M; the unique strategically stable equilibrium is (M,L) with payoffs (3,3). For x > 1, B is also strictly dominated by M, and for x = 2 player I has the additional, more direct reason to deviate from T that T is dominated by M. The Nash equilibria form two connected components: the singleton (M,L) with payoffs (3,3), and the interval from (T,R) to (T,(1/3,2/3)), with payoffs (2,2).\n\nThe parameter x is 3/2 in this file, an example value chosen for this entry within the range :math:`1 < x \\le 2` that the paper uses in its main discussion (the paper allows any :math:`x \\le 2`).",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig2_x3over2/fig2_x3over2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig2_x3over2/fig2_x3over2.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 2 (x = 3/2)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig3_x0",
+      "title": "Kohlberg and Mertens (1986), Figure 3 (x = 0)",
+      "description": "The game :math:`\\Gamma(x)` with player I's three-way choice coalesced into two binary choices, showing that sequential equilibrium depends on how the tree is drawn. The reduced normal form is the same as that of the game with a single three-way choice, but the equilibrium (T,R) with payoffs (2,2), which is sequential there, behaves differently here.\n\nPlayer I chooses T, which ends the game, or continue; he then chooses M or B; player II, who is not told whether I chose M or B, chooses L or R. In the subgame that starts after continue, both (M,L) with payoffs (3,3) and (B,R) with payoffs (1,1) are strict equilibria, and both are strategically stable in the subgame; but the paper argues, by forward induction, that only the (3,3) equilibrium is part of a strategically stable equilibrium of the whole game.\n\nThe parameter x is 0 in this file, the game written :math:`\\Gamma(0)` in the paper; the paper allows any :math:`x \\le 2`, and uses :math:`1 < x \\le 2` in its main discussion.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig3_x0/fig3_x0.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig3_x0/fig3_x0.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 3 (x = 0)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig3_x2",
+      "title": "Kohlberg and Mertens (1986), Figure 3 (x = 2)",
+      "description": "The game :math:`\\Gamma(x)` with player I's three-way choice coalesced into two binary choices, showing that sequential equilibrium depends on how the tree is drawn. The reduced normal form is the same as that of the game with a single three-way choice, but the equilibrium (T,R) with payoffs (2,2), which is sequential there, behaves differently here.\n\nPlayer I chooses T, which ends the game, or continue; he then chooses M or B; player II, who is not told whether I chose M or B, chooses L or R. At I's second information set M strictly dominates B (for 1 < x <= 2), so in any sequential equilibrium I chooses M there, II assigns probability one to the position following M and chooses L, and I chooses M: the only sequential equilibrium is (M,L) with payoffs (3,3).\n\nThe parameter x is 2 in this file, the upper end of the range :math:`1 < x \\le 2` that the paper uses in its main discussion (the paper allows any :math:`x \\le 2`).",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig3_x2/fig3_x2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig3_x2/fig3_x2.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 3 (x = 2)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig3_x3over2",
+      "title": "Kohlberg and Mertens (1986), Figure 3 (x = 3/2)",
+      "description": "The game :math:`\\Gamma(x)` with player I's three-way choice coalesced into two binary choices, showing that sequential equilibrium depends on how the tree is drawn. The reduced normal form is the same as that of the game with a single three-way choice, but the equilibrium (T,R) with payoffs (2,2), which is sequential there, behaves differently here.\n\nPlayer I chooses T, which ends the game, or continue; he then chooses M or B; player II, who is not told whether I chose M or B, chooses L or R. At I's second information set M strictly dominates B (for 1 < x <= 2), so in any sequential equilibrium I chooses M there, II assigns probability one to the position following M and chooses L, and I chooses M: the only sequential equilibrium is (M,L) with payoffs (3,3).\n\nThe parameter x is 3/2 in this file, an example value chosen for this entry within the range :math:`1 < x \\le 2` that the paper uses in its main discussion (the paper allows any :math:`x \\le 2`).",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig3_x3over2/fig3_x3over2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig3_x3over2/fig3_x3over2.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 3 (x = 3/2)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig4",
+      "title": "Kohlberg and Mertens (1986), Figure 4",
+      "description": "A third presentation of :math:`\\Gamma(0)`, the game of Figure 3 with x = 0, in which player I's randomization between T and M is written as a move of nature, showing that adding such a coin toss destroys the sequential equilibrium (T,R) with payoffs (2,2), even though the reduced normal form is unchanged.\n\nAt his second information set player I can choose coin, M or B. Choosing coin gives the move to nature, which ends the game with payoffs (2,2) with probability 2/3 (action T) and otherwise leads to II's information set (action M). The choice coin strictly dominates B, so in any sequential equilibrium I chooses coin or M there, II assigns probability zero to the position following B and chooses L, and I chooses M: the only sequential equilibrium is (M,L) with payoffs (3,3).",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig4/fig4.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig4/fig4.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 4",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig5",
+      "title": "Kohlberg and Mertens (1986), Figure 5",
+      "description": "A game showing that replacing a subgame by its payoff (a form of backwards induction rationality) is incompatible with admissibility. Player I chooses top or bottom, and in each case player II then moves in a separate information set, choosing between up with payoffs (1,1) and down with payoffs (0,0).\n\nIf the top subgame is replaced by a terminal position with payoffs (1,1), admissibility forces I to choose top in any solution; by the same argument he must choose bottom, a contradiction. The same example shows that neither perfect nor proper equilibria satisfy this property.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig5/fig5.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig5/fig5.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 5",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig6",
+      "title": "Kohlberg and Mertens (1986), Figure 6",
+      "description": "A variant of :math:`\\Gamma(0)` in which the outcome after B and L is replaced by a zero-sum subgame (matching pennies with payoffs of plus or minus 4), showing that iterated elimination of dominated strategies in the normal form does not by itself yield backwards induction.\n\nPlayer I chooses T, which ends the game, or continue; he then chooses M or B, and II, not told which, chooses L or R. After B and L, I chooses T or B in the subgame, and II, not told which, chooses L or R. Any dominance relation appears only after the zero-sum subgame has been replaced by its value; all strategies are undominated in the normal form, so the whole strategy space is persistent, and the equilibrium (T,R) with payoffs (2,2) survives that procedure. The unique strategically stable set is (M,L) with payoffs (3,3).",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig6/fig6.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig6/fig6.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 6",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 7
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig6_nfg",
+      "title": "Kohlberg and Mertens (1986), Figure 6 (normal form)",
+      "description": "The normal form of the game of Figure 6, a variant of :math:`\\Gamma(0)` with a zero-sum subgame, printed beneath the tree. Every strategy is undominated, so iterated elimination of dominated strategies removes nothing, although the equilibrium (T,R) with payoffs (2,2) is not strategically stable.\n\nPlayer I's strategies are T, M, and BT and BB (B at the second information set, then T or B in the subgame). Player II's strategies LL and LR are L at the first information set followed by L or R in the subgame; R is R at the first information set.",
+      "format": "nfg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig6_nfg/fig6_nfg.nfg",
+      "drawings": [],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 6 (normal form)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 7
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig7_a0",
+      "title": "Kohlberg and Mertens (1986), Figure 7 (alpha = 0)",
+      "description": "The tree :math:`\\Delta(\\alpha)`, which has the same reduced normal form as the matrix game :math:`\\Delta` for every :math:`0 \\le \\alpha \\le 1`, used to show that the requirement of sequentiality in every equivalent tree may be impossible to satisfy: its unique sequential equilibrium has player II choosing L with probability :math:`(4-3\\alpha)/(8-4\\alpha)`, which depends on :math:`\\alpha`, although all these trees are equivalent.\n\nPlayer I chooses T, which ends the game with payoffs (1,-1), or X; he then chooses coin, M or B. Choosing coin gives the move to nature, which ends the game with payoffs (1,-1) with probability :math:`\\alpha` (action T) and otherwise leads to II's information set (action M, with probability :math:`1-\\alpha`). Player II chooses L or R without being told which position he is in.\n\nThe paper leaves :math:`\\alpha` free; this file uses :math:`\\alpha = 0`, an example value chosen for this entry within the paper's range :math:`0 \\le \\alpha \\le 1`. Player II's probability of L in the unique sequential equilibrium is then 1/2.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig7_a0/fig7_a0.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig7_a0/fig7_a0.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 7 (alpha = 0)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig7_a1over2",
+      "title": "Kohlberg and Mertens (1986), Figure 7 (alpha = 1/2)",
+      "description": "The tree :math:`\\Delta(\\alpha)`, which has the same reduced normal form as the matrix game :math:`\\Delta` for every :math:`0 \\le \\alpha \\le 1`, used to show that the requirement of sequentiality in every equivalent tree may be impossible to satisfy: its unique sequential equilibrium has player II choosing L with probability :math:`(4-3\\alpha)/(8-4\\alpha)`, which depends on :math:`\\alpha`, although all these trees are equivalent.\n\nPlayer I chooses T, which ends the game with payoffs (1,-1), or X; he then chooses coin, M or B. Choosing coin gives the move to nature, which ends the game with payoffs (1,-1) with probability :math:`\\alpha` (action T) and otherwise leads to II's information set (action M, with probability :math:`1-\\alpha`). Player II chooses L or R without being told which position he is in.\n\nThe paper leaves :math:`\\alpha` free; this file uses :math:`\\alpha = 1/2`, an example value chosen for this entry within the paper's range :math:`0 \\le \\alpha \\le 1`. Player II's probability of L in the unique sequential equilibrium is then 5/12.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig7_a1over2/fig7_a1over2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig7_a1over2/fig7_a1over2.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 7 (alpha = 1/2)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig8",
+      "title": "Kohlberg and Mertens (1986), Figure 8",
+      "description": "A game showing that hyperstable equilibrium does not satisfy admissibility: the unique hyperstable set is the full interval from (T,L) to (T,R), but only (T,L) is admissible.\n\nPlayer I chooses T, which ends the game, or B, which gives II the move; II then chooses L or R.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig8/fig8.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig8/fig8.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 8",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig8_nfg",
+      "title": "Kohlberg and Mertens (1986), Figure 8 (normal form)",
+      "description": "The normal form of a game showing that hyperstable equilibrium does not satisfy admissibility: the unique hyperstable set is the full interval from (T,L) to (T,R), but only (T,L) is admissible. The strategy R is weakly dominated by L.",
+      "format": "nfg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig8_nfg/fig8_nfg.nfg",
+      "drawings": [],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 8 (normal form)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig9",
+      "title": "Kohlberg and Mertens (1986), Figure 9",
+      "description": "A variant of the game of Figure 8 showing that fully stable equilibrium does not satisfy admissibility either: the unique fully stable set is the full interval from (T,L) to (T,R), but only (T,L) is admissible. For example, (T,R) must be included because it is the unique equilibrium when L is perturbed more than R toward Z.\n\nPlayer II first chooses Z, which ends the game with payoffs (0,0), or continue; player I then chooses T, which ends the game, or B, which gives II the move again; II then chooses L or R.",
+      "format": "efg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig9/fig9.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/kohlbergmertens1986/fig9/fig9.ef"
+        }
+      ],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 9",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/kohlbergmertens1986/fig9_nfg",
+      "title": "Kohlberg and Mertens (1986), Figure 9 (normal form)",
+      "description": "The normal form of a variant of the game of Figure 8, showing that fully stable equilibrium does not satisfy admissibility: the unique fully stable set is the full interval from (T,L) to (T,R), but only (T,L) is admissible.\n\nPlayer II's strategy Z is Z at the first move; L and R are continue at the first move followed by L or R.",
+      "format": "nfg",
+      "game": "journals/econometrica/kohlbergmertens1986/fig9_nfg/fig9_nfg.nfg",
+      "drawings": [],
+      "source": {
+        "key": "KohMer86",
+        "locator": "Figure 9 (normal form)",
+        "citation": "Kohlberg and Mertens (1986)",
+        "authors": [
+          "E. Kohlberg",
+          "J.-F. Mertens"
+        ],
+        "year": 1986,
+        "title": "On the strategic stability of equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/krepswilson1982/fig1",
+      "title": "Kreps and Wilson (1982), Figure 1",
+      "description": "A game of imperfect information that serves as the running example for the extensive-form\nnotation. Player 1 chooses A, which ends the game, or L or R, after which Player 2 chooses l or r\nwithout being told whether Player 1 chose L or R. Player 2's information set and the four terminal\nnodes that follow it form a nonproper subform, so the game has no proper subgame.",
+      "format": "efg",
+      "game": "journals/econometrica/krepswilson1982/fig1/fig1.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/krepswilson1982/fig1/fig1.ef"
+        }
+      ],
+      "source": {
+        "key": "KreWil82",
+        "locator": "Figure 1",
+        "citation": "Kreps and Wilson (1982)",
+        "authors": [
+          "D. M. Kreps",
+          "R. Wilson"
+        ],
+        "year": 1982,
+        "title": "Sequential equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/krepswilson1982/fig11",
+      "title": "Kreps and Wilson (1982), Figure 11",
+      "description": "A three-player game with a complicated set of sequential equilibria. Player 1 chooses A or\nchooses one of two bimatrix games, L or R, for Players 2 and 3 to play, and neither Player 2 nor\nPlayer 3 knows which. Payoffs to Players 2 and 3 after L are (1,0) at (l,l') and (r,r'), and\n(0,1) at (l,r') and (r,l'); after R they are (1,1) at (l,l'), (0,1) at (r,l'), and (0,0) otherwise.\nThere are two types of sequential equilibria. In the first, Player 1 plays R and Players 2 and 3\nplay l and l'. In the second, Player 1 plays A, which leaves Players 2 and 3 free in their\nbeliefs about whether Player 1 chose L or R; for a sequential equilibrium the common belief that\nthe node following L has been reached must lie in [1/2, 1/1.1].",
+      "format": "efg",
+      "game": "journals/econometrica/krepswilson1982/fig11/fig11.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/krepswilson1982/fig11/fig11.ef"
+        }
+      ],
+      "source": {
+        "key": "KreWil82",
+        "locator": "Figure 11",
+        "citation": "Kreps and Wilson (1982)",
+        "authors": [
+          "D. M. Kreps",
+          "R. Wilson"
+        ],
+        "year": 1982,
+        "title": "Sequential equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 3,
+      "is_const_sum": false,
+      "n_strategies": 7
+    },
+    {
+      "slug": "journals/econometrica/krepswilson1982/fig13",
+      "title": "Kreps and Wilson (1982), Figure 13",
+      "description": "A game with a sequential equilibrium that is not perfect: Player 1 plays L and Player 2 plays r.\nHere Player 1 chooses L or R and Player 2, not observing the choice, chooses l or r.",
+      "format": "efg",
+      "game": "journals/econometrica/krepswilson1982/fig13/fig13.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/krepswilson1982/fig13/fig13.ef"
+        }
+      ],
+      "source": {
+        "key": "KreWil82",
+        "locator": "Figure 13",
+        "citation": "Kreps and Wilson (1982)",
+        "authors": [
+          "D. M. Kreps",
+          "R. Wilson"
+        ],
+        "year": 1982,
+        "title": "Sequential equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/econometrica/krepswilson1982/fig14",
+      "title": "Kreps and Wilson (1982), Figure 14",
+      "description": "A game, due to Kohlberg, used to show how restrictions on beliefs choose among sequential\nequilibria. One sequential equilibrium has Player 1 playing A and Player 2 playing r, supported\nby beliefs of Player 2 that the node following L has probability at most 1/2. A second has Player\n1 playing L and Player 2 playing l. The paper argues the second is more plausible: R is dominated\nby A for Player 1, so Player 2 should not conclude on reaching the information set that Player 1\nchose R.",
+      "format": "efg",
+      "game": "journals/econometrica/krepswilson1982/fig14/fig14.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/krepswilson1982/fig14/fig14.ef"
+        }
+      ],
+      "source": {
+        "key": "KreWil82",
+        "locator": "Figure 14",
+        "citation": "Kreps and Wilson (1982)",
+        "authors": [
+          "D. M. Kreps",
+          "R. Wilson"
+        ],
+        "year": 1982,
+        "title": "Sequential equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/krepswilson1982/fig14_variant",
+      "title": "Kreps and Wilson (1982), Section 8, variant of Figure 14",
+      "description": "A modification of the game of Figure 14, in which Player 1's choice of A leads to a simultaneous\nbimatrix game for Players 1 and 2 instead of ending the game with payoffs (1,1). The paper\nargues that there is again a sequential equilibrium in which Player 1 chooses A, supported by\nbeliefs of Player 2 that the node following L has probability less than 1/2, and that these beliefs\nare implausible: A now yields Player 1 an equilibrium payoff of 1, more than Player 1 gets from R,\nso Player 2 should not attach much weight to R, which again makes L and l the more plausible\nequilibrium.\n\nThe paper states that the bimatrix game has a unique Nash equilibrium in which Player 1 receives\n1. For the payoffs as printed, the unique equilibrium has Player 1 mixing Top and Bottom with\nprobability 1/2 each and Player 2 mixing Left and Right with probability 1/2 each, which gives\nPlayer 1 expected payoff -4 (and Player 2 5/2). The payoffs are entered as printed.\n\nThe paper gives the modification in words and as a bimatrix, not as a tree. The file encodes the\nsimultaneous game after A in the usual way: Player 1 chooses Top or Bottom, then Player 2, who\nknows that A was chosen but not which row, chooses Left, Middle or Right. These row and column\nlabels are not in the paper. After L and R the game is as in Figure 14.",
+      "format": "efg",
+      "game": "journals/econometrica/krepswilson1982/fig14_variant/fig14_variant.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/krepswilson1982/fig14_variant/fig14_variant.ef"
+        }
+      ],
+      "source": {
+        "key": "KreWil82",
+        "locator": "Section 8, variant of Figure 14",
+        "citation": "Kreps and Wilson (1982)",
+        "authors": [
+          "D. M. Kreps",
+          "R. Wilson"
+        ],
+        "year": 1982,
+        "title": "Sequential equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 10
+    },
+    {
+      "slug": "journals/econometrica/krepswilson1982/fig2",
+      "title": "Kreps and Wilson (1982), Figure 2",
+      "description": "A perfect-information game used to motivate subgame perfection. Player 1 chooses L, which ends\nthe game, or R, after which Player 2 chooses l or r. The profile in which Player 1 plays L and\nPlayer 2 plays l is a Nash equilibrium that is not subgame perfect: Player 2's choice is\nirrelevant as long as Player 1 plays L, but in the proper subgame after R Player 2 does better by\nchoosing r, and anticipating this Player 1 should choose R.",
+      "format": "efg",
+      "game": "journals/econometrica/krepswilson1982/fig2/fig2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/krepswilson1982/fig2/fig2.ef"
+        }
+      ],
+      "source": {
+        "key": "KreWil82",
+        "locator": "Figure 2",
+        "citation": "Kreps and Wilson (1982)",
+        "authors": [
+          "D. M. Kreps",
+          "R. Wilson"
+        ],
+        "year": 1982,
+        "title": "Sequential equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/econometrica/krepswilson1982/fig3",
+      "title": "Kreps and Wilson (1982), Figure 3: Selten's horse",
+      "name": "Selten's horse",
+      "description": "A three-player game with no proper subgame, used to motivate beliefs and sequential\nrationality. The profile in which Player 1 plays D, Player 2 plays a and Player 3 plays l is\nsubgame perfect, since the only proper subgame is the game itself, but it is not sensible:\nPlayer 2's information set is a singleton, and given Player 3's choice of l Player 2 prefers d at\nit, after which Player 1 would do better by choosing A rather than D. The only sensible\nequilibrium has Player 1 choosing A, Player 2 choosing a, and Player 3 choosing r with\nprobability at least 3/4.\n\nSee also (Selten 1975)\n    The same game and payoffs, with the actions labeled R and L.",
+      "format": "efg",
+      "game": "journals/econometrica/krepswilson1982/fig3/fig3.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/krepswilson1982/fig3/fig3.ef"
+        }
+      ],
+      "source": {
+        "key": "KreWil82",
+        "locator": "Figure 3",
+        "citation": "Kreps and Wilson (1982)",
+        "authors": [
+          "D. M. Kreps",
+          "R. Wilson"
+        ],
+        "year": 1982,
+        "title": "Sequential equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "origin": {
+        "key": "Sel75",
+        "locator": "Figure 1",
+        "citation": "Selten (1975)",
+        "authors": [
+          "R. Selten"
+        ],
+        "year": 1975,
+        "title": "Reexamination of the perfectness concept for equilibrium points in extensive games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
+      "n_players": 3,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/econometrica/krepswilson1982/fig4",
+      "title": "Kreps and Wilson (1982), Figure 4",
+      "description": "A game in which a subgame-perfect Nash equilibrium fails sequential rationality. The profile in\nwhich Player 1 plays A and Player 2 plays r is a Nash equilibrium, and since there are no proper\nsubgames it is subgame perfect. But whatever Player 2 believes about whether Player 1 chose L or\nR, Player 2 does better by choosing l, and anticipating this Player 1 chooses L.",
+      "format": "efg",
+      "game": "journals/econometrica/krepswilson1982/fig4/fig4.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/krepswilson1982/fig4/fig4.ef"
+        }
+      ],
+      "source": {
+        "key": "KreWil82",
+        "locator": "Figure 4",
+        "citation": "Kreps and Wilson (1982)",
+        "authors": [
+          "D. M. Kreps",
+          "R. Wilson"
+        ],
+        "year": 1982,
+        "title": "Sequential equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/econometrica/krepswilson1982/fig8",
+      "title": "Kreps and Wilson (1982), Figure 8",
+      "description": "A game with a Nash equilibrium that is extended subgame perfect but cannot be part of any\nsequential equilibrium. The information sets are arranged so that the only subform is the whole\ngame, so every Nash equilibrium is extended subgame perfect. The profile in which Player 1 plays\na, Player 2 plays A and Player 3 plays a' (the strategies marked (1) in the paper's figure) is a\nNash equilibrium, but whatever beliefs Player 2 holds at the information set, B is better than A\nfor Player 2, and if Player 2 plays B then Players 1 and 3 prefer b and b'.\n\nThe paper's game has two initial nodes, each with probability 1/2: at one Player 1 moves first,\nat the other Player 3 moves first. The file represents them with a chance node whose branches are\nlabeled by who moves first.",
+      "format": "efg",
+      "game": "journals/econometrica/krepswilson1982/fig8/fig8.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/krepswilson1982/fig8/fig8.ef"
+        }
+      ],
+      "source": {
+        "key": "KreWil82",
+        "locator": "Figure 8",
+        "citation": "Kreps and Wilson (1982)",
+        "authors": [
+          "D. M. Kreps",
+          "R. Wilson"
+        ],
+        "year": 1982,
+        "title": "Sequential equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 3,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/econometrica/krepswilson1982/fig9",
+      "title": "Kreps and Wilson (1982), Figure 9",
+      "description": "A game with two types of sequential equilibria. In the first, Player 1 plays L and Player 2\nplays l. In the second, Player 1 plays A and Player 2 plays r with probability at least 1/3; this\nrequires Player 2 to believe that the node following L has probability at most 1/2.",
+      "format": "efg",
+      "game": "journals/econometrica/krepswilson1982/fig9/fig9.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/krepswilson1982/fig9/fig9.ef"
+        }
+      ],
+      "source": {
+        "key": "KreWil82",
+        "locator": "Figure 9",
+        "citation": "Kreps and Wilson (1982)",
+        "authors": [
+          "D. M. Kreps",
+          "R. Wilson"
+        ],
+        "year": 1982,
+        "title": "Sequential equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
     },
     {
       "slug": "journals/econometrica/mckelveypalfrey1992/fig1",
@@ -1162,6 +2396,95 @@
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 8
+    },
+    {
+      "slug": "journals/econometrica/wilson1992/fig11",
+      "title": "Wilson (1992), Figure 11: The Caterpillar Game",
+      "name": "The Caterpillar Game",
+      "description": "A centipede-like game in which the equilibrium component where Player 1 uses only a is stable even though the graph of dual perturbations covered by its equilibria folds over itself: the covered regions form a cycle AD, B, CD, D, AD, so that region D is covered three times.\n\nPlayers 1 and 2 alternate, Player 1 moving first, with seven decision nodes. At each of the first six the mover stops (Player 1 with a, b, c; Player 2 with e, f, g) or continues; at the last node Player 1 stops with d or continues, giving (3,6). Player 2's third decision node has actions g and h, where h is the continuing move; in the paper's figure h is printed on the continuing branch after g, which is read here as the label of Player 2's strategy of never stopping. Player 1's continuing moves are unlabeled in the paper and are called continue here.",
+      "format": "efg",
+      "game": "journals/econometrica/wilson1992/fig11/fig11.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/wilson1992/fig11/fig11.ef"
+        }
+      ],
+      "source": {
+        "key": "Wil92",
+        "locator": "Figure 11",
+        "citation": "Wilson (1992)",
+        "authors": [
+          "R. Wilson"
+        ],
+        "year": 1992,
+        "title": "Computing simply stable equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 9
+    },
+    {
+      "slug": "journals/econometrica/wilson1992/fig14",
+      "title": "Wilson (1992), Figure 14",
+      "description": "A modification of the game Do The Right Thing in which Player 2 has four strategies in the simultaneous-move game. The first equilibrium component is dual simply stable, but only because a region of dual perturbations is covered by equilibria that use the unperturbed strategies e and h; with those strategies deleted the game resembles the original, in which the first component is not dual simply stable.\n\nPlayer 1 chooses a or continue; Player 2 then chooses d or continue; then Player 1 (b or c) and Player 2 (e, f, g or h) move simultaneously. The paper leaves the continuing moves unlabeled; they are called continue here.",
+      "format": "efg",
+      "game": "journals/econometrica/wilson1992/fig14/fig14.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/wilson1992/fig14/fig14.ef"
+        }
+      ],
+      "source": {
+        "key": "Wil92",
+        "locator": "Figure 14",
+        "citation": "Wilson (1992)",
+        "authors": [
+          "R. Wilson"
+        ],
+        "year": 1992,
+        "title": "Computing simply stable equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/econometrica/wilson1992/fig6",
+      "title": "Wilson (1992), Figure 6: Do The Right Thing",
+      "name": "Do The Right Thing",
+      "description": "A game used to illustrate stable sets of equilibria. Its equilibria lie in two components. In the first, Player 1 uses only a and Player 2 mixes within the best-reply region of a; this component is not stable. In the second, Player 2 uses only d; this component is stable.\n\nPlayer 1 chooses a or continue; if Player 1 continues, Player 2 chooses d or continue; after both continue, Player 1 (b or c) and Player 2 (e or f) play a simultaneous-move game, so Player 2's second information set contains both of Player 1's choices. The paper leaves the two continuing moves unlabeled; they are called continue here.",
+      "format": "efg",
+      "game": "journals/econometrica/wilson1992/fig6/fig6.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/wilson1992/fig6/fig6.ef"
+        }
+      ],
+      "source": {
+        "key": "Wil92",
+        "locator": "Figure 6",
+        "citation": "Wilson (1992)",
+        "authors": [
+          "R. Wilson"
+        ],
+        "year": 1992,
+        "title": "Computing simply stable equilibria",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
     },
     {
       "slug": "journals/expecon/mckelveypalfrey1998/fig1a",
@@ -2219,6 +3542,70 @@
       "n_strategies": 13
     },
     {
+      "slug": "journals/ijgt/feymckelveypalfrey1996/centipede10",
+      "title": "Fey et al. (1996), 10-move game: Centipede game",
+      "name": "Centipede game",
+      "description": "A constant-sum centipede game with 10 moves: the two players' payoffs sum to 3.20 at every terminal node. Players alternate, Player 1 first; at each move the mover chooses TAKE, ending the game, or PASS. This game was transcribed from Gambit's earlier example file and has not been checked against the paper.",
+      "format": "efg",
+      "game": "journals/ijgt/feymckelveypalfrey1996/centipede10/centipede10.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/ijgt/feymckelveypalfrey1996/centipede10/centipede10.ef"
+        }
+      ],
+      "source": {
+        "key": "FeyMcKPal96",
+        "locator": "10-move game",
+        "citation": "Fey et al. (1996)",
+        "authors": [
+          "M. Fey",
+          "R. D. McKelvey",
+          "T. R. Palfrey"
+        ],
+        "year": 1996,
+        "title": "An experimental study of constant-sum centipede games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 12
+    },
+    {
+      "slug": "journals/ijgt/feymckelveypalfrey1996/centipede6",
+      "title": "Fey et al. (1996), 6-move game: Centipede game",
+      "name": "Centipede game",
+      "description": "A constant-sum centipede game with 6 moves: the two players' payoffs sum to 3.20 at every terminal node. Players alternate, Player 1 first; at each move the mover chooses TAKE, ending the game, or PASS. This game was transcribed from Gambit's earlier example file and has not been checked against the paper.",
+      "format": "efg",
+      "game": "journals/ijgt/feymckelveypalfrey1996/centipede6/centipede6.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/ijgt/feymckelveypalfrey1996/centipede6/centipede6.ef"
+        }
+      ],
+      "source": {
+        "key": "FeyMcKPal96",
+        "locator": "6-move game",
+        "citation": "Fey et al. (1996)",
+        "authors": [
+          "M. Fey",
+          "R. D. McKelvey",
+          "T. R. Palfrey"
+        ],
+        "year": 1996,
+        "title": "An experimental study of constant-sum centipede games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 8
+    },
+    {
       "slug": "journals/ijgt/nau2004/sec3",
       "title": "Nau et al. (2004), Section 3: Battle of the Sexes",
       "name": "Battle of the Sexes",
@@ -2408,6 +3795,568 @@
       "n_strategies": 7
     },
     {
+      "slug": "journals/ijgt/yamamoto1993/example",
+      "title": "Yamamoto (1993), Example",
+      "description": "A bimatrix game for which a path-following procedure finds a proper equilibrium; each player has three strategies. It is a slight modification of a bimatrix game of Myerson (1978), and differs from a symmetric game in the single cell where Player 1 plays strategy 3 and Player 2 plays strategy 2, which pays (-7, -6).\n\nStrategies are numbered 1 to 3 as in the paper.",
+      "format": "nfg",
+      "game": "journals/ijgt/yamamoto1993/example/example.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Yam93",
+        "locator": "Example",
+        "citation": "Yamamoto (1993)",
+        "authors": [
+          "Y. Yamamoto"
+        ],
+        "year": 1993,
+        "title": "A path-following procedure to find a proper equilibrium of finite games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig1a",
+      "title": "van Damme (1989), Figure 1(a): Battle of the Sexes",
+      "name": "Battle of the Sexes",
+      "description": "The battle of the sexes (BS), a coordination game used as a component of most of the paper's later examples. It has two strict equilibria, (s,w), which player 1 prefers, and (w,s), which player 2 prefers, and a completely mixed equilibrium.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig1a/fig1a.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 1(a)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig1c",
+      "title": "van Damme (1989), Figure 1(c)",
+      "description": "Reduced normal form of a game in which player 1 chooses between an outside option l, with payoffs (2,5), and r, after which the battle of the sexes of Figure 1(a) is played; player 2 learns only that l was not chosen. Strategy rs means r followed by s, and rw means r followed by w. The paper also draws the tree schematically (Figure 1(b)), with BS as a box; it is not entered.\n\nThe equilibrium in which player 1 takes l, and the players would continue with (w,s) if BS were reached, is perfect but not stable: rw is weakly dominated, so player 2 should conclude after r that player 1 plays rs and respond with w; iterated elimination of weakly dominated strategies leaves only the outcome (3,1). This is the forward induction argument of Kohlberg and Mertens.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig1c/fig1c.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 1(c)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig2_e1over10",
+      "title": "van Damme (1989), Figure 2 (epsilon = 1/10)",
+      "description": "The normal form of the game of Figure 1(b) (the outside option l against the battle of the sexes) when player 1's plan l is perturbed in the extensive form: with probability :math:`\\epsilon` player 1 mistakenly chooses r, after which the planned choice s or w is played in the battle of the sexes. Strategy ls means plan l and, if r is chosen by mistake, s; likewise lw, rs and rw. Then ls and lw are no longer equivalent, and for every :math:`\\epsilon > 0` the profile (lw,s) is a strict, hence stable, equilibrium. It corresponds to the perfect but unstable equilibrium in which player 1 takes l, so perfectness with independent mistakes and Kohlberg-Mertens stability differ.\n\nThe paper leaves :math:`\\epsilon` a small positive number; this file uses :math:`\\epsilon = 1/10`, an example value chosen for this entry. The paper prints the entries of the l rows as expressions in :math:`\\epsilon`.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig2_e1over10/fig2_e1over10.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 2 (epsilon = 1/10)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig2_e1over100",
+      "title": "van Damme (1989), Figure 2 (epsilon = 1/100)",
+      "description": "The normal form of the game of Figure 1(b) (the outside option l against the battle of the sexes) when player 1's plan l is perturbed in the extensive form: with probability :math:`\\epsilon` player 1 mistakenly chooses r, after which the planned choice s or w is played in the battle of the sexes. Strategy ls means plan l and, if r is chosen by mistake, s; likewise lw, rs and rw. Then ls and lw are no longer equivalent, and for every :math:`\\epsilon > 0` the profile (lw,s) is a strict, hence stable, equilibrium. It corresponds to the perfect but unstable equilibrium in which player 1 takes l, so perfectness with independent mistakes and Kohlberg-Mertens stability differ.\n\nThe paper leaves :math:`\\epsilon` a small positive number; this file uses :math:`\\epsilon = 1/100`, an example value chosen for this entry. The paper prints the entries of the l rows as expressions in :math:`\\epsilon`.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig2_e1over100/fig2_e1over100.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 2 (epsilon = 1/100)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig3a",
+      "title": "van Damme (1989), Figure 3(a)",
+      "description": "The zero-sum game whose strategic form is Figure 3(b). Player 1 chooses D, ending the game, or A; after A, player 2 chooses d, ending the game, or a, after which player 1 chooses delta or alpha. In the paper the last two actions are written with the Greek letters delta and alpha.\n\nPlayer 1 plays D in any Nash equilibrium, so player 2 moves only after a deviation. Subgame perfectness requires player 2 to believe that player 1 would then play delta, but stability does not: the unique stable set includes both (D,d) and (D, a mixture of d and a), so a stable set can contain more outcomes than survive iterated elimination of dominated strategies.",
+      "format": "efg",
+      "game": "journals/jet/vandamme1989/fig3a/fig3a.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/jet/vandamme1989/fig3a/fig3a.ef"
+        }
+      ],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 3(a)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig3b",
+      "title": "van Damme (1989), Figure 3(b)",
+      "description": "Reduced normal form of the zero-sum game of Figure 3(a). Player 1 plays D in every Nash equilibrium, so the subgame perfect equilibrium in which player 2 then plays d if reached relies on player 2 believing that player 1 would play delta rather than alpha. The unique stable set contains both (D,d) and (D, a mixture of d and a) for player 2, so a stable set can contain more outcomes than survive iterated elimination of dominated strategies.\n\nPlayer 1's strategies are D, and delta or alpha at the second node after A and a; the labels are the paper's.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig3b/fig3b.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 3(b)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig4b",
+      "title": "van Damme (1989), Figure 4(b)",
+      "description": "Reduced normal form of a game in which player 1 chooses between an outside option l, with payoffs (2,2), and r, after which player 1 and player 2 play a 2 x 3 simultaneous-move subgame (player 1 chooses T or B, player 2 chooses L, M or R); strategy rT means r followed by T. The paper also draws the tree schematically (Figure 4(a)), with the subgame as a matrix; it is not entered.\n\nThe paper uses the game to show that a stable equilibrium need not be self-enforcing. By a forward induction argument only (rT,L), a strict equilibrium, is self-enforcing, since choosing the subgame signals that player 1 will play T. Yet the equilibrium component in which player 1 chooses l with probability one, with outcome (2,2), is also stable.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig4b/fig4b.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 4(b)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig5_x1",
+      "title": "van Damme (1989), Figure 5 (x = 1): Burning money",
+      "name": "Burning money",
+      "description": "The battle of the sexes of Figure 1(a) preceded by an opportunity for player 1 to burn an amount x of money, which player 2 observes: sunk costs can determine which equilibrium is played. Only the reduced normal form is printed, so no tree is given. Player 1's strategies are os and ow (do not burn, then play s or w) and xs and xw (burn x, then play s or w); player 2's strategy is a pair whose first letter is the action if player 1 did not burn and whose second letter is the action if player 1 burned.\n\nFor 1/4 < x < 2, iterated elimination of dominated strategies leaves a unique outcome: player 1 does not burn money and plays s, and player 2 plays w, giving (3,1). The paper takes x > 1/4 and notes that if 1 <= x <= 2 all the dominations are by pure strategies.\n\nThe file uses x = 1, a value in that range chosen for this entry.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig5_x1/fig5_x1.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 5 (x = 1)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig5_x3over2",
+      "title": "van Damme (1989), Figure 5 (x = 3/2): Burning money",
+      "name": "Burning money",
+      "description": "The battle of the sexes of Figure 1(a) preceded by an opportunity for player 1 to burn an amount x of money, which player 2 observes: sunk costs can determine which equilibrium is played. Only the reduced normal form is printed, so no tree is given. Player 1's strategies are os and ow (do not burn, then play s or w) and xs and xw (burn x, then play s or w); player 2's strategy is a pair whose first letter is the action if player 1 did not burn and whose second letter is the action if player 1 burned.\n\nFor 1/4 < x < 2, iterated elimination of dominated strategies leaves a unique outcome: player 1 does not burn money and plays s, and player 2 plays w, giving (3,1). The paper takes x > 1/4 and notes that if 1 <= x <= 2 all the dominations are by pure strategies.\n\nThe file uses x = 3/2, a value in that range chosen for this entry.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig5_x3over2/fig5_x3over2.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 5 (x = 3/2)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig6",
+      "title": "van Damme (1989), Figure 6",
+      "description": "The reduced game of the twofold repetition of the battle of the sexes, after eliminating strategies that are inferior responses to the equilibrium component in which (s,w) is played twice. A strategy of player 1, such as (s,ws), gives the round 1 action and then the round 2 actions after player 2 played s and w in round 1; a strategy of player 2 such as (s,w.) gives the round 1 action and the round 2 reaction to player 1's s, the reaction to w being irrelevant and omitted (written as a dot).\n\n(s,w.) is an inferior response against the component with payoff (6,2), and once it is deleted, (s,ss) becomes dominated. Iterated elimination then leaves (1,3), which is not in the component, so the path in which (3,1) is played twice is not stable.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig6/fig6.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 6",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 5
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig7_a3over2",
+      "title": "van Damme (1989), Figure 7 (a = 3/2)",
+      "description": "A modified battle of the sexes in which the payoff to both players from (w,w) is a, used to show that stable paths of the twofold repetition need not alternate between the players' most preferred equilibria. For a < 3 the game has three stable equilibria: (s,w), (w,s), and a completely mixed equilibrium. If 1 < a < 2, then in the twofold repetition the alternating paths between (3,1) and (1,3) are not stable either, so all stable paths involve randomization at stage 1 and all stable equilibria are inefficient. If 2 < a < 5/2, the path (s,w), (s,w) is unstable yet is immune against any convincing deviation in the sense of Osborne.\n\nThe paper leaves a general; this file uses a = 3/2, an example value chosen for this entry, in the range 1 < a < 2.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig7_a3over2/fig7_a3over2.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 7 (a = 3/2)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig7_a9over4",
+      "title": "van Damme (1989), Figure 7 (a = 9/4)",
+      "description": "A modified battle of the sexes in which the payoff to both players from (w,w) is a, used to show that stable paths of the twofold repetition need not alternate between the players' most preferred equilibria. For a < 3 the game has three stable equilibria: (s,w), (w,s), and a completely mixed equilibrium. If 1 < a < 2, then in the twofold repetition the alternating paths between (3,1) and (1,3) are not stable either, so all stable paths involve randomization at stage 1 and all stable equilibria are inefficient. If 2 < a < 5/2, the path (s,w), (s,w) is unstable yet is immune against any convincing deviation in the sense of Osborne.\n\nThe paper leaves a general; this file uses a = 9/4, an example value chosen for this entry, in the range 2 < a < 5/2.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig7_a9over4/fig7_a9over4.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 7 (a = 9/4)",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/jet/vandamme1989/fig8",
+      "title": "van Damme (1989), Figure 8",
+      "description": "A modified prisoners' dilemma whose twofold repetition shows that a threat to revert to the worst stable equilibrium need not be stable. The one-shot game has three equilibria with payoffs (4,4), (1,1) and (1,1). The path (c,c) followed by (s,s) is a subgame perfect equilibrium of the twofold repetition, supported by continuing with (w,w) after a deviation, but it is not stable: after a deviation by player 1 in round 1, player 2 knows that player 1 will not continue with c or w, which are inferior, and so should conclude that player 1 plays s, which makes the deviation profitable.",
+      "format": "nfg",
+      "game": "journals/jet/vandamme1989/fig8/fig8.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vD89",
+        "locator": "Figure 8",
+        "citation": "van Damme (1989)",
+        "authors": [
+          "E. van Damme"
+        ],
+        "year": 1989,
+        "title": "Stable equilibria and forward induction",
+        "kind": "article",
+        "venue": "Journal of Economic Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/mansci/harsanyi1968/section10",
+      "title": "Harsanyi (1968), Section 10",
+      "description": "A two-person zero-sum Bayesian game that illustrates exploiting an opponent's erroneous beliefs.\nThe payoffs are those of the Section 9 example (attribute classes a1, a2 for Player 1 and b1, b2 for\nPlayer 2, each player knowing only his own class), but chance now draws the pair of classes with\nprobabilities (a1,b1) 0.01, (a1,b2) 0.00, (a2,b1) 0.09 and (a2,b2) 0.90. Player 1 in class a1 is\ntherefore sure that Player 2 is in b1, while Player 2 in class b1 assigns probability 0.90 to the\nmistaken hypothesis that Player 1 is in a2. The unique saddle point of the normal form has\nPlayer 1 playing y2 in class a1 and y1 in class a2 and Player 2 playing z2 in b1 and z1 in b2;\nby playing y2 against the z2 that Player 2 expects, Player 1 in class a1 exploits the mistake and\nobtains 20 instead of 2 or 5. The probability 0.00 for (a1,b2) is kept as a chance branch.\n\nOne entry of the paper's normal form (Table 21) differs from the value these payoffs imply; see that entry.",
+      "format": "efg",
+      "game": "journals/mansci/harsanyi1968/section10/section10.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/mansci/harsanyi1968/section10/section10.ef"
+        }
+      ],
+      "source": {
+        "key": "Har68",
+        "locator": "Section 10",
+        "citation": "Harsanyi (1968)",
+        "authors": [
+          "J. C. Harsanyi"
+        ],
+        "year": 1968,
+        "title": "Games with incomplete information played by ``Bayesian'' players, I--III. Part II. Bayesian equilibrium points",
+        "kind": "article",
+        "venue": "Management Science"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/mansci/harsanyi1968/section9",
+      "title": "Harsanyi (1968), Section 9",
+      "description": "A two-person zero-sum Bayesian game with incomplete information, used to illustrate that a\nBayesian equilibrium is a Nash equilibrium of the normal form of the game. Player 1 belongs to\nattribute class a1 (\"weak\") or a2 (\"strong\") and Player 2 to class b1 (\"weak\") or b2 (\"strong\");\neach player knows only his own class. Chance draws the pair of classes with the joint\nprobabilities of the paper: (a1,b1) 0.40, (a1,b2) 0.10, (a2,b1) 0.20, (a2,b2) 0.30. Player 1 then\nchooses y1 or y2 and Player 2 chooses z1 or z2, each at one information set per own class, so\nneither observes the other's class or move. Payoffs are to Player 1, with Player 2 receiving the\nnegative. Each of the four payoff matrices has a pure saddle point: (y1,z1) for (a1,b1), (y2,z1)\nfor (a1,b2), (y1,z2) for (a2,b1) and (y1,z1) for (a2,b2). The normal form has a unique saddle\npoint, in which Player 1 plays y2 if in a1 and y1 if in a2, and Player 2 plays z1 whatever his\nclass, which differs from the optimal strategies of the separate matrices.\n\nThe caption of the matrix for (a1,b1) is misprinted in the paper as (a2,b1); the text and the\nnormal form show that it belongs to (a1,b1).",
+      "format": "efg",
+      "game": "journals/mansci/harsanyi1968/section9/section9.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/mansci/harsanyi1968/section9/section9.ef"
+        }
+      ],
+      "source": {
+        "key": "Har68",
+        "locator": "Section 9",
+        "citation": "Harsanyi (1968)",
+        "authors": [
+          "J. C. Harsanyi"
+        ],
+        "year": 1968,
+        "title": "Games with incomplete information played by ``Bayesian'' players, I--III. Part II. Bayesian equilibrium points",
+        "kind": "article",
+        "venue": "Management Science"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/mansci/harsanyi1968/section9_counterexample",
+      "title": "Harsanyi (1968), Section 9, counterexample",
+      "description": "A two-person zero-sum Bayesian game that shows that the optimal strategy of a player need not\nhave the maximin property in terms of his conditional payoffs. The structure is that of Section 9\n(attribute classes a1, a2 for Player 1 and b1, b2 for Player 2, each player knowing only his own),\nwith the four payoff matrices of the paper and all four pairs of classes having probability 0.25.\nPayoffs are to Player 1, with Player 2 receiving the negative. The pure saddle points of the\nmatrices are (y2,z2) for (a1,b1), (y2,z1) for (a1,b2), (y1,z1) for (a2,b1) and (y1,z2) for\n(a2,b2). The only saddle point of the normal form is (y11,z11), in which Player 1 plays y1 in both\nclasses and Player 2 plays z1 in both. In class a1 Player 1's best reply to z11 is y1, but y2\nmaximizes his security level in terms of his conditional payoffs.",
+      "format": "efg",
+      "game": "journals/mansci/harsanyi1968/section9_counterexample/section9_counterexample.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/mansci/harsanyi1968/section9_counterexample/section9_counterexample.ef"
+        }
+      ],
+      "source": {
+        "key": "Har68",
+        "locator": "Section 9, counterexample",
+        "citation": "Harsanyi (1968)",
+        "authors": [
+          "J. C. Harsanyi"
+        ],
+        "year": 1968,
+        "title": "Games with incomplete information played by ``Bayesian'' players, I--III. Part II. Bayesian equilibrium points",
+        "kind": "article",
+        "venue": "Management Science"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/mansci/harsanyi1968/table16",
+      "title": "Harsanyi (1968), Table 16",
+      "description": "The normal form of the counterexample to the maximin property in Section 9, giving Player 1's\nexpected payoff (Player 2 receives the negative). A strategy y<n><t> of Player 1 plays y<n> if\nPlayer 1 is in class a1 and y<t> if in a2; a strategy z<u><v> of Player 2 plays z<u> if in b1 and\nz<v> if in b2. The only saddle point is (y11,z11), with value 0.",
+      "format": "nfg",
+      "game": "journals/mansci/harsanyi1968/table16/table16.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Har68",
+        "locator": "Table 16",
+        "citation": "Harsanyi (1968)",
+        "authors": [
+          "J. C. Harsanyi"
+        ],
+        "year": 1968,
+        "title": "Games with incomplete information played by ``Bayesian'' players, I--III. Part II. Bayesian equilibrium points",
+        "kind": "article",
+        "venue": "Management Science"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/mansci/harsanyi1968/table21",
+      "title": "Harsanyi (1968), Table 21",
+      "description": "The normal form of the Section 10 Bayesian game, giving Player 1's expected payoff (Player 2\nreceives the negative). A strategy y<n><t> of Player 1 plays y<n> if Player 1 is in class a1 and\ny<t> if in a2; a strategy z<u><v> of Player 2 plays z<u> if in b1 and z<v> if in b2. The only saddle\npoint is (y21,z21), with value 12.35.\n\nThe entry for (y11,z21) is printed as 11.20 and entered as printed, but the payoffs and\nprobabilities of the game imply 12.20; every other entry agrees with them.",
+      "format": "nfg",
+      "game": "journals/mansci/harsanyi1968/table21/table21.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Har68",
+        "locator": "Table 21",
+        "citation": "Harsanyi (1968)",
+        "authors": [
+          "J. C. Harsanyi"
+        ],
+        "year": 1968,
+        "title": "Games with incomplete information played by ``Bayesian'' players, I--III. Part II. Bayesian equilibrium points",
+        "kind": "article",
+        "venue": "Management Science"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/mansci/harsanyi1968/table8",
+      "title": "Harsanyi (1968), Table 8",
+      "description": "The normal form of the two-person zero-sum Bayesian game of Section 9, giving Player 1's\nexpected payoff (Player 2 receives the negative). A strategy y<n><t> of Player 1 plays y<n> if\nPlayer 1 is in class a1 and y<t> if in a2; a strategy z<u><v> of Player 2 plays z<u> if in b1 and\nz<v> if in b2. The only saddle point is (y21,z11), with value 8.8; there is none in mixed\nstrategies. It is the unique Bayesian equilibrium of the game.",
+      "format": "nfg",
+      "game": "journals/mansci/harsanyi1968/table8/table8.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Har68",
+        "locator": "Table 8",
+        "citation": "Harsanyi (1968)",
+        "authors": [
+          "J. C. Harsanyi"
+        ],
+        "year": 1968,
+        "title": "Games with incomplete information played by ``Bayesian'' players, I--III. Part II. Bayesian equilibrium points",
+        "kind": "article",
+        "venue": "Management Science"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/mor/vanderlaantalmanvanderheyden1987/game1",
+      "title": "van der Laan et al. (1987), Appendix, Game 1",
+      "description": "Loss table used to test the simplicial variable dimension algorithm on a noncooperative game with 3 players who each have 2 pure strategies. The paper gives the game as a table of losses, which each player minimizes; the payoffs here are the negatives of those losses. Strategies are numbered 1 to 2 as in the paper.",
+      "format": "nfg",
+      "game": "journals/mor/vanderlaantalmanvanderheyden1987/game1/game1.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vdLTvdH87",
+        "locator": "Appendix, Game 1",
+        "citation": "van der Laan et al. (1987)",
+        "authors": [
+          "G. van der Laan",
+          "A. J. J. Talman",
+          "L. van der Heyden"
+        ],
+        "year": 1987,
+        "title": "Simplicial variable dimension algorithms for solving the nonlinear complementarity problem on a product of unit simplices using a general labelling",
+        "kind": "article",
+        "venue": "Mathematics of Operations Research"
+      },
+      "n_players": 3,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/mor/vanderlaantalmanvanderheyden1987/game2",
+      "title": "van der Laan et al. (1987), Appendix, Game 2",
+      "description": "Loss table used to test the simplicial variable dimension algorithm on a noncooperative game with 3 players who each have 3 pure strategies. The paper gives the game as a table of losses, which each player minimizes; the payoffs here are the negatives of those losses. Strategies are numbered 1 to 3 as in the paper.",
+      "format": "nfg",
+      "game": "journals/mor/vanderlaantalmanvanderheyden1987/game2/game2.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vdLTvdH87",
+        "locator": "Appendix, Game 2",
+        "citation": "van der Laan et al. (1987)",
+        "authors": [
+          "G. van der Laan",
+          "A. J. J. Talman",
+          "L. van der Heyden"
+        ],
+        "year": 1987,
+        "title": "Simplicial variable dimension algorithms for solving the nonlinear complementarity problem on a product of unit simplices using a general labelling",
+        "kind": "article",
+        "venue": "Mathematics of Operations Research"
+      },
+      "n_players": 3,
+      "is_const_sum": false,
+      "n_strategies": 9
+    },
+    {
+      "slug": "journals/mor/vanderlaantalmanvanderheyden1987/game3",
+      "title": "van der Laan et al. (1987), Appendix, Game 3",
+      "description": "Loss table used to test the simplicial variable dimension algorithm on a noncooperative game with 4 players who each have 2 pure strategies. The paper gives the game as a table of losses, which each player minimizes; the payoffs here are the negatives of those losses. Strategies are numbered 1 to 2 as in the paper.",
+      "format": "nfg",
+      "game": "journals/mor/vanderlaantalmanvanderheyden1987/game3/game3.nfg",
+      "drawings": [],
+      "source": {
+        "key": "vdLTvdH87",
+        "locator": "Appendix, Game 3",
+        "citation": "van der Laan et al. (1987)",
+        "authors": [
+          "G. van der Laan",
+          "A. J. J. Talman",
+          "L. van der Heyden"
+        ],
+        "year": 1987,
+        "title": "Simplicial variable dimension algorithms for solving the nonlinear complementarity problem on a product of unit simplices using a general labelling",
+        "kind": "article",
+        "venue": "Mathematics of Operations Research"
+      },
+      "n_players": 4,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
       "slug": "journals/mor/vonstengelforges2008/fig1",
       "title": "von Stengel and Forges (2008), Figure 1",
       "description": "A signaling game in which, in every Nash equilibrium, the signal gives player 2 no information.",
@@ -2585,6 +4534,143 @@
         "title": "A note on the Lemke-Howson algorithm",
         "kind": "inbook",
         "venue": "Pivoting and Extension: Mathematical Programming Studies"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/other/winkels1979",
+      "title": "Winkels (1979)",
+      "description": "A degenerate bimatrix game with 12 extreme equilibria, a test case for an algorithm that finds all equilibrium points of a bimatrix game. Player 1 has six strategies and Player 2 has two. This game was transcribed from Gambit's earlier example file and has not been checked against the paper.",
+      "format": "nfg",
+      "game": "journals/other/winkels1979/winkels1979.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Win79",
+        "citation": "Winkels (1979)",
+        "authors": [
+          "H.-M. Winkels"
+        ],
+        "year": 1979,
+        "title": "An algorithm to determine all equilibrium points of a bimatrix game",
+        "kind": "incollection",
+        "venue": "Game Theory and Related Topics"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/qje/chokreps1987/fig1",
+      "title": "Cho and Kreps (1987), Figure I: Beer-Quiche game",
+      "name": "Beer-Quiche game",
+      "description": "A signaling game that shows how restrictions on out-of-equilibrium beliefs can eliminate\nequilibria. Player A, the sender, is a wimp with probability 0.1 or surly with probability 0.9 and\nknows which; A chooses beer or quiche for breakfast. Player B, the receiver, observes the breakfast\nbut not the type and chooses whether to duel. The wimp prefers quiche and the surly prefers beer,\neach worth an increment of 1 to A; A gets a further 2 if B does not duel, and B wants to duel\nonly if A is a wimp. There are two equilibrium outcomes, both sequential, in which A has beer\nwhatever his type or quiche whatever his type. The argument of the paper rules out the second:\nif the equilibrium meal is quiche, a wimp cannot gain from beer but a surly A could, so B should\nnot believe that beer comes from a wimp, and B would not duel after beer. The equilibrium in which\nboth types have beer is unbroken by this argument, since there it is the wimp, not the surly, who\ncould gain from a defection to quiche.",
+      "format": "efg",
+      "game": "journals/qje/chokreps1987/fig1/fig1.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/qje/chokreps1987/fig1/fig1.ef"
+        }
+      ],
+      "source": {
+        "key": "ChoKre87",
+        "locator": "Figure I",
+        "citation": "Cho and Kreps (1987)",
+        "authors": [
+          "I.-K. Cho",
+          "D. M. Kreps"
+        ],
+        "year": 1987,
+        "title": "Signaling games and stable equilibria",
+        "kind": "article",
+        "venue": "Quarterly Journal of Economics"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/qje/chokreps1987/fig2",
+      "title": "Cho and Kreps (1987), Figure II",
+      "description": "A variation of the Beer-Quiche game of Figure I in which B has a third option, to give A\n$1,000,000. Giving away the million is always a dominated strategy for B, so the set of equilibria\nis unchanged. But the option defeats the specific argument against the equilibrium in which both\ntypes have quiche: after an out-of-equilibrium meal of beer, B can no longer rule out that the\nwimp sent it, since the wimp too could conceivably benefit from the defection. The prior (wimp 0.1,\nsurly 0.9) and the duel and don't payoffs are those of Figure I. The action labelled give 1M is the\npaper's give $1M.",
+      "format": "efg",
+      "game": "journals/qje/chokreps1987/fig2/fig2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/qje/chokreps1987/fig2/fig2.ef"
+        }
+      ],
+      "source": {
+        "key": "ChoKre87",
+        "locator": "Figure II",
+        "citation": "Cho and Kreps (1987)",
+        "authors": [
+          "I.-K. Cho",
+          "D. M. Kreps"
+        ],
+        "year": 1987,
+        "title": "Signaling games and stable equilibria",
+        "kind": "article",
+        "venue": "Quarterly Journal of Economics"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 13
+    },
+    {
+      "slug": "journals/qje/chokreps1987/fig3",
+      "title": "Cho and Kreps (1987), Figure III",
+      "description": "A signaling game that shows that tests based on dominance of type-message pairs eliminate an\nequilibrium outcome that trembling-hand perfection and properness do not. Player A, the sender,\nhas type t1 with probability 0.9 or t2 with probability 0.1 and knows which. A sends message m,\nwhich ends the game with payoffs (0,0), or m', after which B, not knowing the type, chooses r1 or\nr2. Consider the equilibrium outcome in which both types send m and B responds to m' with r1 with\nprobability at least 0.5. To support it B must put weight at least 0.5 on t2 after m', but for t2\nthe message m dominates m'. Pruning the pair (t2,m') leaves B no choice but to respond to m' with\nr2, which makes t1 defect, so the outcome fails the paper's tests. The equilibrium in which A sends\nm regardless of type and B responds to m' with r1 is nevertheless proper, and perfect in the agent\nnormal form.",
+      "format": "efg",
+      "game": "journals/qje/chokreps1987/fig3/fig3.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/qje/chokreps1987/fig3/fig3.ef"
+        }
+      ],
+      "source": {
+        "key": "ChoKre87",
+        "locator": "Figure III",
+        "citation": "Cho and Kreps (1987)",
+        "authors": [
+          "I.-K. Cho",
+          "D. M. Kreps"
+        ],
+        "year": 1987,
+        "title": "Signaling games and stable equilibria",
+        "kind": "article",
+        "venue": "Quarterly Journal of Economics"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/qje/chokreps1987/table1",
+      "title": "Cho and Kreps (1987), Table I",
+      "description": "The strategic form of the signaling game of Figure III. A strategy of A gives the message sent\nif of type t1 and if of type t2, so m/m' sends m if t1 and m' if t2; B's strategies are the\nresponses r1 and r2 to m'. Payoffs are expected payoffs under the prior (t1 0.9, t2 0.1). The\nequilibrium in which A sends m regardless of type and B responds with r1 is the profile (m/m, r1).",
+      "format": "nfg",
+      "game": "journals/qje/chokreps1987/table1/table1.nfg",
+      "drawings": [],
+      "source": {
+        "key": "ChoKre87",
+        "locator": "Table I",
+        "citation": "Cho and Kreps (1987)",
+        "authors": [
+          "I.-K. Cho",
+          "D. M. Kreps"
+        ],
+        "year": 1987,
+        "title": "Signaling games and stable equilibria",
+        "kind": "article",
+        "venue": "Quarterly Journal of Economics"
       },
       "n_players": 2,
       "is_const_sum": false,

@@ -1,0 +1,12 @@
+EFG 2 R "van Damme (1989), Figure 3(a)" { "Player 1" "Player 2" }
+"The zero-sum game whose strategic form is Figure 3(b). Player 1 chooses D, ending the game, or A; after A, player 2 chooses d, ending the game, or a, after which player 1 chooses delta or alpha. In the paper the last two actions are written with the Greek letters delta and alpha.
+
+Player 1 plays D in any Nash equilibrium, so player 2 moves only after a deviation. Subgame perfectness requires player 2 to believe that player 1 would then play delta, but stability does not: the unique stable set includes both (D,d) and (D, a mixture of d and a), so a stable set can contain more outcomes than survive iterated elimination of dominated strategies."
+
+p "" 1 1 "" { "D" "A" } 0
+t "" 1 "" { 1, -1 }
+p "" 2 1 "" { "d" "a" } 0
+t "" 2 "" { 0, 0 }
+p "" 1 2 "" { "delta" "alpha" } 0
+t "" 3 "" { 2, -2 }
+t "" 4 "" { -2, 2 }

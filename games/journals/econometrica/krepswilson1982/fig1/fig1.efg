@@ -1,0 +1,14 @@
+EFG 2 R "Kreps and Wilson (1982), Figure 1" { "Player 1" "Player 2" }
+"A game of imperfect information that serves as the running example for the extensive-form
+notation. Player 1 chooses A, which ends the game, or L or R, after which Player 2 chooses l or r
+without being told whether Player 1 chose L or R. Player 2's information set and the four terminal
+nodes that follow it form a nonproper subform, so the game has no proper subgame."
+
+p "" 1 1 "" { "A" "L" "R" } 0
+t "" 1 "" { 0, 0 }
+p "" 2 1 "" { "l" "r" } 0
+t "" 2 "" { 3, -1 }
+t "" 3 "" { -2, -2 }
+p "" 2 1 "" { "l" "r" } 0
+t "" 4 "" { -1, 0 }
+t "" 5 "" { -1, 2 }

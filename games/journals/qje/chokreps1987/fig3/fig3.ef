@@ -1,0 +1,14 @@
+player 1 name A
+player 2 name B
+level 0 node 1 player 0
+level 4 node 2 player 1 xshift -3 from 1 move t1~(\frac{9}{10})
+level 8 node 3 xshift -1.5 from 2 move m payoffs 0 0
+level 10 node 4 xshift 1.5 from 2 move m'
+level 12 node 5 xshift -1 from 4 move r1 payoffs -1 0
+level 12 node 6 xshift 1 from 4 move r2 payoffs 1 1
+level 6 node 7 player 1 xshift 3 from 1 move t2~(\frac{1}{10})
+level 8 node 8 xshift -1.5 from 7 move m payoffs 0 0
+level 10 node 9 xshift 1.5 from 7 move m'
+level 12 node 10 xshift -1 from 9 move r1 payoffs -1 1
+level 12 node 11 xshift 1 from 9 move r2 payoffs -1 0
+iset 4 9 player 2

@@ -1,0 +1,28 @@
+EFG 2 R "Cho and Kreps (1987), Figure I: Beer-Quiche game" { "A" "B" }
+"A signaling game that shows how restrictions on out-of-equilibrium beliefs can eliminate
+equilibria. Player A, the sender, is a wimp with probability 0.1 or surly with probability 0.9 and
+knows which; A chooses beer or quiche for breakfast. Player B, the receiver, observes the breakfast
+but not the type and chooses whether to duel. The wimp prefers quiche and the surly prefers beer,
+each worth an increment of 1 to A; A gets a further 2 if B does not duel, and B wants to duel
+only if A is a wimp. There are two equilibrium outcomes, both sequential, in which A has beer
+whatever his type or quiche whatever his type. The argument of the paper rules out the second:
+if the equilibrium meal is quiche, a wimp cannot gain from beer but a surly A could, so B should
+not believe that beer comes from a wimp, and B would not duel after beer. The equilibrium in which
+both types have beer is unbroken by this argument, since there it is the wimp, not the surly, who
+could gain from a defection to quiche."
+
+c "" 1 "" { "wimp" 1/10 "surly" 9/10 } 0
+p "" 1 1 "" { "beer" "quiche" } 0
+p "" 2 1 "" { "duel" "don't" } 0
+t "" 1 "" { 0, 1 }
+t "" 2 "" { 2, 0 }
+p "" 2 2 "" { "duel" "don't" } 0
+t "" 3 "" { 1, 1 }
+t "" 4 "" { 3, 0 }
+p "" 1 2 "" { "beer" "quiche" } 0
+p "" 2 1 "" { "duel" "don't" } 0
+t "" 5 "" { 1, 0 }
+t "" 6 "" { 3, 1 }
+p "" 2 2 "" { "duel" "don't" } 0
+t "" 7 "" { 0, 0 }
+t "" 8 "" { 2, 1 }

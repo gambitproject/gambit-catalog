@@ -1,0 +1,30 @@
+NFG 1 R "van Damme (1989), Figure 5 (x = 1): Burning money" { "Player 1" "Player 2" }
+
+{ { "os" "ow" "xs" "xw" }
+{ "ss" "sw" "ws" "ww" }
+}
+"The battle of the sexes of Figure 1(a) preceded by an opportunity for player 1 to burn an amount x of money, which player 2 observes: sunk costs can determine which equilibrium is played. Only the reduced normal form is printed, so no tree is given. Player 1's strategies are os and ow (do not burn, then play s or w) and xs and xw (burn x, then play s or w); player 2's strategy is a pair whose first letter is the action if player 1 did not burn and whose second letter is the action if player 1 burned.
+
+For 1/4 < x < 2, iterated elimination of dominated strategies leaves a unique outcome: player 1 does not burn money and plays s, and player 2 plays w, giving (3,1). The paper takes x > 1/4 and notes that if 1 <= x <= 2 all the dominations are by pure strategies.
+
+The file uses x = 1, a value in that range chosen for this entry."
+
+{
+{ "" 0, 0 }
+{ "" 1, 3 }
+{ "" -1, 0 }
+{ "" 0, 3 }
+{ "" 0, 0 }
+{ "" 1, 3 }
+{ "" 2, 1 }
+{ "" -1, 0 }
+{ "" 3, 1 }
+{ "" 0, 0 }
+{ "" -1, 0 }
+{ "" 0, 3 }
+{ "" 3, 1 }
+{ "" 0, 0 }
+{ "" 2, 1 }
+{ "" -1, 0 }
+}
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16

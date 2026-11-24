@@ -1,0 +1,18 @@
+NFG 1 R "Kohlberg and Mertens (1986), Section 2.8 (game Delta)" { "I" "II" }
+
+{ { "T" "M" "B" }
+{ "L" "R" }
+}
+"A zero-sum game used to show that the requirement of sequentiality in every equivalent tree may be impossible to satisfy: every tree with this reduced normal form (such as the trees of Figures 7 and 10) must have a sequential equilibrium, but the unique sequential equilibria of different trees differ. Its Nash equilibria form a single connected component; the paper's stable set contains the equilibria (T,(1/4,3/4)) and (T,(3/4,1/4)).
+
+The paper calls this game :math:`\Delta`. Player I's strategies are T, M and B; player II's are L and R."
+
+{
+{ "" 1 -1 }
+{ "" 2 -2 }
+{ "" -2 2 }
+{ "" 1 -1 }
+{ "" -2 2 }
+{ "" 2 -2 }
+}
+1 2 3 4 5 6

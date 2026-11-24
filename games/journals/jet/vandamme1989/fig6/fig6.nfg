@@ -1,0 +1,18 @@
+NFG 1 R "van Damme (1989), Figure 6" { "Player 1" "Player 2" }
+
+{ { "(s,ss)" "(s,ws)" }
+{ "(w,w.)" "(s,w.)" "(s,s.)" }
+}
+"The reduced game of the twofold repetition of the battle of the sexes, after eliminating strategies that are inferior responses to the equilibrium component in which (s,w) is played twice. A strategy of player 1, such as (s,ws), gives the round 1 action and then the round 2 actions after player 2 played s and w in round 1; a strategy of player 2 such as (s,w.) gives the round 1 action and the round 2 reaction to player 1's s, the reaction to w being irrelevant and omitted (written as a dot).
+
+(s,w.) is an inferior response against the component with payoff (6,2), and once it is deleted, (s,ss) becomes dominated. Iterated elimination then leaves (1,3), which is not in the component, so the path in which (3,1) is played twice is not stable."
+
+{
+{ "" 6, 2 }
+{ "" 6, 2 }
+{ "" 3, 1 }
+{ "" 0, 0 }
+{ "" 0, 0 }
+{ "" 1, 3 }
+}
+1 2 3 4 5 6

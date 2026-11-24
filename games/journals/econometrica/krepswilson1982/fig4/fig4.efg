@@ -1,0 +1,14 @@
+EFG 2 R "Kreps and Wilson (1982), Figure 4" { "Player 1" "Player 2" }
+"A game in which a subgame-perfect Nash equilibrium fails sequential rationality. The profile in
+which Player 1 plays A and Player 2 plays r is a Nash equilibrium, and since there are no proper
+subgames it is subgame perfect. But whatever Player 2 believes about whether Player 1 chose L or
+R, Player 2 does better by choosing l, and anticipating this Player 1 chooses L."
+
+p "" 1 1 "" { "A" "L" "R" } 0
+t "" 1 "" { 0, 2 }
+p "" 2 1 "" { "l" "r" } 0
+t "" 2 "" { 2, 1 }
+t "" 3 "" { -1, -1 }
+p "" 2 1 "" { "l" "r" } 0
+t "" 4 "" { 1, 1 }
+t "" 5 "" { -2, 0 }

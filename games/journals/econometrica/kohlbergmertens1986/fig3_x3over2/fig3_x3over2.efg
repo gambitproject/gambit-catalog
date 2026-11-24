@@ -1,0 +1,16 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 3 (x = 3/2)" { "I" "II" }
+"The game :math:`\Gamma(x)` with player I's three-way choice coalesced into two binary choices, showing that sequential equilibrium depends on how the tree is drawn. The reduced normal form is the same as that of the game with a single three-way choice, but the equilibrium (T,R) with payoffs (2,2), which is sequential there, behaves differently here.
+
+Player I chooses T, which ends the game, or continue; he then chooses M or B; player II, who is not told whether I chose M or B, chooses L or R. At I's second information set M strictly dominates B (for 1 < x <= 2), so in any sequential equilibrium I chooses M there, II assigns probability one to the position following M and chooses L, and I chooses M: the only sequential equilibrium is (M,L) with payoffs (3,3).
+
+The parameter x is 3/2 in this file, an example value chosen for this entry within the range :math:`1 < x \le 2` that the paper uses in its main discussion (the paper allows any :math:`x \le 2`)."
+
+p "" 1 1 "" { "T" "continue" } 0
+t "" 1 "" { 2, 2 }
+p "" 1 2 "" { "M" "B" } 0
+p "" 2 1 "" { "L" "R" } 0
+t "" 2 "" { 3, 3 }
+t "" 3 "" { 3/2, 0 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 4 "" { 0, 0 }
+t "" 5 "" { 1, 1 }

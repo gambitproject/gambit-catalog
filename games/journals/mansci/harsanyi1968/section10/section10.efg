@@ -1,0 +1,42 @@
+EFG 2 R "Harsanyi (1968), Section 10" { "Player 1" "Player 2" }
+"A two-person zero-sum Bayesian game that illustrates exploiting an opponent's erroneous beliefs.
+The payoffs are those of the Section 9 example (attribute classes a1, a2 for Player 1 and b1, b2 for
+Player 2, each player knowing only his own class), but chance now draws the pair of classes with
+probabilities (a1,b1) 0.01, (a1,b2) 0.00, (a2,b1) 0.09 and (a2,b2) 0.90. Player 1 in class a1 is
+therefore sure that Player 2 is in b1, while Player 2 in class b1 assigns probability 0.90 to the
+mistaken hypothesis that Player 1 is in a2. The unique saddle point of the normal form has
+Player 1 playing y2 in class a1 and y1 in class a2 and Player 2 playing z2 in b1 and z1 in b2;
+by playing y2 against the z2 that Player 2 expects, Player 1 in class a1 exploits the mistake and
+obtains 20 instead of 2 or 5. The probability 0.00 for (a1,b2) is kept as a chance branch.
+
+One entry of the paper's normal form (Table 21) differs from the value these payoffs imply; see that entry."
+
+c "" 1 "" { "(a1,b1)" 1/100 "(a1,b2)" 0 "(a2,b1)" 9/100 "(a2,b2)" 9/10 } 0
+p "" 1 1 "" { "y1" "y2" } 0
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 1 "" { 2, -2 }
+t "" 2 "" { 5, -5 }
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 3 "" { -1, 1 }
+t "" 4 "" { 20, -20 }
+p "" 1 1 "" { "y1" "y2" } 0
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 5 "" { -24, 24 }
+t "" 6 "" { -36, 36 }
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 7 "" { 0, 0 }
+t "" 8 "" { 24, -24 }
+p "" 1 2 "" { "y1" "y2" } 0
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 9 "" { 28, -28 }
+t "" 10 "" { 15, -15 }
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 11 "" { 40, -40 }
+t "" 12 "" { 4, -4 }
+p "" 1 2 "" { "y1" "y2" } 0
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 13 "" { 12, -12 }
+t "" 14 "" { 20, -20 }
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 15 "" { 2, -2 }
+t "" 16 "" { 13, -13 }

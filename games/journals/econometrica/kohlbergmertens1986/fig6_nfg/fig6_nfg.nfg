@@ -1,0 +1,24 @@
+NFG 1 R "Kohlberg and Mertens (1986), Figure 6 (normal form)" { "I" "II" }
+
+{ { "T" "M" "BT" "BB" }
+{ "LL" "LR" "R" }
+}
+"The normal form of the game of Figure 6, a variant of :math:`\Gamma(0)` with a zero-sum subgame, printed beneath the tree. Every strategy is undominated, so iterated elimination of dominated strategies removes nothing, although the equilibrium (T,R) with payoffs (2,2) is not strategically stable.
+
+Player I's strategies are T, M, and BT and BB (B at the second information set, then T or B in the subgame). Player II's strategies LL and LR are L at the first information set followed by L or R in the subgame; R is R at the first information set."
+
+{
+{ "" 2 2 }
+{ "" 3 3 }
+{ "" 4 -4 }
+{ "" -4 4 }
+{ "" 2 2 }
+{ "" 3 3 }
+{ "" -4 4 }
+{ "" 4 -4 }
+{ "" 2 2 }
+{ "" 0 0 }
+{ "" 1 1 }
+{ "" 1 1 }
+}
+1 2 3 4 5 6 7 8 9 10 11 12

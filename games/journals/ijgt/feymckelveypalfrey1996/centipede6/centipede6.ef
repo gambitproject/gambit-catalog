@@ -1,0 +1,15 @@
+player 1 name Player~1
+player 2 name Player~2
+level 0 node 1 player 1
+level 4 node 2 xshift -1.96875 from 1 move TAKE payoffs 1.60 1.60
+level 6 node 3 player 2 xshift 1.96875 from 1 move PASS
+level 8 node 4 xshift -1.9375 from 3 move TAKE payoffs 1.20 2.00
+level 10 node 5 player 1 xshift 1.9375 from 3 move PASS
+level 12 node 6 xshift -1.875 from 5 move TAKE payoffs 2.30 .90
+level 14 node 7 player 2 xshift 1.875 from 5 move PASS
+level 16 node 8 xshift -1.75 from 7 move TAKE payoffs .68 2.52
+level 18 node 9 player 1 xshift 1.75 from 7 move PASS
+level 20 node 10 xshift -1.5 from 9 move TAKE payoffs 2.69 .51
+level 22 node 11 player 2 xshift 1.5 from 9 move PASS
+level 24 node 12 xshift -1 from 11 move TAKE payoffs .38 2.82
+level 24 node 13 xshift 1 from 11 move PASS payoffs 2.92 .28

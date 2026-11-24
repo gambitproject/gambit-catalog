@@ -1,0 +1,16 @@
+EFG 2 R "Wilson (1992), Figure 6: Do The Right Thing" { "Player 1" "Player 2" }
+"A game used to illustrate stable sets of equilibria. Its equilibria lie in two components. In the first, Player 1 uses only a and Player 2 mixes within the best-reply region of a; this component is not stable. In the second, Player 2 uses only d; this component is stable.
+
+Player 1 chooses a or continue; if Player 1 continues, Player 2 chooses d or continue; after both continue, Player 1 (b or c) and Player 2 (e or f) play a simultaneous-move game, so Player 2's second information set contains both of Player 1's choices. The paper leaves the two continuing moves unlabeled; they are called continue here."
+
+p "" 1 1 "" { "a" "continue" } 0
+t "" 1 "" { 3, 6 }
+p "" 2 1 "" { "d" "continue" } 0
+t "" 2 "" { 4, 3 }
+p "" 1 2 "" { "b" "c" } 0
+p "" 2 2 "" { "e" "f" } 0
+t "" 3 "" { 2, 1 }
+t "" 4 "" { 1, 4 }
+p "" 2 2 "" { "e" "f" } 0
+t "" 5 "" { 1, 4 }
+t "" 6 "" { 2, 1 }

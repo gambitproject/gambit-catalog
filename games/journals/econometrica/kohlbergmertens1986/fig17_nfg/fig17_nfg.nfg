@@ -1,0 +1,18 @@
+NFG 1 R "Kohlberg and Mertens (1986), Figure 17 (normal form)" { "I" "II" }
+
+{ { "T" "B" "M" }
+{ "L" "R" }
+}
+"The strategic form of a game used to show that requiring sequentiality in every tree with the same reduced normal form is insufficient for strategic stability. Its backwards induction equilibrium (B,R) has payoffs (3,3), while (T,R) with payoffs (2,2) is sequential in every tree with this reduced normal form once suitable dummy players are added.
+
+The paper prints the matrix without labels. Here the rows are, in the printed order, T, B and M, where B and M are player I's choices at his second move after continue at the first, as in the tree of Figure 17; the columns are L and R."
+
+{
+{ "" 2 2 }
+{ "" 1 1 }
+{ "" 1 1 }
+{ "" 2 2 }
+{ "" 3 3 }
+{ "" 0 0 }
+}
+1 2 3 4 5 6

@@ -1,0 +1,14 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 17" { "I" "II" }
+"A game used to show that requiring sequentiality in every tree with the same reduced normal form is insufficient for strategic stability. Its unique backwards induction equilibrium is (continue, R, B) with payoffs (3,3). If one dummy player per cell of the strategic form is added, each receiving 1 in that cell and 0 otherwise, the equilibrium with payoffs (2,2) (T,R) becomes sequential in every tree with the same reduced normal form, although (3,3) should remain the only strategically stable equilibrium.
+
+Player I chooses T, which ends the game, or continue; player II then chooses L, which ends the game, or R; player I then chooses M or B. The paper prints no action labels for this figure; the labels here follow those of Figure 12.
+
+The dummy players of the paper's argument are described only in words and are not included."
+
+p "" 1 1 "" { "T" "continue" } 0
+t "" 1 "" { 2, 2 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 2 "" { 1, 1 }
+p "" 1 2 "" { "M" "B" } 0
+t "" 3 "" { 0, 0 }
+t "" 4 "" { 3, 3 }

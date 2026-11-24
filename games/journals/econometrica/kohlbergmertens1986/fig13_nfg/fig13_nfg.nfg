@@ -1,0 +1,14 @@
+NFG 1 R "Kohlberg and Mertens (1986), Figure 13 (normal form)" { "I" "II" }
+
+{ { "T" "M" }
+{ "L" "R" }
+}
+"The normal form of the game of Figure 12 after deletion of B, player I's inferior response. Its unique admissible equilibrium, and its unique backwards induction equilibrium, is (M,L), with payoffs (3,1), whereas before the deletion the unique backwards induction equilibrium is (T,R), with payoffs (2,0)."
+
+{
+{ "" 2 0 }
+{ "" 3 1 }
+{ "" 2 0 }
+{ "" 0 0 }
+}
+1 2 3 4

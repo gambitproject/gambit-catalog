@@ -1,0 +1,264 @@
+player 1 name Player~1
+player 2 name Player~2
+player 3 name Player~3
+level 0 node 1 player 0
+level 4 node 2 player 0 xshift -64 from 1 move Guilty~(\frac{1}{2})
+level 8 node 3 player 0 xshift -32 from 2 move Signal~Guilty~(\frac{7}{10})
+level 12 node 4 player 0 xshift -16 from 3 move Signal~Guilty~(\frac{7}{10})
+level 16 node 5 xshift -8 from 4 move Signal~Guilty~(\frac{7}{10})
+level 20 node 6 xshift -4 from 5 move Convict
+level 24 node 7 xshift -2 from 6 move Convict
+level 28 node 8 xshift -1 from 7 move Convict payoffs 1 1 1
+level 28 node 9 xshift 1 from 7 move Acquit payoffs -1 -1 -1
+level 24 node 10 xshift 2 from 6 move Acquit
+level 28 node 11 xshift -1 from 10 move Convict payoffs -1 -1 -1
+level 28 node 12 xshift 1 from 10 move Acquit payoffs -1 -1 -1
+level 20 node 13 xshift 4 from 5 move Acquit
+level 24 node 14 xshift -2 from 13 move Convict
+level 28 node 15 xshift -1 from 14 move Convict payoffs -1 -1 -1
+level 28 node 16 xshift 1 from 14 move Acquit payoffs -1 -1 -1
+level 24 node 17 xshift 2 from 13 move Acquit
+level 28 node 18 xshift -1 from 17 move Convict payoffs -1 -1 -1
+level 28 node 19 xshift 1 from 17 move Acquit payoffs -1 -1 -1
+level 16 node 20 xshift 8 from 4 move Signal~Innocent~(\frac{3}{10})
+level 20 node 21 xshift -4 from 20 move Convict
+level 26 node 22 xshift -2 from 21 move Convict
+level 28 node 23 xshift -1 from 22 move Convict payoffs 1 1 1
+level 28 node 24 xshift 1 from 22 move Acquit payoffs -1 -1 -1
+level 26 node 25 xshift 2 from 21 move Acquit
+level 28 node 26 xshift -1 from 25 move Convict payoffs -1 -1 -1
+level 28 node 27 xshift 1 from 25 move Acquit payoffs -1 -1 -1
+level 20 node 28 xshift 4 from 20 move Acquit
+level 26 node 29 xshift -2 from 28 move Convict
+level 28 node 30 xshift -1 from 29 move Convict payoffs -1 -1 -1
+level 28 node 31 xshift 1 from 29 move Acquit payoffs -1 -1 -1
+level 26 node 32 xshift 2 from 28 move Acquit
+level 28 node 33 xshift -1 from 32 move Convict payoffs -1 -1 -1
+level 28 node 34 xshift 1 from 32 move Acquit payoffs -1 -1 -1
+level 14 node 35 player 0 xshift 16 from 3 move Signal~Innocent~(\frac{3}{10})
+level 16 node 36 xshift -8 from 35 move Signal~Guilty~(\frac{7}{10})
+level 22 node 37 xshift -4 from 36 move Convict
+level 24 node 38 xshift -2 from 37 move Convict
+level 28 node 39 xshift -1 from 38 move Convict payoffs 1 1 1
+level 28 node 40 xshift 1 from 38 move Acquit payoffs -1 -1 -1
+level 24 node 41 xshift 2 from 37 move Acquit
+level 28 node 42 xshift -1 from 41 move Convict payoffs -1 -1 -1
+level 28 node 43 xshift 1 from 41 move Acquit payoffs -1 -1 -1
+level 22 node 44 xshift 4 from 36 move Acquit
+level 24 node 45 xshift -2 from 44 move Convict
+level 28 node 46 xshift -1 from 45 move Convict payoffs -1 -1 -1
+level 28 node 47 xshift 1 from 45 move Acquit payoffs -1 -1 -1
+level 24 node 48 xshift 2 from 44 move Acquit
+level 28 node 49 xshift -1 from 48 move Convict payoffs -1 -1 -1
+level 28 node 50 xshift 1 from 48 move Acquit payoffs -1 -1 -1
+level 16 node 51 xshift 8 from 35 move Signal~Innocent~(\frac{3}{10})
+level 22 node 52 xshift -4 from 51 move Convict
+level 26 node 53 xshift -2 from 52 move Convict
+level 28 node 54 xshift -1 from 53 move Convict payoffs 1 1 1
+level 28 node 55 xshift 1 from 53 move Acquit payoffs -1 -1 -1
+level 26 node 56 xshift 2 from 52 move Acquit
+level 28 node 57 xshift -1 from 56 move Convict payoffs -1 -1 -1
+level 28 node 58 xshift 1 from 56 move Acquit payoffs -1 -1 -1
+level 22 node 59 xshift 4 from 51 move Acquit
+level 26 node 60 xshift -2 from 59 move Convict
+level 28 node 61 xshift -1 from 60 move Convict payoffs -1 -1 -1
+level 28 node 62 xshift 1 from 60 move Acquit payoffs -1 -1 -1
+level 26 node 63 xshift 2 from 59 move Acquit
+level 28 node 64 xshift -1 from 63 move Convict payoffs -1 -1 -1
+level 28 node 65 xshift 1 from 63 move Acquit payoffs -1 -1 -1
+level 10 node 66 player 0 xshift 32 from 2 move Signal~Innocent~(\frac{3}{10})
+level 16 node 67 player 0 xshift -16 from 66 move Signal~Guilty~(\frac{7}{10})
+level 18 node 68 xshift -8 from 67 move Signal~Guilty~(\frac{7}{10})
+level 20 node 69 xshift -4 from 68 move Convict
+level 24 node 70 xshift -2 from 69 move Convict
+level 28 node 71 xshift -1 from 70 move Convict payoffs 1 1 1
+level 28 node 72 xshift 1 from 70 move Acquit payoffs -1 -1 -1
+level 24 node 73 xshift 2 from 69 move Acquit
+level 28 node 74 xshift -1 from 73 move Convict payoffs -1 -1 -1
+level 28 node 75 xshift 1 from 73 move Acquit payoffs -1 -1 -1
+level 20 node 76 xshift 4 from 68 move Acquit
+level 24 node 77 xshift -2 from 76 move Convict
+level 28 node 78 xshift -1 from 77 move Convict payoffs -1 -1 -1
+level 28 node 79 xshift 1 from 77 move Acquit payoffs -1 -1 -1
+level 24 node 80 xshift 2 from 76 move Acquit
+level 28 node 81 xshift -1 from 80 move Convict payoffs -1 -1 -1
+level 28 node 82 xshift 1 from 80 move Acquit payoffs -1 -1 -1
+level 18 node 83 xshift 8 from 67 move Signal~Innocent~(\frac{3}{10})
+level 20 node 84 xshift -4 from 83 move Convict
+level 26 node 85 xshift -2 from 84 move Convict
+level 28 node 86 xshift -1 from 85 move Convict payoffs 1 1 1
+level 28 node 87 xshift 1 from 85 move Acquit payoffs -1 -1 -1
+level 26 node 88 xshift 2 from 84 move Acquit
+level 28 node 89 xshift -1 from 88 move Convict payoffs -1 -1 -1
+level 28 node 90 xshift 1 from 88 move Acquit payoffs -1 -1 -1
+level 20 node 91 xshift 4 from 83 move Acquit
+level 26 node 92 xshift -2 from 91 move Convict
+level 28 node 93 xshift -1 from 92 move Convict payoffs -1 -1 -1
+level 28 node 94 xshift 1 from 92 move Acquit payoffs -1 -1 -1
+level 26 node 95 xshift 2 from 91 move Acquit
+level 28 node 96 xshift -1 from 95 move Convict payoffs -1 -1 -1
+level 28 node 97 xshift 1 from 95 move Acquit payoffs -1 -1 -1
+level 18 node 98 player 0 xshift 16 from 66 move Signal~Innocent~(\frac{3}{10})
+level 22 node 99 xshift -8 from 98 move Signal~Guilty~(\frac{7}{10})
+level 22 node 100 xshift -4 from 99 move Convict
+level 24 node 101 xshift -2 from 100 move Convict
+level 28 node 102 xshift -1 from 101 move Convict payoffs 1 1 1
+level 28 node 103 xshift 1 from 101 move Acquit payoffs -1 -1 -1
+level 24 node 104 xshift 2 from 100 move Acquit
+level 28 node 105 xshift -1 from 104 move Convict payoffs -1 -1 -1
+level 28 node 106 xshift 1 from 104 move Acquit payoffs -1 -1 -1
+level 22 node 107 xshift 4 from 99 move Acquit
+level 24 node 108 xshift -2 from 107 move Convict
+level 28 node 109 xshift -1 from 108 move Convict payoffs -1 -1 -1
+level 28 node 110 xshift 1 from 108 move Acquit payoffs -1 -1 -1
+level 24 node 111 xshift 2 from 107 move Acquit
+level 28 node 112 xshift -1 from 111 move Convict payoffs -1 -1 -1
+level 28 node 113 xshift 1 from 111 move Acquit payoffs -1 -1 -1
+level 22 node 114 xshift 8 from 98 move Signal~Innocent~(\frac{3}{10})
+level 22 node 115 xshift -4 from 114 move Convict
+level 26 node 116 xshift -2 from 115 move Convict
+level 28 node 117 xshift -1 from 116 move Convict payoffs 1 1 1
+level 28 node 118 xshift 1 from 116 move Acquit payoffs -1 -1 -1
+level 26 node 119 xshift 2 from 115 move Acquit
+level 28 node 120 xshift -1 from 119 move Convict payoffs -1 -1 -1
+level 28 node 121 xshift 1 from 119 move Acquit payoffs -1 -1 -1
+level 22 node 122 xshift 4 from 114 move Acquit
+level 26 node 123 xshift -2 from 122 move Convict
+level 28 node 124 xshift -1 from 123 move Convict payoffs -1 -1 -1
+level 28 node 125 xshift 1 from 123 move Acquit payoffs -1 -1 -1
+level 26 node 126 xshift 2 from 122 move Acquit
+level 28 node 127 xshift -1 from 126 move Convict payoffs -1 -1 -1
+level 28 node 128 xshift 1 from 126 move Acquit payoffs -1 -1 -1
+level 6 node 129 player 0 xshift 64 from 1 move Innocent~(\frac{1}{2})
+level 12 node 130 player 0 xshift -32 from 129 move Signal~Guilty~(\frac{3}{10})
+level 20 node 131 player 0 xshift -16 from 130 move Signal~Guilty~(\frac{3}{10})
+level 24 node 132 xshift -8 from 131 move Signal~Guilty~(\frac{3}{10})
+level 20 node 133 xshift -4 from 132 move Convict
+level 24 node 134 xshift -2 from 133 move Convict
+level 28 node 135 xshift -1 from 134 move Convict payoffs -1 -1 -1
+level 28 node 136 xshift 1 from 134 move Acquit payoffs 1 1 1
+level 24 node 137 xshift 2 from 133 move Acquit
+level 28 node 138 xshift -1 from 137 move Convict payoffs 1 1 1
+level 28 node 139 xshift 1 from 137 move Acquit payoffs 1 1 1
+level 20 node 140 xshift 4 from 132 move Acquit
+level 24 node 141 xshift -2 from 140 move Convict
+level 28 node 142 xshift -1 from 141 move Convict payoffs 1 1 1
+level 28 node 143 xshift 1 from 141 move Acquit payoffs 1 1 1
+level 24 node 144 xshift 2 from 140 move Acquit
+level 28 node 145 xshift -1 from 144 move Convict payoffs 1 1 1
+level 28 node 146 xshift 1 from 144 move Acquit payoffs 1 1 1
+level 24 node 147 xshift 8 from 131 move Signal~Innocent~(\frac{7}{10})
+level 20 node 148 xshift -4 from 147 move Convict
+level 26 node 149 xshift -2 from 148 move Convict
+level 28 node 150 xshift -1 from 149 move Convict payoffs -1 -1 -1
+level 28 node 151 xshift 1 from 149 move Acquit payoffs 1 1 1
+level 26 node 152 xshift 2 from 148 move Acquit
+level 28 node 153 xshift -1 from 152 move Convict payoffs 1 1 1
+level 28 node 154 xshift 1 from 152 move Acquit payoffs 1 1 1
+level 20 node 155 xshift 4 from 147 move Acquit
+level 26 node 156 xshift -2 from 155 move Convict
+level 28 node 157 xshift -1 from 156 move Convict payoffs 1 1 1
+level 28 node 158 xshift 1 from 156 move Acquit payoffs 1 1 1
+level 26 node 159 xshift 2 from 155 move Acquit
+level 28 node 160 xshift -1 from 159 move Convict payoffs 1 1 1
+level 28 node 161 xshift 1 from 159 move Acquit payoffs 1 1 1
+level 22 node 162 player 0 xshift 16 from 130 move Signal~Innocent~(\frac{7}{10})
+level 24 node 163 xshift -8 from 162 move Signal~Guilty~(\frac{3}{10})
+level 22 node 164 xshift -4 from 163 move Convict
+level 24 node 165 xshift -2 from 164 move Convict
+level 28 node 166 xshift -1 from 165 move Convict payoffs -1 -1 -1
+level 28 node 167 xshift 1 from 165 move Acquit payoffs 1 1 1
+level 24 node 168 xshift 2 from 164 move Acquit
+level 28 node 169 xshift -1 from 168 move Convict payoffs 1 1 1
+level 28 node 170 xshift 1 from 168 move Acquit payoffs 1 1 1
+level 22 node 171 xshift 4 from 163 move Acquit
+level 24 node 172 xshift -2 from 171 move Convict
+level 28 node 173 xshift -1 from 172 move Convict payoffs 1 1 1
+level 28 node 174 xshift 1 from 172 move Acquit payoffs 1 1 1
+level 24 node 175 xshift 2 from 171 move Acquit
+level 28 node 176 xshift -1 from 175 move Convict payoffs 1 1 1
+level 28 node 177 xshift 1 from 175 move Acquit payoffs 1 1 1
+level 24 node 178 xshift 8 from 162 move Signal~Innocent~(\frac{7}{10})
+level 22 node 179 xshift -4 from 178 move Convict
+level 26 node 180 xshift -2 from 179 move Convict
+level 28 node 181 xshift -1 from 180 move Convict payoffs -1 -1 -1
+level 28 node 182 xshift 1 from 180 move Acquit payoffs 1 1 1
+level 26 node 183 xshift 2 from 179 move Acquit
+level 28 node 184 xshift -1 from 183 move Convict payoffs 1 1 1
+level 28 node 185 xshift 1 from 183 move Acquit payoffs 1 1 1
+level 22 node 186 xshift 4 from 178 move Acquit
+level 26 node 187 xshift -2 from 186 move Convict
+level 28 node 188 xshift -1 from 187 move Convict payoffs 1 1 1
+level 28 node 189 xshift 1 from 187 move Acquit payoffs 1 1 1
+level 26 node 190 xshift 2 from 186 move Acquit
+level 28 node 191 xshift -1 from 190 move Convict payoffs 1 1 1
+level 28 node 192 xshift 1 from 190 move Acquit payoffs 1 1 1
+level 14 node 193 player 0 xshift 32 from 129 move Signal~Innocent~(\frac{7}{10})
+level 24 node 194 player 0 xshift -16 from 193 move Signal~Guilty~(\frac{3}{10})
+level 26 node 195 xshift -8 from 194 move Signal~Guilty~(\frac{3}{10})
+level 20 node 196 xshift -4 from 195 move Convict
+level 24 node 197 xshift -2 from 196 move Convict
+level 28 node 198 xshift -1 from 197 move Convict payoffs -1 -1 -1
+level 28 node 199 xshift 1 from 197 move Acquit payoffs 1 1 1
+level 24 node 200 xshift 2 from 196 move Acquit
+level 28 node 201 xshift -1 from 200 move Convict payoffs 1 1 1
+level 28 node 202 xshift 1 from 200 move Acquit payoffs 1 1 1
+level 20 node 203 xshift 4 from 195 move Acquit
+level 24 node 204 xshift -2 from 203 move Convict
+level 28 node 205 xshift -1 from 204 move Convict payoffs 1 1 1
+level 28 node 206 xshift 1 from 204 move Acquit payoffs 1 1 1
+level 24 node 207 xshift 2 from 203 move Acquit
+level 28 node 208 xshift -1 from 207 move Convict payoffs 1 1 1
+level 28 node 209 xshift 1 from 207 move Acquit payoffs 1 1 1
+level 26 node 210 xshift 8 from 194 move Signal~Innocent~(\frac{7}{10})
+level 20 node 211 xshift -4 from 210 move Convict
+level 26 node 212 xshift -2 from 211 move Convict
+level 28 node 213 xshift -1 from 212 move Convict payoffs -1 -1 -1
+level 28 node 214 xshift 1 from 212 move Acquit payoffs 1 1 1
+level 26 node 215 xshift 2 from 211 move Acquit
+level 28 node 216 xshift -1 from 215 move Convict payoffs 1 1 1
+level 28 node 217 xshift 1 from 215 move Acquit payoffs 1 1 1
+level 20 node 218 xshift 4 from 210 move Acquit
+level 26 node 219 xshift -2 from 218 move Convict
+level 28 node 220 xshift -1 from 219 move Convict payoffs 1 1 1
+level 28 node 221 xshift 1 from 219 move Acquit payoffs 1 1 1
+level 26 node 222 xshift 2 from 218 move Acquit
+level 28 node 223 xshift -1 from 222 move Convict payoffs 1 1 1
+level 28 node 224 xshift 1 from 222 move Acquit payoffs 1 1 1
+level 26 node 225 player 0 xshift 16 from 193 move Signal~Innocent~(\frac{7}{10})
+level 30 node 226 xshift -8 from 225 move Signal~Guilty~(\frac{3}{10})
+level 22 node 227 xshift -4 from 226 move Convict
+level 24 node 228 xshift -2 from 227 move Convict
+level 28 node 229 xshift -1 from 228 move Convict payoffs -1 -1 -1
+level 28 node 230 xshift 1 from 228 move Acquit payoffs 1 1 1
+level 24 node 231 xshift 2 from 227 move Acquit
+level 28 node 232 xshift -1 from 231 move Convict payoffs 1 1 1
+level 28 node 233 xshift 1 from 231 move Acquit payoffs 1 1 1
+level 22 node 234 xshift 4 from 226 move Acquit
+level 24 node 235 xshift -2 from 234 move Convict
+level 28 node 236 xshift -1 from 235 move Convict payoffs 1 1 1
+level 28 node 237 xshift 1 from 235 move Acquit payoffs 1 1 1
+level 24 node 238 xshift 2 from 234 move Acquit
+level 28 node 239 xshift -1 from 238 move Convict payoffs 1 1 1
+level 28 node 240 xshift 1 from 238 move Acquit payoffs 1 1 1
+level 30 node 241 xshift 8 from 225 move Signal~Innocent~(\frac{7}{10})
+level 22 node 242 xshift -4 from 241 move Convict
+level 26 node 243 xshift -2 from 242 move Convict
+level 28 node 244 xshift -1 from 243 move Convict payoffs -1 -1 -1
+level 28 node 245 xshift 1 from 243 move Acquit payoffs 1 1 1
+level 26 node 246 xshift 2 from 242 move Acquit
+level 28 node 247 xshift -1 from 246 move Convict payoffs 1 1 1
+level 28 node 248 xshift 1 from 246 move Acquit payoffs 1 1 1
+level 22 node 249 xshift 4 from 241 move Acquit
+level 26 node 250 xshift -2 from 249 move Convict
+level 28 node 251 xshift -1 from 250 move Convict payoffs 1 1 1
+level 28 node 252 xshift 1 from 250 move Acquit payoffs 1 1 1
+level 26 node 253 xshift 2 from 249 move Acquit
+level 28 node 254 xshift -1 from 253 move Convict payoffs 1 1 1
+level 28 node 255 xshift 1 from 253 move Acquit payoffs 1 1 1
+iset 5 20 36 51 132 147 163 178 player 1
+iset 6 13 21 28 69 76 84 91 133 140 148 155 196 203 211 218 player 2
+iset 7 10 14 17 38 41 45 48 70 73 77 80 101 104 108 111 134 137 141 144 165 168 172 175 197 200 204 207 228 231 235 238 player 3
+iset 22 25 29 32 53 56 60 63 85 88 92 95 116 119 123 126 149 152 156 159 180 183 187 190 212 215 219 222 243 246 250 253 player 3
+iset 37 44 52 59 100 107 115 122 164 171 179 186 227 234 242 249 player 2
+iset 68 83 99 114 195 210 226 241 player 1

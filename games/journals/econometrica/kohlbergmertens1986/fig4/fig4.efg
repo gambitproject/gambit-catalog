@@ -1,0 +1,19 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 4" { "I" "II" }
+"A third presentation of :math:`\Gamma(0)`, the game of Figure 3 with x = 0, in which player I's randomization between T and M is written as a move of nature, showing that adding such a coin toss destroys the sequential equilibrium (T,R) with payoffs (2,2), even though the reduced normal form is unchanged.
+
+At his second information set player I can choose coin, M or B. Choosing coin gives the move to nature, which ends the game with payoffs (2,2) with probability 2/3 (action T) and otherwise leads to II's information set (action M). The choice coin strictly dominates B, so in any sequential equilibrium I chooses coin or M there, II assigns probability zero to the position following B and chooses L, and I chooses M: the only sequential equilibrium is (M,L) with payoffs (3,3)."
+
+p "" 1 1 "" { "T" "continue" } 0
+t "" 1 "" { 2, 2 }
+p "" 1 2 "" { "coin" "M" "B" } 0
+c "" 1 "" { "T" 2/3 "M" 1/3 } 0
+t "" 2 "" { 2, 2 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 3 "" { 3, 3 }
+t "" 4 "" { 0, 0 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 5 "" { 3, 3 }
+t "" 6 "" { 0, 0 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 7 "" { 0, 0 }
+t "" 8 "" { 1, 1 }

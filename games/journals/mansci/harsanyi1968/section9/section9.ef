@@ -1,0 +1,35 @@
+player 1 name Player~1
+player 2 name Player~2
+level 0 node 1 player 0
+level 4 node 2 xshift -12 from 1 move (a1,b1)~(\frac{2}{5})
+level 8 node 3 xshift -2 from 2 move y1
+level 12 node 4 xshift -1 from 3 move z1 payoffs 2 -2
+level 12 node 5 xshift 1 from 3 move z2 payoffs 5 -5
+level 8 node 6 xshift 2 from 2 move y2
+level 12 node 7 xshift -1 from 6 move z1 payoffs -1 1
+level 12 node 8 xshift 1 from 6 move z2 payoffs 20 -20
+level 4 node 9 xshift -4 from 1 move (a1,b2)~(\frac{1}{10})
+level 10 node 10 xshift -2 from 9 move y1
+level 12 node 11 xshift -1 from 10 move z1 payoffs -24 24
+level 12 node 12 xshift 1 from 10 move z2 payoffs -36 36
+level 10 node 13 xshift 2 from 9 move y2
+level 12 node 14 xshift -1 from 13 move z1 payoffs 0 0
+level 12 node 15 xshift 1 from 13 move z2 payoffs 24 -24
+level 6 node 16 xshift 4 from 1 move (a2,b1)~(\frac{1}{5})
+level 8 node 17 xshift -2 from 16 move y1
+level 12 node 18 xshift -1 from 17 move z1 payoffs 28 -28
+level 12 node 19 xshift 1 from 17 move z2 payoffs 15 -15
+level 8 node 20 xshift 2 from 16 move y2
+level 12 node 21 xshift -1 from 20 move z1 payoffs 40 -40
+level 12 node 22 xshift 1 from 20 move z2 payoffs 4 -4
+level 6 node 23 xshift 12 from 1 move (a2,b2)~(\frac{3}{10})
+level 10 node 24 xshift -2 from 23 move y1
+level 12 node 25 xshift -1 from 24 move z1 payoffs 12 -12
+level 12 node 26 xshift 1 from 24 move z2 payoffs 20 -20
+level 10 node 27 xshift 2 from 23 move y2
+level 12 node 28 xshift -1 from 27 move z1 payoffs 2 -2
+level 12 node 29 xshift 1 from 27 move z2 payoffs 13 -13
+iset 2 9 player 1
+iset 3 6 17 20 player 2
+iset 10 13 24 27 player 2
+iset 16 23 player 1

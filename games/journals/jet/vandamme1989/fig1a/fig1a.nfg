@@ -1,0 +1,14 @@
+NFG 1 R "van Damme (1989), Figure 1(a): Battle of the Sexes" { "Player 1" "Player 2" }
+
+{ { "s" "w" }
+{ "s" "w" }
+}
+"The battle of the sexes (BS), a coordination game used as a component of most of the paper's later examples. It has two strict equilibria, (s,w), which player 1 prefers, and (w,s), which player 2 prefers, and a completely mixed equilibrium."
+
+{
+{ "" 0, 0 }
+{ "" 1, 3 }
+{ "" 3, 1 }
+{ "" 0, 0 }
+}
+1 2 3 4

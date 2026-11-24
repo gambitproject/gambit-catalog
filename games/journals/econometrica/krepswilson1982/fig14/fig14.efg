@@ -1,0 +1,16 @@
+EFG 2 R "Kreps and Wilson (1982), Figure 14" { "Player 1" "Player 2" }
+"A game, due to Kohlberg, used to show how restrictions on beliefs choose among sequential
+equilibria. One sequential equilibrium has Player 1 playing A and Player 2 playing r, supported
+by beliefs of Player 2 that the node following L has probability at most 1/2. A second has Player
+1 playing L and Player 2 playing l. The paper argues the second is more plausible: R is dominated
+by A for Player 1, so Player 2 should not conclude on reaching the information set that Player 1
+chose R."
+
+p "" 1 1 "" { "A" "L" "R" } 0
+t "" 1 "" { 1, 1 }
+p "" 2 1 "" { "l" "r" } 0
+t "" 2 "" { 2, -1 }
+t "" 3 "" { -10, -2 }
+p "" 2 1 "" { "l" "r" } 0
+t "" 4 "" { -1, -2 }
+t "" 5 "" { 0, -1 }

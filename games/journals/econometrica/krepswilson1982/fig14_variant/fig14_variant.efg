@@ -1,0 +1,35 @@
+EFG 2 R "Kreps and Wilson (1982), Section 8, variant of Figure 14" { "Player 1" "Player 2" }
+"A modification of the game of Figure 14, in which Player 1's choice of A leads to a simultaneous
+bimatrix game for Players 1 and 2 instead of ending the game with payoffs (1,1). The paper
+argues that there is again a sequential equilibrium in which Player 1 chooses A, supported by
+beliefs of Player 2 that the node following L has probability less than 1/2, and that these beliefs
+are implausible: A now yields Player 1 an equilibrium payoff of 1, more than Player 1 gets from R,
+so Player 2 should not attach much weight to R, which again makes L and l the more plausible
+equilibrium.
+
+The paper states that the bimatrix game has a unique Nash equilibrium in which Player 1 receives
+1. For the payoffs as printed, the unique equilibrium has Player 1 mixing Top and Bottom with
+probability 1/2 each and Player 2 mixing Left and Right with probability 1/2 each, which gives
+Player 1 expected payoff -4 (and Player 2 5/2). The payoffs are entered as printed.
+
+The paper gives the modification in words and as a bimatrix, not as a tree. The file encodes the
+simultaneous game after A in the usual way: Player 1 chooses Top or Bottom, then Player 2, who
+knows that A was chosen but not which row, chooses Left, Middle or Right. These row and column
+labels are not in the paper. After L and R the game is as in Figure 14."
+
+p "" 1 1 "" { "A" "L" "R" } 0
+p "" 1 2 "" { "Top" "Bottom" } 0
+p "" 2 1 "" { "Left" "Middle" "Right" } 0
+t "" 1 "" { 2, 1 }
+t "" 2 "" { 0, 2 }
+t "" 3 "" { -10, 4 }
+p "" 2 1 "" { "Left" "Middle" "Right" } 0
+t "" 4 "" { 0, 4 }
+t "" 5 "" { 2, 2 }
+t "" 6 "" { -8, 1 }
+p "" 2 2 "" { "l" "r" } 0
+t "" 7 "" { 2, -1 }
+t "" 8 "" { -10, -2 }
+p "" 2 2 "" { "l" "r" } 0
+t "" 9 "" { -1, -2 }
+t "" 10 "" { 0, -1 }

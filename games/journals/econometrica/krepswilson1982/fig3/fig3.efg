@@ -1,0 +1,21 @@
+EFG 2 R "Kreps and Wilson (1982), Figure 3: Selten's horse" { "Player 1" "Player 2" "Player 3" }
+"A three-player game with no proper subgame, used to motivate beliefs and sequential
+rationality. The profile in which Player 1 plays D, Player 2 plays a and Player 3 plays l is
+subgame perfect, since the only proper subgame is the game itself, but it is not sensible:
+Player 2's information set is a singleton, and given Player 3's choice of l Player 2 prefers d at
+it, after which Player 1 would do better by choosing A rather than D. The only sensible
+equilibrium has Player 1 choosing A, Player 2 choosing a, and Player 3 choosing r with
+probability at least 3/4.
+
+See also :cite:p:`Sel75`
+    The same game and payoffs, with the actions labeled R and L."
+
+p "" 1 1 "" { "D" "A" } 0
+p "" 3 1 "" { "l" "r" } 0
+t "" 1 "" { 3, 2, 2 }
+t "" 2 "" { 0, 0, 0 }
+p "" 2 1 "" { "a" "d" } 0
+t "" 3 "" { 1, 1, 1 }
+p "" 3 1 "" { "l" "r" } 0
+t "" 4 "" { 4, 4, 0 }
+t "" 5 "" { 0, 0, 1 }

@@ -1,0 +1,45 @@
+EFG 2 R "Harsanyi (1968), Section 9" { "Player 1" "Player 2" }
+"A two-person zero-sum Bayesian game with incomplete information, used to illustrate that a
+Bayesian equilibrium is a Nash equilibrium of the normal form of the game. Player 1 belongs to
+attribute class a1 (\"weak\") or a2 (\"strong\") and Player 2 to class b1 (\"weak\") or b2 (\"strong\");
+each player knows only his own class. Chance draws the pair of classes with the joint
+probabilities of the paper: (a1,b1) 0.40, (a1,b2) 0.10, (a2,b1) 0.20, (a2,b2) 0.30. Player 1 then
+chooses y1 or y2 and Player 2 chooses z1 or z2, each at one information set per own class, so
+neither observes the other's class or move. Payoffs are to Player 1, with Player 2 receiving the
+negative. Each of the four payoff matrices has a pure saddle point: (y1,z1) for (a1,b1), (y2,z1)
+for (a1,b2), (y1,z2) for (a2,b1) and (y1,z1) for (a2,b2). The normal form has a unique saddle
+point, in which Player 1 plays y2 if in a1 and y1 if in a2, and Player 2 plays z1 whatever his
+class, which differs from the optimal strategies of the separate matrices.
+
+The caption of the matrix for (a1,b1) is misprinted in the paper as (a2,b1); the text and the
+normal form show that it belongs to (a1,b1)."
+
+c "" 1 "" { "(a1,b1)" 2/5 "(a1,b2)" 1/10 "(a2,b1)" 1/5 "(a2,b2)" 3/10 } 0
+p "" 1 1 "" { "y1" "y2" } 0
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 1 "" { 2, -2 }
+t "" 2 "" { 5, -5 }
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 3 "" { -1, 1 }
+t "" 4 "" { 20, -20 }
+p "" 1 1 "" { "y1" "y2" } 0
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 5 "" { -24, 24 }
+t "" 6 "" { -36, 36 }
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 7 "" { 0, 0 }
+t "" 8 "" { 24, -24 }
+p "" 1 2 "" { "y1" "y2" } 0
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 9 "" { 28, -28 }
+t "" 10 "" { 15, -15 }
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 11 "" { 40, -40 }
+t "" 12 "" { 4, -4 }
+p "" 1 2 "" { "y1" "y2" } 0
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 13 "" { 12, -12 }
+t "" 14 "" { 20, -20 }
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 15 "" { 2, -2 }
+t "" 16 "" { 13, -13 }

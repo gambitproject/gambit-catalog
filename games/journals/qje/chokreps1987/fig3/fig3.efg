@@ -1,0 +1,23 @@
+EFG 2 R "Cho and Kreps (1987), Figure III" { "A" "B" }
+"A signaling game that shows that tests based on dominance of type-message pairs eliminate an
+equilibrium outcome that trembling-hand perfection and properness do not. Player A, the sender,
+has type t1 with probability 0.9 or t2 with probability 0.1 and knows which. A sends message m,
+which ends the game with payoffs (0,0), or m', after which B, not knowing the type, chooses r1 or
+r2. Consider the equilibrium outcome in which both types send m and B responds to m' with r1 with
+probability at least 0.5. To support it B must put weight at least 0.5 on t2 after m', but for t2
+the message m dominates m'. Pruning the pair (t2,m') leaves B no choice but to respond to m' with
+r2, which makes t1 defect, so the outcome fails the paper's tests. The equilibrium in which A sends
+m regardless of type and B responds to m' with r1 is nevertheless proper, and perfect in the agent
+normal form."
+
+c "" 1 "" { "t1" 9/10 "t2" 1/10 } 0
+p "" 1 1 "" { "m" "m'" } 0
+t "" 1 "" { 0, 0 }
+p "" 2 1 "" { "r1" "r2" } 0
+t "" 2 "" { -1, 0 }
+t "" 3 "" { 1, 1 }
+p "" 1 2 "" { "m" "m'" } 0
+t "" 4 "" { 0, 0 }
+p "" 2 1 "" { "r1" "r2" } 0
+t "" 5 "" { -1, 1 }
+t "" 6 "" { -1, 0 }

@@ -1,0 +1,19 @@
+NFG 1 R "van Damme (1989), Figure 8" { "Player 1" "Player 2" }
+
+{ { "c" "s" "w" }
+{ "c" "s" "w" }
+}
+"A modified prisoners' dilemma whose twofold repetition shows that a threat to revert to the worst stable equilibrium need not be stable. The one-shot game has three equilibria with payoffs (4,4), (1,1) and (1,1). The path (c,c) followed by (s,s) is a subgame perfect equilibrium of the twofold repetition, supported by continuing with (w,w) after a deviation, but it is not stable: after a deviation by player 1 in round 1, player 2 knows that player 1 will not continue with c or w, which are inferior, and so should conclude that player 1 plays s, which makes the deviation profitable."
+
+{
+{ "" 6, 6 }
+{ "" 8, 0 }
+{ "" 0, 0 }
+{ "" 0, 8 }
+{ "" 4, 4 }
+{ "" 1, 0 }
+{ "" 0, 0 }
+{ "" 0, 1 }
+{ "" 1, 1 }
+}
+1 2 3 4 5 6 7 8 9

@@ -1,0 +1,20 @@
+EFG 2 R "Wilson (1992), Figure 14" { "Player 1" "Player 2" }
+"A modification of the game Do The Right Thing in which Player 2 has four strategies in the simultaneous-move game. The first equilibrium component is dual simply stable, but only because a region of dual perturbations is covered by equilibria that use the unperturbed strategies e and h; with those strategies deleted the game resembles the original, in which the first component is not dual simply stable.
+
+Player 1 chooses a or continue; Player 2 then chooses d or continue; then Player 1 (b or c) and Player 2 (e, f, g or h) move simultaneously. The paper leaves the continuing moves unlabeled; they are called continue here."
+
+p "" 1 1 "" { "a" "continue" } 0
+t "" 1 "" { 12, 26 }
+p "" 2 1 "" { "d" "continue" } 0
+t "" 2 "" { 16, 15 }
+p "" 1 2 "" { "b" "c" } 0
+p "" 2 2 "" { "e" "f" "g" "h" } 0
+t "" 3 "" { 10, 20 }
+t "" 4 "" { 0, 19 }
+t "" 5 "" { 10, 9 }
+t "" 6 "" { 0, 0 }
+p "" 2 2 "" { "e" "f" "g" "h" } 0
+t "" 7 "" { 0, 0 }
+t "" 8 "" { 10, 9 }
+t "" 9 "" { 0, 19 }
+t "" 10 "" { 10, 20 }

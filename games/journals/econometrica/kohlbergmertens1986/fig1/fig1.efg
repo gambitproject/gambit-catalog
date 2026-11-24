@@ -1,0 +1,10 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 1" { "I" "II" }
+"A perfect-information game showing that not every Nash equilibrium is strategically stable. The profile (T,R) is a Nash equilibrium, but even though communication is impossible, player II will deviate to L whenever he has to move, which upsets it; the backwards induction equilibrium is (M,L).
+
+Player I chooses T, which ends the game, or M, which gives II the move; II then chooses L or R."
+
+p "" 1 1 "" { "T" "M" } 0
+t "" 1 "" { 2, 2 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 2 "" { 3, 3 }
+t "" 3 "" { 0, 0 }
