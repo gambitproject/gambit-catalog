@@ -1,0 +1,23 @@
+version: 2
+
+sphinx:
+  configuration: doc/conf.py
+
+formats: all
+
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.13"
+  apt_packages:
+    - texlive-full
+    - poppler-utils
+  jobs:
+    post_install:
+      # Regenerate doc/_table.rst (and the game images) from the current catalog.
+      - $READTHEDOCS_VIRTUALENV_PATH/bin/python build.py
+
+python:
+  install:
+    - requirements: requirements.txt
+    - requirements: doc/requirements.txt

@@ -1,0 +1,13 @@
+The Gambit catalog of games is distributed under two licences.
+
+Data: the game files, their drawings, the manifest and their metadata, everything
+under games/, together with references.bib and hierarchy.yaml, are licensed under
+the Creative Commons Attribution 4.0 International licence (CC BY 4.0).
+See LICENSES/CC-BY-4.0.txt.
+
+Tooling: everything else in this repository, including build.py, its tests and the
+documentation sources, is licensed under the GNU General Public License, version 2
+or (at your option) any later version (GPL-2.0-or-later).
+See LICENSES/GPL-2.0-or-later.txt.
+
+Copyright 1994-2026, The Gambit Project.

@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+jobs:
+  build:
+    name: Build the release archive
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install LaTeX and poppler
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base texlive-latex-recommended texlive-latex-extra \
+            texlive-fonts-recommended texlive-pictures texlive-games poppler-utils
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - name: Install pinned tooling
+        run: python -m pip install -r requirements.txt
+      - name: Check the tag matches VERSION
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          if [ "${GITHUB_REF_NAME}" != "v$(cat VERSION)" ]; then
+            echo "::error::Tag ${GITHUB_REF_NAME} does not match VERSION $(cat VERSION)"
+            exit 1
+          fi
+      - name: Build the archive
+        run: python build.py --skip-table --release dist
+      - name: Check the archive
+        run: |
+          cd dist
+          sha256sum -c ./*.sha256
+          unzip -l ./*.zip | tail -1
+      - uses: actions/upload-artifact@v7
+        with:
+          name: gambit-catalog
+          path: dist/
+
+  publish:
+    name: Publish the GitHub release
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v7
+        with:
+          name: gambit-catalog
+          path: dist
+      - name: Create the release with the archive attached
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" dist/* \
+            --repo "${GITHUB_REPOSITORY}" \
+            --title "Gambit catalog of games ${GITHUB_REF_NAME#v}" \
+            --notes "Release ${GITHUB_REF_NAME#v} of the Gambit catalog of games."

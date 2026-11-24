@@ -1,0 +1,19 @@
+player 1 name Player~1
+player 2 name Player~2
+level 0 node 1 player 1
+level 4 node 2 xshift -4 from 1 move R
+level 8 node 3 xshift -2 from 2 move r
+level 12 node 4 xshift -1 from 3 move B payoffs 1 -1
+level 12 node 5 xshift 1 from 3 move T payoffs -1 1
+level 8 node 6 xshift 2 from 2 move l
+level 12 node 7 xshift -1 from 6 move B payoffs -5 5
+level 12 node 8 xshift 1 from 6 move T payoffs -5 5
+level 4 node 9 xshift 4 from 1 move L
+level 8 node 10 xshift -2 from 9 move r
+level 12 node 11 xshift -1 from 10 move B payoffs -5 5
+level 12 node 12 xshift 1 from 10 move T payoffs -5 5
+level 8 node 13 xshift 2 from 9 move l
+level 12 node 14 xshift -1 from 13 move B payoffs -1 1
+level 12 node 15 xshift 1 from 13 move T payoffs 1 -1
+iset 2 9 player 1
+iset 3 6 10 13 player 2

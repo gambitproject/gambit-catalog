@@ -1,0 +1,9 @@
+# Tooling for building and checking the catalog, pinned to released versions.
+pygambit==17.0.0b4
+gtdraw==0.13.0
+jsonschema
+pillow
+pandas
+pybtex
+pyyaml
+pytest

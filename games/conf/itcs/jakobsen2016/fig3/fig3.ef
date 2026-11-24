@@ -1,0 +1,32 @@
+% gtdraw: color_scheme custom
+% gtdraw: custom_colors {"0": "#759138", "1": "#007FFF", "2": "#DD79E0", "3": "#1616BC", "4": "#985003"}
+% gtdraw: action_label_dist 3.0
+player 1 name Player~1
+player 2 name Player~2
+player 3 name Player~3
+player 4 name Player~4
+level 0 node 1 player 0
+level 4 node 2 xshift -9 from 1 move 0~(\frac{1}{4})
+level 12 node 3 xshift -1.5 from 2 move 1 payoffs 0 0 0 0
+level 8 node 4 xshift 1.5 from 2 move 2
+level 12 node 5 xshift -1 from 4 move 1 payoffs 0 0 0 0
+level 12 node 6 xshift 1 from 4 move 2 payoffs 1.01 -1 0 0
+level 4 node 7 xshift -3 from 1 move 1~(\frac{1}{4})
+level 12 node 8 xshift -1.5 from 7 move 1 payoffs 0 0 0 0
+level 8 node 9 xshift 1.5 from 7 move 2
+level 12 node 10 xshift -1 from 9 move 1 payoffs 0 0 0 0
+level 12 node 11 xshift 1 from 9 move 2 payoffs 0 1.01 -1 0
+level 4 node 12 xshift 3 from 1 move 2~(\frac{1}{4})
+level 12 node 13 xshift -1.5 from 12 move 1 payoffs 0 0 0 0
+level 8 node 14 xshift 1.5 from 12 move 2
+level 12 node 15 xshift -1 from 14 move 1 payoffs 0 0 0 0
+level 12 node 16 xshift 1 from 14 move 2 payoffs 0 0 1.01 -1
+level 4 node 17 xshift 9 from 1 move 3~(\frac{1}{4})
+level 12 node 18 xshift -1.5 from 17 move 1 payoffs 0 0 0 0
+level 8 node 19 xshift 1.5 from 17 move 2
+level 12 node 20 xshift -1 from 19 move 1 payoffs 0 0 0 0
+level 12 node 21 xshift 1 from 19 move 2 payoffs -1 0 0 1.01
+iset 2 9 player 2
+iset 4 17 player 1
+iset 7 14 player 3
+iset 12 19 player 4
