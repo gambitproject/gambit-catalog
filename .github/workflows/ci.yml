@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    name: Tests and manifest sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - name: Install pinned tooling
+        run: python -m pip install -r requirements.txt
+      - name: Run tests
+        run: python -m pytest
+      - name: Regenerate the manifest
+        run: python build.py --build --skip-table
+      - name: Fail if the manifest is out of sync with the games
+        run: |
+          if ! git diff --exit-code -- games/manifest.json; then
+            echo "::error::games/manifest.json is out of sync with games/. Run 'python build.py --build --skip-table' and commit the result."
+            exit 1
+          fi
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/ruff-action@v3

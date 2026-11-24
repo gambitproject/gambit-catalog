@@ -1,0 +1,31 @@
+% gtdraw: action_label_dist 3.0
+player 1 name 1
+player 2 name 2
+level 0 node 1 player 2
+level 4 node 2 xshift -6.25 from 1 move a
+level 8 node 3 xshift -3 from 2 move L
+level 16 node 4 xshift -1.5 from 3 move S payoffs 0 0
+level 12 node 5 xshift 1.5 from 3 move T
+level 16 node 6 xshift -1 from 5 move c payoffs 0 0
+level 16 node 7 xshift 1 from 5 move d payoffs 0 0
+level 8 node 8 xshift 3 from 2 move R
+level 16 node 9 xshift -1.5 from 8 move c payoffs 0 0
+level 12 node 10 xshift 1.5 from 8 move d
+level 16 node 11 xshift -1 from 10 move U payoffs 0 0
+level 16 node 12 xshift 1 from 10 move V payoffs 0 0
+level 4 node 13 xshift 6.25 from 1 move b
+level 8 node 14 xshift -2.5 from 13 move L
+level 12 node 15 xshift -1.5 from 14 move e
+level 16 node 16 xshift -1 from 15 move S payoffs 0 0
+level 16 node 17 xshift 1 from 15 move T payoffs 0 0
+level 16 node 18 xshift 1.5 from 14 move f payoffs 0 0
+level 8 node 19 xshift 2.5 from 13 move R
+level 16 node 20 xshift -1.5 from 19 move U payoffs 0 0
+level 12 node 21 xshift 1.5 from 19 move V
+level 16 node 22 xshift -1 from 21 move e payoffs 0 0
+level 16 node 23 xshift 1 from 21 move f payoffs 0 0
+iset 2 13 player 1
+iset 3 15 player 1
+iset 5 8 player 2
+iset 10 19 player 1
+iset 14 21 player 2

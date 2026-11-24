@@ -1,0 +1,14 @@
+player 1 name I
+player 2 name II
+level 0 node 1 player 0
+level 4 node 2 player 1 xshift -3 from 1 move 1/2_1~(\frac{1}{2})
+level 8 node 3 xshift -1.5 from 2 move T payoffs 0 16
+level 9.5 node 4 xshift 1.5 from 2 move B
+level 12 node 5 xshift -1 from 4 move a payoffs 12 4
+level 12 node 6 xshift 1 from 4 move b payoffs -4 20
+level 5.5 node 7 player 1 xshift 3 from 1 move 1/2_2~(\frac{1}{2})
+level 8 node 8 xshift -1.5 from 7 move C payoffs 0 16
+level 9.5 node 9 xshift 1.5 from 7 move D
+level 12 node 10 xshift -1 from 9 move a payoffs 12 4
+level 12 node 11 xshift 1 from 9 move b payoffs 20 -4
+iset 4 9 player 2

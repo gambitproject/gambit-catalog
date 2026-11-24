@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+doc/_build/
+doc/_table.rst
+doc/**/*.ef
+games/img/**/*.pdf
+games/img/**/*.png
+games/img/**/*.tex
+games/img/**/*.ef
+games/img/**/*.svg
+.ruff_cache/

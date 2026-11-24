@@ -1,0 +1,14 @@
+player 1 name Professor
+player 2 name Student
+level 0 node 1 player 0
+level 4 node 2 player 1 xshift -3 from 1 move King~(\frac{1}{2})
+level 8 node 3 xshift -1.5 from 2 move Bet
+level 12 node 4 xshift -1 from 3 move Call payoffs 2 -2
+level 12 node 5 xshift 1 from 3 move Fold payoffs 1 -1
+level 12 node 6 xshift 1.5 from 2 move Fold payoffs -1 1
+level 4 node 7 player 1 xshift 3 from 1 move Queen~(\frac{1}{2})
+level 8 node 8 xshift -1.5 from 7 move Bet
+level 12 node 9 xshift -1 from 8 move Call payoffs -2 2
+level 12 node 10 xshift 1 from 8 move Fold payoffs 1 -1
+level 12 node 11 xshift 1.5 from 7 move Fold payoffs -1 1
+iset 3 8 player 2

@@ -1,0 +1,8 @@
+% gtdraw: action_label_dist 5.0
+player 1 name Player~1
+level 0 node 1
+level 4 node 2 xshift -1.5 from 1 move B
+level 8 node 3 xshift -1 from 2 move B payoffs 1
+level 8 node 4 xshift 1 from 2 move E payoffs 4
+level 8 node 5 xshift 1.5 from 1 move E payoffs 0
+iset 1 2 player 1

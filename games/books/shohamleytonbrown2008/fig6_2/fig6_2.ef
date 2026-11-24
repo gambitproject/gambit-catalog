@@ -1,0 +1,38 @@
+player 1 name 1
+player 2 name 2
+level 0 node 1 player 1
+level 4 node 2 xshift -8 from 1 move C
+level 8 node 3 player 1 xshift -4 from 2 move c
+level 12 node 4 xshift -2 from 3 move C
+level 16 node 5 xshift -1 from 4 move c payoffs -2 -2
+level 16 node 6 xshift 1 from 4 move d payoffs -5 -1
+level 12 node 7 xshift 2 from 3 move D
+level 16 node 8 xshift -1 from 7 move c payoffs -1 -5
+level 16 node 9 xshift 1 from 7 move d payoffs -4 -4
+level 8 node 10 player 1 xshift 4 from 2 move d
+level 12 node 11 xshift -2 from 10 move C
+level 16 node 12 xshift -1 from 11 move c payoffs -5 -1
+level 16 node 13 xshift 1 from 11 move d payoffs -8 0
+level 12 node 14 xshift 2 from 10 move D
+level 16 node 15 xshift -1 from 14 move c payoffs -4 -4
+level 16 node 16 xshift 1 from 14 move d payoffs -7 -3
+level 4 node 17 xshift 8 from 1 move D
+level 8 node 18 player 1 xshift -4 from 17 move c
+level 12 node 19 xshift -2 from 18 move C
+level 16 node 20 xshift -1 from 19 move c payoffs -1 -5
+level 16 node 21 xshift 1 from 19 move d payoffs -4 -4
+level 12 node 22 xshift 2 from 18 move D
+level 16 node 23 xshift -1 from 22 move c payoffs 0 -8
+level 16 node 24 xshift 1 from 22 move d payoffs -3 -7
+level 8 node 25 player 1 xshift 4 from 17 move d
+level 12 node 26 xshift -2 from 25 move C
+level 16 node 27 xshift -1 from 26 move c payoffs -4 -4
+level 16 node 28 xshift 1 from 26 move d payoffs -7 -3
+level 12 node 29 xshift 2 from 25 move D
+level 16 node 30 xshift -1 from 29 move c payoffs -3 -7
+level 16 node 31 xshift 1 from 29 move d payoffs -6 -6
+iset 2 17 player 2
+iset 4 7 player 2
+iset 11 14 player 2
+iset 19 22 player 2
+iset 26 29 player 2

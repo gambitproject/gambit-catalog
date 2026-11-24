@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/gambitproject/gambit-catalog/schema/manifest.schema.json",
+  "title": "Gambit catalog of games: manifest",
+  "description": "Index of a release of the Gambit catalog of games. Paths are relative to the games/ directory. Consumers must ignore properties they do not recognise.",
+  "type": "object",
+  "required": ["schema_version", "catalog_version", "games"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "description": "Major version of this schema; equal to the catalog's major version.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "catalog_version": {
+      "description": "Version of the catalog this manifest describes (semantic versioning).",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "games": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/game"}
+    }
+  },
+  "$defs": {
+    "relpath": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+(/[A-Za-z0-9_.-]+)*$"
+    },
+    "game": {
+      "type": "object",
+      "required": [
+        "slug", "title", "description", "format", "game", "drawings",
+        "category", "group", "n_players", "is_const_sum", "n_strategies"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "slug": {
+          "description": "Canonical name of the game; also its directory under games/.",
+          "$ref": "#/$defs/relpath"
+        },
+        "title": {"type": "string"},
+        "description": {
+          "description": "Plain-text description, with citations resolved to (Author Year).",
+          "type": "string",
+          "minLength": 1
+        },
+        "format": {
+          "description": "Format of the game file: efg (extensive game) or nfg (strategic game).",
+          "enum": ["efg", "nfg"]
+        },
+        "game": {
+          "description": "Path of the game file.",
+          "$ref": "#/$defs/relpath"
+        },
+        "drawings": {
+          "description": "Committed drawings (.ef) of the game, the primary drawing first.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["key", "label", "path"],
+            "additionalProperties": false,
+            "properties": {
+              "key": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+              "label": {"type": "string", "minLength": 1},
+              "path": {"$ref": "#/$defs/relpath"}
+            }
+          }
+        },
+        "category": {
+          "description": "Label of the game's top-level group (e.g. Books).",
+          "type": "string"
+        },
+        "group": {
+          "description": "Label of the game's innermost group (e.g. its source).",
+          "type": "string"
+        },
+        "n_players": {"type": "integer", "minimum": 1},
+        "is_const_sum": {"type": "boolean"},
+        "n_strategies": {
+          "description": "Total number of pure strategies (reduced, for extensive games) over all players.",
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}
