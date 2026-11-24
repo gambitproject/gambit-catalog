@@ -1,0 +1,20 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 6" { "I" "II" }
+"A variant of :math:`\Gamma(0)` in which the outcome after B and L is replaced by a zero-sum subgame (matching pennies with payoffs of plus or minus 4), showing that iterated elimination of dominated strategies in the normal form does not by itself yield backwards induction.
+
+Player I chooses T, which ends the game, or continue; he then chooses M or B, and II, not told which, chooses L or R. After B and L, I chooses T or B in the subgame, and II, not told which, chooses L or R. Any dominance relation appears only after the zero-sum subgame has been replaced by its value; all strategies are undominated in the normal form, so the whole strategy space is persistent, and the equilibrium (T,R) with payoffs (2,2) survives that procedure. The unique strategically stable set is (M,L) with payoffs (3,3)."
+
+p "" 1 1 "" { "T" "continue" } 0
+t "" 1 "" { 2, 2 }
+p "" 1 2 "" { "M" "B" } 0
+p "" 2 1 "" { "L" "R" } 0
+t "" 2 "" { 3, 3 }
+t "" 3 "" { 0, 0 }
+p "" 2 1 "" { "L" "R" } 0
+p "" 1 3 "" { "T" "B" } 0
+p "" 2 2 "" { "L" "R" } 0
+t "" 4 "" { 4, -4 }
+t "" 5 "" { -4, 4 }
+p "" 2 2 "" { "L" "R" } 0
+t "" 6 "" { -4, 4 }
+t "" 7 "" { 4, -4 }
+t "" 8 "" { 1, 1 }

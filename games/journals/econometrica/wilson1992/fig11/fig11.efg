@@ -1,0 +1,20 @@
+EFG 2 R "Wilson (1992), Figure 11: The Caterpillar Game" { "Player 1" "Player 2" }
+"A centipede-like game in which the equilibrium component where Player 1 uses only a is stable even though the graph of dual perturbations covered by its equilibria folds over itself: the covered regions form a cycle AD, B, CD, D, AD, so that region D is covered three times.
+
+Players 1 and 2 alternate, Player 1 moving first, with seven decision nodes. At each of the first six the mover stops (Player 1 with a, b, c; Player 2 with e, f, g) or continues; at the last node Player 1 stops with d or continues, giving (3,6). Player 2's third decision node has actions g and h, where h is the continuing move; in the paper's figure h is printed on the continuing branch after g, which is read here as the label of Player 2's strategy of never stopping. Player 1's continuing moves are unlabeled in the paper and are called continue here."
+
+p "" 1 1 "" { "a" "continue" } 0
+t "" 1 "" { 1, 1 }
+p "" 2 1 "" { "e" "continue" } 0
+t "" 2 "" { 0, 3 }
+p "" 1 2 "" { "b" "continue" } 0
+t "" 3 "" { 2, 2 }
+p "" 2 2 "" { "f" "continue" } 0
+t "" 4 "" { 1, 4 }
+p "" 1 3 "" { "c" "continue" } 0
+t "" 5 "" { 3, 3 }
+p "" 2 3 "" { "g" "h" } 0
+t "" 6 "" { 2, 5 }
+p "" 1 4 "" { "d" "continue" } 0
+t "" 7 "" { 4, 4 }
+t "" 8 "" { 3, 6 }

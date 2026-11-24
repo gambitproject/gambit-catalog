@@ -1,0 +1,12 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 12" { "I" "II" }
+"A perfect-information game showing that a single-valued concept of strategic stability cannot require an equilibrium to stay stable after deletion of an inferior response. The unique backwards induction equilibrium is (T,R), with payoffs (2,0); but when the inferior response B is deleted (Figure 13), the unique backwards induction equilibrium is (M,L), with payoffs (3,1). The unique stable set of this game includes (T,(1/2,1/2)), at which B is not an inferior response.
+
+Player I chooses T, which ends the game, or continue; player II then chooses L, which ends the game, or R; player I then chooses M or B."
+
+p "" 1 1 "" { "T" "continue" } 0
+t "" 1 "" { 2, 0 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 2 "" { 3, 1 }
+p "" 1 2 "" { "M" "B" } 0
+t "" 3 "" { 0, 0 }
+t "" 4 "" { 1, 2 }

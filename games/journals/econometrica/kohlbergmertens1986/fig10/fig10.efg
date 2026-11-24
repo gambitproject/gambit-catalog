@@ -1,0 +1,14 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 10" { "I" "II" }
+"A presentation of the game :math:`\Delta` showing that stable sets need not satisfy backwards induction. The set of equilibria containing (T,(1/4,3/4)) and (T,(3/4,1/4)) is stable, but in this presentation the unique sequential equilibrium is (T,(1/2,1/2)).
+
+Player I chooses T, which ends the game with payoffs (1,-1), or continue; he then chooses M or B; player II, not told which, chooses L or R. The payoffs are those of the matrix game :math:`\Delta`."
+
+p "" 1 1 "" { "T" "continue" } 0
+t "" 1 "" { 1, -1 }
+p "" 1 2 "" { "M" "B" } 0
+p "" 2 1 "" { "L" "R" } 0
+t "" 2 "" { 2, -2 }
+t "" 3 "" { -2, 2 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 4 "" { -2, 2 }
+t "" 5 "" { 2, -2 }

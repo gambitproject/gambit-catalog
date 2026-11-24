@@ -1,0 +1,23 @@
+player 1 name A
+player 2 name B
+level 0 node 1 player 0
+level 4 node 2 player 1 xshift -6 from 1 move wimp~(\frac{1}{10})
+level 8 node 3 xshift -3 from 2 move beer
+level 12 node 4 xshift -2 from 3 move duel payoffs 0 1
+level 12 node 5 xshift 0 from 3 move don't payoffs 2 0
+level 12 node 6 xshift 2 from 3 move give~1M payoffs 1000002 -999999
+level 10 node 7 xshift 3 from 2 move quiche
+level 12 node 8 xshift -2 from 7 move duel payoffs 1 1
+level 12 node 9 xshift 0 from 7 move don't payoffs 3 0
+level 12 node 10 xshift 2 from 7 move give~1M payoffs 1000003 -1000000
+level 6 node 11 player 1 xshift 6 from 1 move surly~(\frac{9}{10})
+level 8 node 12 xshift -3 from 11 move beer
+level 12 node 13 xshift -2 from 12 move duel payoffs 1 0
+level 12 node 14 xshift 0 from 12 move don't payoffs 3 1
+level 12 node 15 xshift 2 from 12 move give~1M payoffs 1000003 -1000000
+level 10 node 16 xshift 3 from 11 move quiche
+level 12 node 17 xshift -2 from 16 move duel payoffs 0 0
+level 12 node 18 xshift 0 from 16 move don't payoffs 2 1
+level 12 node 19 xshift 2 from 16 move give~1M payoffs 1000002 -999999
+iset 3 12 player 2
+iset 7 16 player 2

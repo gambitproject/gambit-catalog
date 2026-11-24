@@ -1,0 +1,10 @@
+NFG 1 R "Yamamoto (1993), Example" { "Player 1" "Player 2" }
+
+{ { "1" "2" "3" }
+{ "1" "2" "3" }
+}
+"A bimatrix game for which a path-following procedure finds a proper equilibrium; each player has three strategies. It is a slight modification of a bimatrix game of Myerson (1978), and differs from a symmetric game in the single cell where Player 1 plays strategy 3 and Player 2 plays strategy 2, which pays (-7, -6).
+
+Strategies are numbered 1 to 3 as in the paper."
+
+1 1 0 0 -9 -9 0 0 0 0 -7 -6 -9 -9 -7 -7 -7 -7

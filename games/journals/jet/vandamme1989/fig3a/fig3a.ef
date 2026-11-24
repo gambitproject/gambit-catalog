@@ -1,0 +1,9 @@
+player 1 name Player~1
+player 2 name Player~2
+level 0 node 1 player 1
+level 4 node 2 xshift -1.75 from 1 move D payoffs 1 -1
+level 6 node 3 player 2 xshift 1.75 from 1 move A
+level 8 node 4 xshift -1.5 from 3 move d payoffs 0 0
+level 10 node 5 player 1 xshift 1.5 from 3 move a
+level 12 node 6 xshift -1 from 5 move delta payoffs 2 -2
+level 12 node 7 xshift 1 from 5 move alpha payoffs -2 2

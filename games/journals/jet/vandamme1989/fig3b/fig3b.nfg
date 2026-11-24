@@ -1,0 +1,18 @@
+NFG 1 R "van Damme (1989), Figure 3(b)" { "Player 1" "Player 2" }
+
+{ { "D" "delta" "alpha" }
+{ "d" "a" }
+}
+"Reduced normal form of the zero-sum game of Figure 3(a). Player 1 plays D in every Nash equilibrium, so the subgame perfect equilibrium in which player 2 then plays d if reached relies on player 2 believing that player 1 would play delta rather than alpha. The unique stable set contains both (D,d) and (D, a mixture of d and a) for player 2, so a stable set can contain more outcomes than survive iterated elimination of dominated strategies.
+
+Player 1's strategies are D, and delta or alpha at the second node after A and a; the labels are the paper's."
+
+{
+{ "" 1, -1 }
+{ "" 0, 0 }
+{ "" 0, 0 }
+{ "" 1, -1 }
+{ "" 2, -2 }
+{ "" -2, 2 }
+}
+1 2 3 4 5 6

@@ -1,0 +1,20 @@
+player 1 name Weak
+player 2 name Strong
+player 3 name Entrant
+level 0 node 1 player 0
+level 4 node 2 player 1 xshift -4 from 1 move W~(\frac{1}{10})
+level 8 node 3 xshift -2 from 2 move s
+level 12 node 4 xshift -1 from 3 move f payoffs -3 0 1
+level 12 node 5 xshift 1 from 3 move r payoffs -1 0 0
+level 10 node 6 xshift 2 from 2 move w
+level 12 node 7 xshift -1 from 6 move f payoffs -2 0 1
+level 12 node 8 xshift 1 from 6 move r payoffs 0 0 0
+level 6 node 9 player 2 xshift 4 from 1 move S~(\frac{9}{10})
+level 8 node 10 xshift -2 from 9 move s
+level 12 node 11 xshift -1 from 10 move f payoffs 0 -2 -1
+level 12 node 12 xshift 1 from 10 move r payoffs 0 0 0
+level 10 node 13 xshift 2 from 9 move w
+level 12 node 14 xshift -1 from 13 move f payoffs 0 -3 -1
+level 12 node 15 xshift 1 from 13 move r payoffs 0 -1 0
+iset 3 10 player 3
+iset 6 13 player 3

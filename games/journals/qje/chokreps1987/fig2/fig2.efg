@@ -1,0 +1,28 @@
+EFG 2 R "Cho and Kreps (1987), Figure II" { "A" "B" }
+"A variation of the Beer-Quiche game of Figure I in which B has a third option, to give A
+$1,000,000. Giving away the million is always a dominated strategy for B, so the set of equilibria
+is unchanged. But the option defeats the specific argument against the equilibrium in which both
+types have quiche: after an out-of-equilibrium meal of beer, B can no longer rule out that the
+wimp sent it, since the wimp too could conceivably benefit from the defection. The prior (wimp 0.1,
+surly 0.9) and the duel and don't payoffs are those of Figure I. The action labelled give 1M is the
+paper's give $1M."
+
+c "" 1 "" { "wimp" 1/10 "surly" 9/10 } 0
+p "" 1 1 "" { "beer" "quiche" } 0
+p "" 2 1 "" { "duel" "don't" "give 1M" } 0
+t "" 1 "" { 0, 1 }
+t "" 2 "" { 2, 0 }
+t "" 3 "" { 1000002, -999999 }
+p "" 2 2 "" { "duel" "don't" "give 1M" } 0
+t "" 4 "" { 1, 1 }
+t "" 5 "" { 3, 0 }
+t "" 6 "" { 1000003, -1000000 }
+p "" 1 2 "" { "beer" "quiche" } 0
+p "" 2 1 "" { "duel" "don't" "give 1M" } 0
+t "" 7 "" { 1, 0 }
+t "" 8 "" { 3, 1 }
+t "" 9 "" { 1000003, -1000000 }
+p "" 2 2 "" { "duel" "don't" "give 1M" } 0
+t "" 10 "" { 0, 0 }
+t "" 11 "" { 2, 1 }
+t "" 12 "" { 1000002, -999999 }

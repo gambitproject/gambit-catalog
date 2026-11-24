@@ -1,0 +1,21 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 7 (alpha = 1/2)" { "I" "II" }
+"The tree :math:`\Delta(\alpha)`, which has the same reduced normal form as the matrix game :math:`\Delta` for every :math:`0 \le \alpha \le 1`, used to show that the requirement of sequentiality in every equivalent tree may be impossible to satisfy: its unique sequential equilibrium has player II choosing L with probability :math:`(4-3\alpha)/(8-4\alpha)`, which depends on :math:`\alpha`, although all these trees are equivalent.
+
+Player I chooses T, which ends the game with payoffs (1,-1), or X; he then chooses coin, M or B. Choosing coin gives the move to nature, which ends the game with payoffs (1,-1) with probability :math:`\alpha` (action T) and otherwise leads to II's information set (action M, with probability :math:`1-\alpha`). Player II chooses L or R without being told which position he is in.
+
+The paper leaves :math:`\alpha` free; this file uses :math:`\alpha = 1/2`, an example value chosen for this entry within the paper's range :math:`0 \le \alpha \le 1`. Player II's probability of L in the unique sequential equilibrium is then 5/12."
+
+p "" 1 1 "" { "T" "X" } 0
+t "" 1 "" { 1, -1 }
+p "" 1 2 "" { "coin" "M" "B" } 0
+c "" 1 "" { "T" 1/2 "M" 1/2 } 0
+t "" 2 "" { 1, -1 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 3 "" { 2, -2 }
+t "" 4 "" { -2, 2 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 5 "" { 2, -2 }
+t "" 6 "" { -2, 2 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 7 "" { -2, 2 }
+t "" 8 "" { 2, -2 }

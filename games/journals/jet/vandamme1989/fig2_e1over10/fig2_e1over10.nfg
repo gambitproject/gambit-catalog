@@ -1,0 +1,20 @@
+NFG 1 R "van Damme (1989), Figure 2 (epsilon = 1/10)" { "Player 1" "Player 2" }
+
+{ { "ls" "lw" "rs" "rw" }
+{ "s" "w" }
+}
+"The normal form of the game of Figure 1(b) (the outside option l against the battle of the sexes) when player 1's plan l is perturbed in the extensive form: with probability :math:`\epsilon` player 1 mistakenly chooses r, after which the planned choice s or w is played in the battle of the sexes. Strategy ls means plan l and, if r is chosen by mistake, s; likewise lw, rs and rw. Then ls and lw are no longer equivalent, and for every :math:`\epsilon > 0` the profile (lw,s) is a strict, hence stable, equilibrium. It corresponds to the perfect but unstable equilibrium in which player 1 takes l, so perfectness with independent mistakes and Kohlberg-Mertens stability differ.
+
+The paper leaves :math:`\epsilon` a small positive number; this file uses :math:`\epsilon = 1/10`, an example value chosen for this entry. The paper prints the entries of the l rows as expressions in :math:`\epsilon`."
+
+{
+{ "" 9/5, 9/2 }
+{ "" 19/10, 24/5 }
+{ "" 0, 0 }
+{ "" 1, 3 }
+{ "" 21/10, 23/5 }
+{ "" 9/5, 9/2 }
+{ "" 3, 1 }
+{ "" 0, 0 }
+}
+1 2 3 4 5 6 7 8

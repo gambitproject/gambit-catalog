@@ -1,0 +1,18 @@
+NFG 1 R "Kohlberg and Mertens (1986), Figure 9 (normal form)" { "I" "II" }
+
+{ { "T" "B" }
+{ "L" "R" "Z" }
+}
+"The normal form of a variant of the game of Figure 8, showing that fully stable equilibrium does not satisfy admissibility: the unique fully stable set is the full interval from (T,L) to (T,R), but only (T,L) is admissible.
+
+Player II's strategy Z is Z at the first move; L and R are continue at the first move followed by L or R."
+
+{
+{ "" 2 2 }
+{ "" 1 1 }
+{ "" 2 2 }
+{ "" 0 0 }
+{ "" 0 0 }
+{ "" 0 0 }
+}
+1 2 3 4 5 6

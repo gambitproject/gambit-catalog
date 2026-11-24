@@ -1,0 +1,21 @@
+NFG 1 R "van Damme (1989), Figure 4(b)" { "Player 1" "Player 2" }
+
+{ { "l" "rT" "rB" }
+{ "L" "M" "R" }
+}
+"Reduced normal form of a game in which player 1 chooses between an outside option l, with payoffs (2,2), and r, after which player 1 and player 2 play a 2 x 3 simultaneous-move subgame (player 1 chooses T or B, player 2 chooses L, M or R); strategy rT means r followed by T. The paper also draws the tree schematically (Figure 4(a)), with the subgame as a matrix; it is not entered.
+
+The paper uses the game to show that a stable equilibrium need not be self-enforcing. By a forward induction argument only (rT,L), a strict equilibrium, is self-enforcing, since choosing the subgame signals that player 1 will play T. Yet the equilibrium component in which player 1 chooses l with probability one, with outcome (2,2), is also stable."
+
+{
+{ "" 2, 2 }
+{ "" 3, 3 }
+{ "" 0, 0 }
+{ "" 2, 2 }
+{ "" 0, 2 }
+{ "" 3, 2 }
+{ "" 2, 2 }
+{ "" 3, 0 }
+{ "" 0, 3 }
+}
+1 2 3 4 5 6 7 8 9

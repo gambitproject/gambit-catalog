@@ -1,0 +1,40 @@
+EFG 2 R "Harsanyi (1968), Section 9, counterexample" { "Player 1" "Player 2" }
+"A two-person zero-sum Bayesian game that shows that the optimal strategy of a player need not
+have the maximin property in terms of his conditional payoffs. The structure is that of Section 9
+(attribute classes a1, a2 for Player 1 and b1, b2 for Player 2, each player knowing only his own),
+with the four payoff matrices of the paper and all four pairs of classes having probability 0.25.
+Payoffs are to Player 1, with Player 2 receiving the negative. The pure saddle points of the
+matrices are (y2,z2) for (a1,b1), (y2,z1) for (a1,b2), (y1,z1) for (a2,b1) and (y1,z2) for
+(a2,b2). The only saddle point of the normal form is (y11,z11), in which Player 1 plays y1 in both
+classes and Player 2 plays z1 in both. In class a1 Player 1's best reply to z11 is y1, but y2
+maximizes his security level in terms of his conditional payoffs."
+
+c "" 1 "" { "(a1,b1)" 1/4 "(a1,b2)" 1/4 "(a2,b1)" 1/4 "(a2,b2)" 1/4 } 0
+p "" 1 1 "" { "y1" "y2" } 0
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 1 "" { 8, -8 }
+t "" 2 "" { -8, 8 }
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 3 "" { 0, 0 }
+t "" 4 "" { -4, 4 }
+p "" 1 1 "" { "y1" "y2" } 0
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 5 "" { -4, 4 }
+t "" 6 "" { 8, -8 }
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 7 "" { 0, 0 }
+t "" 8 "" { 12, -12 }
+p "" 1 2 "" { "y1" "y2" } 0
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 9 "" { -8, 8 }
+t "" 10 "" { 12, -12 }
+p "" 2 1 "" { "z1" "z2" } 0
+t "" 11 "" { -12, 12 }
+t "" 12 "" { 16, -16 }
+p "" 1 2 "" { "y1" "y2" } 0
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 13 "" { 4, -4 }
+t "" 14 "" { -4, 4 }
+p "" 2 2 "" { "z1" "z2" } 0
+t "" 15 "" { 0, 0 }
+t "" 16 "" { -8, 8 }

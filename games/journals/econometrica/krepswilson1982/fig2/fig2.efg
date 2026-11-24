@@ -1,0 +1,12 @@
+EFG 2 R "Kreps and Wilson (1982), Figure 2" { "Player 1" "Player 2" }
+"A perfect-information game used to motivate subgame perfection. Player 1 chooses L, which ends
+the game, or R, after which Player 2 chooses l or r. The profile in which Player 1 plays L and
+Player 2 plays l is a Nash equilibrium that is not subgame perfect: Player 2's choice is
+irrelevant as long as Player 1 plays L, but in the proper subgame after R Player 2 does better by
+choosing r, and anticipating this Player 1 should choose R."
+
+p "" 1 1 "" { "L" "R" } 0
+t "" 1 "" { 1, 1 }
+p "" 2 1 "" { "l" "r" } 0
+t "" 2 "" { -1, -1 }
+t "" 3 "" { 2, 0 }

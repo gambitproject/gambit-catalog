@@ -1,0 +1,12 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 5" { "I" "II" }
+"A game showing that replacing a subgame by its payoff (a form of backwards induction rationality) is incompatible with admissibility. Player I chooses top or bottom, and in each case player II then moves in a separate information set, choosing between up with payoffs (1,1) and down with payoffs (0,0).
+
+If the top subgame is replaced by a terminal position with payoffs (1,1), admissibility forces I to choose top in any solution; by the same argument he must choose bottom, a contradiction. The same example shows that neither perfect nor proper equilibria satisfy this property."
+
+p "" 1 1 "" { "top" "bottom" } 0
+p "" 2 1 "" { "up" "down" } 0
+t "" 1 "" { 1, 1 }
+t "" 2 "" { 0, 0 }
+p "" 2 2 "" { "up" "down" } 0
+t "" 3 "" { 1, 1 }
+t "" 4 "" { 0, 0 }

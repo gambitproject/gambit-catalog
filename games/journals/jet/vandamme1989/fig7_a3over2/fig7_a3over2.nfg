@@ -1,0 +1,16 @@
+NFG 1 R "van Damme (1989), Figure 7 (a = 3/2)" { "Player 1" "Player 2" }
+
+{ { "s" "w" }
+{ "s" "w" }
+}
+"A modified battle of the sexes in which the payoff to both players from (w,w) is a, used to show that stable paths of the twofold repetition need not alternate between the players' most preferred equilibria. For a < 3 the game has three stable equilibria: (s,w), (w,s), and a completely mixed equilibrium. If 1 < a < 2, then in the twofold repetition the alternating paths between (3,1) and (1,3) are not stable either, so all stable paths involve randomization at stage 1 and all stable equilibria are inefficient. If 2 < a < 5/2, the path (s,w), (s,w) is unstable yet is immune against any convincing deviation in the sense of Osborne.
+
+The paper leaves a general; this file uses a = 3/2, an example value chosen for this entry, in the range 1 < a < 2."
+
+{
+{ "" 0, 0 }
+{ "" 1, 3 }
+{ "" 3, 1 }
+{ "" 3/2, 3/2 }
+}
+1 2 3 4

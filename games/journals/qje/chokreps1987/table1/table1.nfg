@@ -1,0 +1,7 @@
+NFG 1 R "Cho and Kreps (1987), Table I" { "A" "B" } { { "m/m" "m/m'" "m'/m" "m'/m'" } { "r1" "r2" } }
+"The strategic form of the signaling game of Figure III. A strategy of A gives the message sent
+if of type t1 and if of type t2, so m/m' sends m if t1 and m' if t2; B's strategies are the
+responses r1 and r2 to m'. Payoffs are expected payoffs under the prior (t1 0.9, t2 0.1). The
+equilibrium in which A sends m regardless of type and B responds with r1 is the profile (m/m, r1)."
+
+0 0 -0.1 0.1 -0.9 0 -1 0.1 0 0 -0.1 0 0.9 0.9 0.8 0.9

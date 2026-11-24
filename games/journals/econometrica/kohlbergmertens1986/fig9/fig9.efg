@@ -1,0 +1,12 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 9" { "I" "II" }
+"A variant of the game of Figure 8 showing that fully stable equilibrium does not satisfy admissibility either: the unique fully stable set is the full interval from (T,L) to (T,R), but only (T,L) is admissible. For example, (T,R) must be included because it is the unique equilibrium when L is perturbed more than R toward Z.
+
+Player II first chooses Z, which ends the game with payoffs (0,0), or continue; player I then chooses T, which ends the game, or B, which gives II the move again; II then chooses L or R."
+
+p "" 2 1 "" { "Z" "continue" } 0
+t "" 1 "" { 0, 0 }
+p "" 1 1 "" { "T" "B" } 0
+t "" 2 "" { 2, 2 }
+p "" 2 2 "" { "L" "R" } 0
+t "" 3 "" { 1, 1 }
+t "" 4 "" { 0, 0 }

@@ -1,0 +1,8 @@
+NFG 1 R "Winkels (1979)" { "1" "2" }
+
+{ { "1" "2" "3" "4" "5" "6" }
+{ "1" "2" }
+}
+"A degenerate bimatrix game with 12 extreme equilibria, a test case for an algorithm that finds all equilibrium points of a bimatrix game. Player 1 has six strategies and Player 2 has two. This game was transcribed from Gambit's earlier example file and has not been checked against the paper."
+
+1 1 1 0 3 -2 3 4 5/2 -1 5/2 6 3 2 3 -1 1 2 1 -1 5/2 6 5/2 -1

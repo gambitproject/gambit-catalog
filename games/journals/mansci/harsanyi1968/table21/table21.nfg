@@ -1,0 +1,10 @@
+NFG 1 R "Harsanyi (1968), Table 21" { "Player 1" "Player 2" } { { "y11" "y12" "y21" "y22" } { "z11" "z12" "z21" "z22" } }
+"The normal form of the Section 10 Bayesian game, giving Player 1's expected payoff (Player 2
+receives the negative). A strategy y<n><t> of Player 1 plays y<n> if Player 1 is in class a1 and
+y<t> if in a2; a strategy z<u><v> of Player 2 plays z<u> if in b1 and z<v> if in b2. The only saddle
+point is (y21,z21), with value 12.35.
+
+The entry for (y11,z21) is printed as 11.20 and entered as printed, but the payoffs and
+probabilities of the game imply 12.20; every other entry agrees with them."
+
+13.34 -13.34 5.42 -5.42 13.31 -13.31 5.39 -5.39 20.54 -20.54 15.32 -15.32 20.51 -20.51 15.29 -15.29 11.20 -11.20 2.21 -2.21 12.35 -12.35 2.36 -2.36 19.40 -19.40 12.11 -12.11 19.55 -19.55 12.26 -12.26

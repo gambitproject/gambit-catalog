@@ -1,0 +1,9 @@
+NFG 1 R "van der Laan et al. (1987), Appendix, Game 1" { "Player 1" "Player 2" "Player 3" }
+
+{ { "1" "2" }
+{ "1" "2" }
+{ "1" "2" }
+}
+"Loss table used to test the simplicial variable dimension algorithm on a noncooperative game with 3 players who each have 2 pure strategies. The paper gives the game as a table of losses, which each player minimizes; the payoffs here are the negatives of those losses. Strategies are numbered 1 to 2 as in the paper."
+
+-1 -4 -4 -8 -2 -4 -8 -2 -1 -2 -1 -2 -2 -2 -8 -8 -1 -2 -5 -6 -8 -2 -3 -1

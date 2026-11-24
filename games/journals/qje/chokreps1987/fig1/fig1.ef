@@ -1,0 +1,19 @@
+player 1 name A
+player 2 name B
+level 0 node 1 player 0
+level 4 node 2 player 1 xshift -4 from 1 move wimp~(\frac{1}{10})
+level 8 node 3 xshift -2 from 2 move beer
+level 12 node 4 xshift -1 from 3 move duel payoffs 0 1
+level 12 node 5 xshift 1 from 3 move don't payoffs 2 0
+level 10 node 6 xshift 2 from 2 move quiche
+level 12 node 7 xshift -1 from 6 move duel payoffs 1 1
+level 12 node 8 xshift 1 from 6 move don't payoffs 3 0
+level 6 node 9 player 1 xshift 4 from 1 move surly~(\frac{9}{10})
+level 8 node 10 xshift -2 from 9 move beer
+level 12 node 11 xshift -1 from 10 move duel payoffs 1 0
+level 12 node 12 xshift 1 from 10 move don't payoffs 3 1
+level 10 node 13 xshift 2 from 9 move quiche
+level 12 node 14 xshift -1 from 13 move duel payoffs 0 0
+level 12 node 15 xshift 1 from 13 move don't payoffs 2 1
+iset 3 10 player 2
+iset 6 13 player 2

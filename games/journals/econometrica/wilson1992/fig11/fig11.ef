@@ -1,0 +1,17 @@
+player 1 name Player~1
+player 2 name Player~2
+level 0 node 1 player 1
+level 4 node 2 xshift -1.984375 from 1 move a payoffs 1 1
+level 6 node 3 player 2 xshift 1.984375 from 1 move continue
+level 8 node 4 xshift -1.96875 from 3 move e payoffs 0 3
+level 10 node 5 player 1 xshift 1.96875 from 3 move continue
+level 12 node 6 xshift -1.9375 from 5 move b payoffs 2 2
+level 14 node 7 player 2 xshift 1.9375 from 5 move continue
+level 16 node 8 xshift -1.875 from 7 move f payoffs 1 4
+level 18 node 9 player 1 xshift 1.875 from 7 move continue
+level 20 node 10 xshift -1.75 from 9 move c payoffs 3 3
+level 22 node 11 player 2 xshift 1.75 from 9 move continue
+level 24 node 12 xshift -1.5 from 11 move g payoffs 2 5
+level 26 node 13 player 1 xshift 1.5 from 11 move h
+level 28 node 14 xshift -1 from 13 move d payoffs 4 4
+level 28 node 15 xshift 1 from 13 move continue payoffs 3 6

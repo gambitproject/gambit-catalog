@@ -1,0 +1,22 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 11" { "I" "II" "III" }
+"A three-player game, suggested by Faruk Gul, showing that a stable set can contain equilibria from different connected components of the Nash equilibria and give different payoffs from the unique sequential equilibrium. The set {(T,L,l), (T,R,r)} is stable and gives the payoffs (2,0,0), whereas the unique sequential equilibrium is ((0,1/2,1/2),(1/2,1/2),(1/2,1/2)), with payoffs (11/4,5/4,5/4).
+
+Player I chooses T, which ends the game, or continue; he then chooses M or B. Player II, not told which, chooses L or R, and player III, told neither choice, chooses l or r."
+
+p "" 1 1 "" { "T" "continue" } 0
+t "" 1 "" { 2, 0, 0 }
+p "" 1 2 "" { "M" "B" } 0
+p "" 2 1 "" { "L" "R" } 0
+p "" 3 1 "" { "l" "r" } 0
+t "" 2 "" { 0, 3, 3 }
+t "" 3 "" { 5, 1, 1 }
+p "" 3 1 "" { "l" "r" } 0
+t "" 4 "" { 5, 1, 1 }
+t "" 5 "" { 1, 0, 0 }
+p "" 2 1 "" { "L" "R" } 0
+p "" 3 1 "" { "l" "r" } 0
+t "" 6 "" { 1, 0, 0 }
+t "" 7 "" { 5, 1, 1 }
+p "" 3 1 "" { "l" "r" } 0
+t "" 8 "" { 5, 1, 1 }
+t "" 9 "" { 0, 3, 3 }

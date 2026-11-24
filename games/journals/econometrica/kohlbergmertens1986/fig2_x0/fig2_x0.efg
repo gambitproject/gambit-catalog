@@ -1,0 +1,15 @@
+EFG 2 R "Kohlberg and Mertens (1986), Figure 2 (x = 0)" { "I" "II" }
+"The game :math:`\Gamma(x)`, showing that conformity with backwards induction is necessary but not sufficient for strategic stability. Player I chooses T, which ends the game, M or B; player II, who is not told whether I chose M or B, chooses L or R.
+
+The equilibrium (T,R) with payoffs (2,2) is sequential, but strategically unstable: B is strictly dominated by T, so if II has to move he should infer that I played M, hence play L, and I should then deviate to M; the unique strategically stable equilibrium is (M,L) with payoffs (3,3). The paper notes that (T,R) is also proper here. The Nash equilibria form two connected components: the singleton (M,L) with payoffs (3,3), and the interval from (T,R) to (T,(2/3,1/3)), with payoffs (2,2).
+
+The parameter x is 0 in this file, the game written :math:`\Gamma(0)` in the paper; the paper allows any :math:`x \le 2`, and uses :math:`1 < x \le 2` in its main discussion."
+
+p "" 1 1 "" { "T" "M" "B" } 0
+t "" 1 "" { 2, 2 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 2 "" { 3, 3 }
+t "" 3 "" { 0, 0 }
+p "" 2 1 "" { "L" "R" } 0
+t "" 4 "" { 0, 0 }
+t "" 5 "" { 1, 1 }
