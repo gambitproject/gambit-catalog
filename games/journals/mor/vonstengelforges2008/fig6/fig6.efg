@@ -1,7 +1,5 @@
-EFG 2 R "Figure 6 from von Stengel and Forges (2008)" { "1" "2" }
-"
-Figure 6 from :cite:p:`vSF08`.
-This game has perfect recall and no chance moves, yet it has a circular precedence structure among
+EFG 2 R "von Stengel and Forges (2008), Figure 6" { "1" "2" }
+"A game with perfect recall and no chance moves which nonetheless has a circular precedence structure among
 the information sets of the two players. The payoffs are not important.
 "
 

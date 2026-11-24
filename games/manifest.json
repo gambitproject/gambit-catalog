@@ -1,11 +1,11 @@
 {
-  "schema_version": 0,
+  "schema_version": 1,
   "catalog_version": "0.2.0",
   "games": [
     {
       "slug": "books/myerson1991/fig2_1",
-      "title": "A simple Poker game",
-      "description": "This is a simple game of one-card poker from (Myerson 1991), used as the\nintroductory example for game models.\n\nNote that as specified in the text, the game has the slightly unusual feature\nthat folding with the high (red) card results in the player winning rather than\nlosing.\n\nSee also (Reiley et al. 2008)\n   Another one-card poker game where folding with the high card is a loss rather\n   than a win.",
+      "title": "Myerson (1991), Figure 2.1",
+      "description": "A simple game of one-card poker, used as the introductory example for game models.\n\nNote that as specified in the text, the game has the slightly unusual feature\nthat folding with the high (red) card results in the player winning rather than\nlosing.\n\nSee also (Reiley et al. 2008)\n   Another one-card poker game where folding with the high card is a loss rather\n   than a win.",
       "format": "efg",
       "game": "books/myerson1991/fig2_1/fig2_1.efg",
       "drawings": [
@@ -15,16 +15,25 @@
           "path": "books/myerson1991/fig2_1/fig2_1.ef"
         }
       ],
-      "category": "Books",
-      "group": "Myerson (1991) — Game Theory: Analysis of Conflict",
+      "source": {
+        "key": "Mye91",
+        "locator": "Figure 2.1",
+        "citation": "Myerson (1991)",
+        "authors": [
+          "R. Myerson"
+        ],
+        "year": 1991,
+        "title": "Game Theory: Analysis of Conflict",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": true,
       "n_strategies": 6
     },
     {
       "slug": "books/myerson1991/fig4_2",
-      "title": "Myerson (1991) Figure 4.2",
-      "description": "An example from (Myerson 1991) which illustrates the distinction between\nan equilibrium of an extensive form game and an equilibrium of its\n(multi)agent representation.  The actions B1, Z1, and W2 form a\nbehavior profile which is an equilibrium in the (multi)agent\nrepresentation.  However, it is not a Nash equilibrium of the extensive\ngame, because Player 1 would prefer to switch from (B1, Z1) to\n(A1, Y1); the (multi)agent representation rules out such coordinated\ndeviations across information sets.",
+      "title": "Myerson (1991), Figure 4.2",
+      "description": "An example which illustrates the distinction between\nan equilibrium of an extensive form game and an equilibrium of its\n(multi)agent representation.  The actions B1, Z1, and W2 form a\nbehavior profile which is an equilibrium in the (multi)agent\nrepresentation.  However, it is not a Nash equilibrium of the extensive\ngame, because Player 1 would prefer to switch from (B1, Z1) to\n(A1, Y1); the (multi)agent representation rules out such coordinated\ndeviations across information sets.",
       "format": "efg",
       "game": "books/myerson1991/fig4_2/fig4_2.efg",
       "drawings": [
@@ -34,16 +43,26 @@
           "path": "books/myerson1991/fig4_2/fig4_2.ef"
         }
       ],
-      "category": "Books",
-      "group": "Myerson (1991) — Game Theory: Analysis of Conflict",
+      "source": {
+        "key": "Mye91",
+        "locator": "Figure 4.2",
+        "citation": "Myerson (1991)",
+        "authors": [
+          "R. Myerson"
+        ],
+        "year": 1991,
+        "title": "Game Theory: Analysis of Conflict",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 5
     },
     {
       "slug": "books/shohamleytonbrown2008/fig5_1",
-      "title": "Fig 5.1 from Shoham and Leyton-Brown (2008)",
-      "description": "Figure 5.1 from (Shoham and Leyton-Brown 2008).\nThis is a sharing game. Imagine a brother and sister sharing two indivisible and identical presents\nfrom their parents. First the brother suggests a split, which can be one of three: he\nkeeps both, she keeps both, or they each keep one. Then the sister chooses whether\nto accept or reject the split. If she accepts they each get their allocated present(s),\nand otherwise neither gets any gift.",
+      "title": "Shoham and Leyton-Brown (2008), Figure 5.1: Sharing game",
+      "name": "Sharing game",
+      "description": "Imagine a brother and sister sharing two indivisible and identical presents\nfrom their parents. First the brother suggests a split, which can be one of three: he\nkeeps both, she keeps both, or they each keep one. Then the sister chooses whether\nto accept or reject the split. If she accepts they each get their allocated present(s),\nand otherwise neither gets any gift.",
       "format": "efg",
       "game": "books/shohamleytonbrown2008/fig5_1/fig5_1.efg",
       "drawings": [
@@ -58,16 +77,26 @@
           "path": "books/shohamleytonbrown2008/fig5_1/fig5_1__original_layout.ef"
         }
       ],
-      "category": "Books",
-      "group": "Shoham and Leyton-Brown (2008) — Multiagent Systems, Algorithmic, Game-Theoretic, and Logical Foundations",
+      "source": {
+        "key": "ShoLeyB08",
+        "locator": "Figure 5.1",
+        "citation": "Shoham and Leyton-Brown (2008)",
+        "authors": [
+          "Y. Shoham",
+          "K. Leyton-Brown"
+        ],
+        "year": 2008,
+        "title": "Multiagent systems: Algorithmic, game-theoretic, and logical foundations",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 11
     },
     {
       "slug": "books/shohamleytonbrown2008/fig5_10",
-      "title": "Fig 5.10 from Shoham and Leyton-Brown (2008)",
-      "description": "Figure 5.10 from (Shoham and Leyton-Brown 2008).\nThis is an example of an imperfect-information game.",
+      "title": "Shoham and Leyton-Brown (2008), Figure 5.10",
+      "description": "An imperfect-information game in which player 1 moves again without observing player 2's choice.",
       "format": "efg",
       "game": "books/shohamleytonbrown2008/fig5_10/fig5_10.efg",
       "drawings": [
@@ -82,16 +111,27 @@
           "path": "books/shohamleytonbrown2008/fig5_10/fig5_10__original_layout.ef"
         }
       ],
-      "category": "Books",
-      "group": "Shoham and Leyton-Brown (2008) — Multiagent Systems, Algorithmic, Game-Theoretic, and Logical Foundations",
+      "source": {
+        "key": "ShoLeyB08",
+        "locator": "Figure 5.10",
+        "citation": "Shoham and Leyton-Brown (2008)",
+        "authors": [
+          "Y. Shoham",
+          "K. Leyton-Brown"
+        ],
+        "year": 2008,
+        "title": "Multiagent systems: Algorithmic, game-theoretic, and logical foundations",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 5
     },
     {
       "slug": "books/shohamleytonbrown2008/fig5_11",
-      "title": "Fig 5.11 from Shoham and Leyton-Brown (2008)",
-      "description": "Figure 5.11 from (Shoham and Leyton-Brown 2008).\nThe Prisoner's Dilemma game in extensive form.",
+      "title": "Shoham and Leyton-Brown (2008), Figure 5.11: Prisoner's Dilemma",
+      "name": "Prisoner's Dilemma",
+      "description": "The Prisoner's Dilemma in extensive form.",
       "format": "efg",
       "game": "books/shohamleytonbrown2008/fig5_11/fig5_11.efg",
       "drawings": [
@@ -106,16 +146,26 @@
           "path": "books/shohamleytonbrown2008/fig5_11/fig5_11__original_layout.ef"
         }
       ],
-      "category": "Books",
-      "group": "Shoham and Leyton-Brown (2008) — Multiagent Systems, Algorithmic, Game-Theoretic, and Logical Foundations",
+      "source": {
+        "key": "ShoLeyB08",
+        "locator": "Figure 5.11",
+        "citation": "Shoham and Leyton-Brown (2008)",
+        "authors": [
+          "Y. Shoham",
+          "K. Leyton-Brown"
+        ],
+        "year": 2008,
+        "title": "Multiagent systems: Algorithmic, game-theoretic, and logical foundations",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 4
     },
     {
       "slug": "books/shohamleytonbrown2008/fig5_12",
-      "title": "Fig 5.12 from Shoham and Leyton-Brown (2008)",
-      "description": "Figure 5.12 from (Shoham and Leyton-Brown 2008).\nA game with imperfect recall, in particular absent-mindedness.",
+      "title": "Shoham and Leyton-Brown (2008), Figure 5.12",
+      "description": "A game with imperfect recall, in particular absent-mindedness.",
       "format": "efg",
       "game": "books/shohamleytonbrown2008/fig5_12/fig5_12.efg",
       "drawings": [
@@ -130,16 +180,26 @@
           "path": "books/shohamleytonbrown2008/fig5_12/fig5_12__original_layout.ef"
         }
       ],
-      "category": "Books",
-      "group": "Shoham and Leyton-Brown (2008) — Multiagent Systems, Algorithmic, Game-Theoretic, and Logical Foundations",
+      "source": {
+        "key": "ShoLeyB08",
+        "locator": "Figure 5.12",
+        "citation": "Shoham and Leyton-Brown (2008)",
+        "authors": [
+          "Y. Shoham",
+          "K. Leyton-Brown"
+        ],
+        "year": 2008,
+        "title": "Multiagent systems: Algorithmic, game-theoretic, and logical foundations",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 4
     },
     {
       "slug": "books/shohamleytonbrown2008/fig5_15",
-      "title": "Fig 5.15 from Shoham and Leyton-Brown (2008)",
-      "description": "Figure 5.15 from (Shoham and Leyton-Brown 2008).\nA game with imperfect information.\nThis example shows how a requirement that a substrategy be a best response in\nall subgames is too simplistic for defining SPE in games with imperfect information.",
+      "title": "Shoham and Leyton-Brown (2008), Figure 5.15",
+      "description": "A game with imperfect information.\nThis example shows how a requirement that a substrategy be a best response in\nall subgames is too simplistic for defining SPE in games with imperfect information.",
       "format": "efg",
       "game": "books/shohamleytonbrown2008/fig5_15/fig5_15.efg",
       "drawings": [
@@ -154,16 +214,26 @@
           "path": "books/shohamleytonbrown2008/fig5_15/fig5_15__original_layout.ef"
         }
       ],
-      "category": "Books",
-      "group": "Shoham and Leyton-Brown (2008) — Multiagent Systems, Algorithmic, Game-Theoretic, and Logical Foundations",
+      "source": {
+        "key": "ShoLeyB08",
+        "locator": "Figure 5.15",
+        "citation": "Shoham and Leyton-Brown (2008)",
+        "authors": [
+          "Y. Shoham",
+          "K. Leyton-Brown"
+        ],
+        "year": 2008,
+        "title": "Multiagent systems: Algorithmic, game-theoretic, and logical foundations",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 5
     },
     {
       "slug": "books/shohamleytonbrown2008/fig5_2",
-      "title": "Fig 5.2 from Shoham and Leyton-Brown (2008)",
-      "description": "Figure 5.2 from (Shoham and Leyton-Brown 2008).\nThis is an example of a perfect-information game in extensive form.",
+      "title": "Shoham and Leyton-Brown (2008), Figure 5.2",
+      "description": "A perfect-information game with a Nash equilibrium that is not subgame perfect.",
       "format": "efg",
       "game": "books/shohamleytonbrown2008/fig5_2/fig5_2.efg",
       "drawings": [
@@ -178,16 +248,27 @@
           "path": "books/shohamleytonbrown2008/fig5_2/fig5_2__original_layout.ef"
         }
       ],
-      "category": "Books",
-      "group": "Shoham and Leyton-Brown (2008) — Multiagent Systems, Algorithmic, Game-Theoretic, and Logical Foundations",
+      "source": {
+        "key": "ShoLeyB08",
+        "locator": "Figure 5.2",
+        "citation": "Shoham and Leyton-Brown (2008)",
+        "authors": [
+          "Y. Shoham",
+          "K. Leyton-Brown"
+        ],
+        "year": 2008,
+        "title": "Multiagent systems: Algorithmic, game-theoretic, and logical foundations",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 7
     },
     {
       "slug": "books/shohamleytonbrown2008/fig5_9",
-      "title": "Fig 5.9 from Shoham and Leyton-Brown (2008)",
-      "description": "Figure 5.9 from (Shoham and Leyton-Brown 2008).\nThis is the centipede game. In this game two players alternate in making decisions, at each\nturn choosing between going down and ending the game or going across and\ncontinuing it.\nThis example is used to explain the criticisms of backward induction for finding subgame-perfect equilibrium.\nNote that centipede is also a parametrized game, with the parameter being the number of rounds.",
+      "title": "Shoham and Leyton-Brown (2008), Figure 5.9: Centipede game",
+      "name": "Centipede game",
+      "description": "Two players alternate in making decisions, at each\nturn choosing between going down and ending the game or going across and\ncontinuing it.\nThis example is used to explain the criticisms of backward induction for finding subgame-perfect equilibrium.\nNote that centipede is also a parametrized game, with the parameter being the number of rounds.",
       "format": "efg",
       "game": "books/shohamleytonbrown2008/fig5_9/fig5_9.efg",
       "drawings": [
@@ -202,16 +283,26 @@
           "path": "books/shohamleytonbrown2008/fig5_9/fig5_9__original_layout.ef"
         }
       ],
-      "category": "Books",
-      "group": "Shoham and Leyton-Brown (2008) — Multiagent Systems, Algorithmic, Game-Theoretic, and Logical Foundations",
+      "source": {
+        "key": "ShoLeyB08",
+        "locator": "Figure 5.9",
+        "citation": "Shoham and Leyton-Brown (2008)",
+        "authors": [
+          "Y. Shoham",
+          "K. Leyton-Brown"
+        ],
+        "year": 2008,
+        "title": "Multiagent systems: Algorithmic, game-theoretic, and logical foundations",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 7
     },
     {
       "slug": "books/shohamleytonbrown2008/fig6_2",
-      "title": "Fig 6.2 from Shoham and Leyton-Brown (2008)",
-      "description": "Figure 6.2 from (Shoham and Leyton-Brown 2008).\nThis is a repeated game, where Prisoner's Dilemma is played twice.",
+      "title": "Shoham and Leyton-Brown (2008), Figure 6.2",
+      "description": "A repeated game, in which the Prisoner's Dilemma is played twice.",
       "format": "efg",
       "game": "books/shohamleytonbrown2008/fig6_2/fig6_2.efg",
       "drawings": [
@@ -226,16 +317,26 @@
           "path": "books/shohamleytonbrown2008/fig6_2/fig6_2__original_layout.ef"
         }
       ],
-      "category": "Books",
-      "group": "Shoham and Leyton-Brown (2008) — Multiagent Systems, Algorithmic, Game-Theoretic, and Logical Foundations",
+      "source": {
+        "key": "ShoLeyB08",
+        "locator": "Figure 6.2",
+        "citation": "Shoham and Leyton-Brown (2008)",
+        "authors": [
+          "Y. Shoham",
+          "K. Leyton-Brown"
+        ],
+        "year": 2008,
+        "title": "Multiagent systems: Algorithmic, game-theoretic, and logical foundations",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 16
     },
     {
       "slug": "books/shohamleytonbrown2008/fig6_8",
-      "title": "Fig 6.8 from Shoham and Leyton-Brown (2008)",
-      "description": "Figure 6.8 from (Shoham and Leyton-Brown 2008).\nThis is a Bayesian game, represented in EFG with Nature deciding the types.",
+      "title": "Shoham and Leyton-Brown (2008), Figure 6.8",
+      "description": "A Bayesian game, represented in extensive form with chance choosing the players' types.",
       "format": "efg",
       "game": "books/shohamleytonbrown2008/fig6_8/fig6_8.efg",
       "drawings": [
@@ -250,16 +351,26 @@
           "path": "books/shohamleytonbrown2008/fig6_8/fig6_8__original_layout.ef"
         }
       ],
-      "category": "Books",
-      "group": "Shoham and Leyton-Brown (2008) — Multiagent Systems, Algorithmic, Game-Theoretic, and Logical Foundations",
+      "source": {
+        "key": "ShoLeyB08",
+        "locator": "Figure 6.8",
+        "citation": "Shoham and Leyton-Brown (2008)",
+        "authors": [
+          "Y. Shoham",
+          "K. Leyton-Brown"
+        ],
+        "year": 2008,
+        "title": "Multiagent systems: Algorithmic, game-theoretic, and logical foundations",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 8
     },
     {
       "slug": "books/vonstengel2022/fig10.1",
-      "title": "Figure 10.1 from von Stengel (2022)",
-      "description": "Figure 10.1 from (von Stengel 2022).\nIt is essentially a type of poker game.\nIts description as a competition between software firms is due to\n(Turocy and von Stengel 2002).",
+      "title": "von Stengel (2022), Figure 10.1",
+      "description": "Essentially a type of poker game.\nIts description as a competition between software firms is due to\n(Turocy and von Stengel 2002).",
       "format": "efg",
       "game": "books/vonstengel2022/fig10.1/fig10.1.efg",
       "drawings": [
@@ -269,16 +380,25 @@
           "path": "books/vonstengel2022/fig10.1/fig10.1.ef"
         }
       ],
-      "category": "Books",
-      "group": "von Stengel (2022) — Game Theory Basics",
+      "source": {
+        "key": "vS22",
+        "locator": "Figure 10.1",
+        "citation": "von Stengel (2022)",
+        "authors": [
+          "B. von Stengel"
+        ],
+        "year": 2022,
+        "title": "Game Theory Basics",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": true,
       "n_strategies": 6
     },
     {
       "slug": "books/vonstengel2022/fig10.12",
-      "title": "Figure 10.12 from von Stengel (2022)",
-      "description": "Figure 10.12 from (von Stengel 2022).\nIt refers to a non-standard version of the Monty Hall problem where the television show host Monty\nHall has the option of opening another door without a prize to the contestant (player I), rather\nthan opening such a door all the time. Its purpose is to demonstrate a whole convex set of optimal\nstrategies for player II.",
+      "title": "von Stengel (2022), Figure 10.12",
+      "description": "A non-standard version of the Monty Hall problem, in which the television show host Monty\nHall has the option of opening another door without a prize to the contestant (player I), rather\nthan opening such a door all the time. Its purpose is to demonstrate a whole convex set of optimal\nstrategies for player II.",
       "format": "efg",
       "game": "books/vonstengel2022/fig10.12/fig10.12.efg",
       "drawings": [
@@ -288,16 +408,25 @@
           "path": "books/vonstengel2022/fig10.12/fig10.12.ef"
         }
       ],
-      "category": "Books",
-      "group": "von Stengel (2022) — Game Theory Basics",
+      "source": {
+        "key": "vS22",
+        "locator": "Figure 10.12",
+        "citation": "von Stengel (2022)",
+        "authors": [
+          "B. von Stengel"
+        ],
+        "year": 2022,
+        "title": "Game Theory Basics",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": true,
       "n_strategies": 6
     },
     {
       "slug": "books/vonstengel2022/fig10.5",
-      "title": "Figure 10.5 from von Stengel (2022)",
-      "description": "Figure 10.5 from (von Stengel 2022).\nPlayer II has four reduced strategies in this game, compared to eight unreduced strategies.",
+      "title": "von Stengel (2022), Figure 10.5",
+      "description": "Player II has four reduced strategies in this game, compared to eight unreduced strategies.",
       "format": "efg",
       "game": "books/vonstengel2022/fig10.5/fig10.5.efg",
       "drawings": [
@@ -307,16 +436,25 @@
           "path": "books/vonstengel2022/fig10.5/fig10.5.ef"
         }
       ],
-      "category": "Books",
-      "group": "von Stengel (2022) — Game Theory Basics",
+      "source": {
+        "key": "vS22",
+        "locator": "Figure 10.5",
+        "citation": "von Stengel (2022)",
+        "authors": [
+          "B. von Stengel"
+        ],
+        "year": 2022,
+        "title": "Game Theory Basics",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 6
     },
     {
       "slug": "books/vonstengel2022/fig10.7",
-      "title": "Figure 10.7 from von Stengel (2022)",
-      "description": "Figure 10.7 from (von Stengel 2022).\nIt is a game with imperfect recall, but it has the same strategic form as the game in Figure 10.5\nfrom the same book.\nOne equilibrium strategy of player II as computed from the strategic form is not realization\nequivalent to any behavior strategy, namely the mixed strategy (0, 2/5, 3/5, 0)\nfor (la, lb, ra, rb).",
+      "title": "von Stengel (2022), Figure 10.7",
+      "description": "A game with imperfect recall which has the same strategic form as the game in Figure 10.5\nof the same book.\nOne equilibrium strategy of player II as computed from the strategic form is not realization\nequivalent to any behavior strategy, namely the mixed strategy (0, 2/5, 3/5, 0)\nfor (la, lb, ra, rb).",
       "format": "efg",
       "game": "books/vonstengel2022/fig10.7/fig10.7.efg",
       "drawings": [
@@ -326,16 +464,25 @@
           "path": "books/vonstengel2022/fig10.7/fig10.7.ef"
         }
       ],
-      "category": "Books",
-      "group": "von Stengel (2022) — Game Theory Basics",
+      "source": {
+        "key": "vS22",
+        "locator": "Figure 10.7",
+        "citation": "von Stengel (2022)",
+        "authors": [
+          "B. von Stengel"
+        ],
+        "year": 2022,
+        "title": "Game Theory Basics",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 6
     },
     {
       "slug": "books/watson2013/exercise29_6",
-      "title": "Princess Bride signaling game (from Watson)",
-      "description": "This game is Exercise 29.6 from Watson (Watson 2013), based on a scene from\nthe Rob Reiner film, The Princess Bride:\n\nWesley (the protagonist) confronts the evil prince Humperdinck.  Wesley\nis one of two types: weak or strong.  Wesley knows whether he is weak or\nstrong, but the prince only knows that he is weak with probability 1/2 and\nstrong with probability 1/2.  Wesley is lying in a bed in the prince's\ncastle when the prince enters the room.  Wesley decides whether to get out\nof bed or stay in bed.  The prince observes Wesley's action but does not\nobserve Wesley's type.  The prince then decides whether to fight or\nsurrender to Wesley.  The payoffs are such that the prince prefers to fight\nonly with the weak Wesley, because otherwise the prince is an inferior\nswordsman.  Also, the weak Wesley must pay a cost to get out of bed.\n\nIn the game in this file, the cost the weak Wesley pays to get out of bed\nis set to 2.",
+      "title": "Watson (2013), Exercise 29.6",
+      "description": "A signaling game based on a scene from the Rob Reiner film, The Princess Bride:\n\nWesley (the protagonist) confronts the evil prince Humperdinck.  Wesley\nis one of two types: weak or strong.  Wesley knows whether he is weak or\nstrong, but the prince only knows that he is weak with probability 1/2 and\nstrong with probability 1/2.  Wesley is lying in a bed in the prince's\ncastle when the prince enters the room.  Wesley decides whether to get out\nof bed or stay in bed.  The prince observes Wesley's action but does not\nobserve Wesley's type.  The prince then decides whether to fight or\nsurrender to Wesley.  The payoffs are such that the prince prefers to fight\nonly with the weak Wesley, because otherwise the prince is an inferior\nswordsman.  Also, the weak Wesley must pay a cost to get out of bed.\n\nIn the game in this file, the cost the weak Wesley pays to get out of bed\nis set to 2.",
       "format": "efg",
       "game": "books/watson2013/exercise29_6/exercise29_6.efg",
       "drawings": [
@@ -345,16 +492,25 @@
           "path": "books/watson2013/exercise29_6/exercise29_6.ef"
         }
       ],
-      "category": "Books",
-      "group": "Watson (2013) — Strategy: An Introduction to Game Theory",
+      "source": {
+        "key": "Wat13",
+        "locator": "Exercise 29.6",
+        "citation": "Watson (2013)",
+        "authors": [
+          "J. Watson"
+        ],
+        "year": 2013,
+        "title": "Strategy: An Introduction to Game Theory",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 8
     },
     {
       "slug": "books/watson2013/fig29_1",
-      "title": "Job-market signaling game (version from Watson)",
-      "description": "This is a version of Spence's classic model of education being a job-market\nsignal, as presented in Figure 29.1 of Watson (Watson 2013).",
+      "title": "Watson (2013), Figure 29.1",
+      "description": "A version of Spence's classic model of education as a job-market signal.",
       "format": "efg",
       "game": "books/watson2013/fig29_1/fig29_1.efg",
       "drawings": [
@@ -364,16 +520,25 @@
           "path": "books/watson2013/fig29_1/fig29_1.ef"
         }
       ],
-      "category": "Books",
-      "group": "Watson (2013) — Strategy: An Introduction to Game Theory",
+      "source": {
+        "key": "Wat13",
+        "locator": "Figure 29.1",
+        "citation": "Watson (2013)",
+        "authors": [
+          "J. Watson"
+        ],
+        "year": 2013,
+        "title": "Strategy: An Introduction to Game Theory",
+        "kind": "book"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 8
     },
     {
       "slug": "conf/itcs/jakobsen2016/fig1a",
-      "title": "Jakobsen, Sorensen, Conitzer (2016) Figure 1(a)",
-      "description": "An example from (Jakobsen et al. 2016) illustrating a game\nthat is not exactly timeable.  A coin toss determines which player moves first.\nEach player guesses whether she went first, without distinguishing going first from going second.\nEach player receives a payoff of 1 for a correct guess and 0 otherwise.\nNo deterministic or randomized timing can implement this game without leaking information.",
+      "title": "Jakobsen et al. (2016), Figure 1(a)",
+      "description": "A game that is not exactly timeable.  A coin toss determines which player moves first.\nEach player guesses whether she went first, without distinguishing going first from going second.\nEach player receives a payoff of 1 for a correct guess and 0 otherwise.\nNo deterministic or randomized timing can implement this game without leaking information.",
       "format": "efg",
       "game": "conf/itcs/jakobsen2016/fig1a/fig1a.efg",
       "drawings": [
@@ -383,16 +548,28 @@
           "path": "conf/itcs/jakobsen2016/fig1a/fig1a.ef"
         }
       ],
-      "category": "Conferences",
-      "group": "Jakobsen et al. (2016)",
+      "source": {
+        "key": "JakSorCon16",
+        "locator": "Figure 1(a)",
+        "citation": "Jakobsen et al. (2016)",
+        "authors": [
+          "S. K. Jakobsen",
+          "T. B. Sørensen",
+          "V. Conitzer"
+        ],
+        "year": 2016,
+        "title": "Timeability of Extensive-Form Games",
+        "kind": "inproceedings",
+        "venue": "Proceedings of the Seventh Innovations in Theoretical Computer Science Conference"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 4
     },
     {
       "slug": "conf/itcs/jakobsen2016/fig1b",
-      "title": "Jakobsen, Sorensen, Conitzer (2016) Figure 1(b)",
-      "description": "An example from (Jakobsen et al. 2016) illustrating a game\nthat has an exact deterministic timing.  A coin toss determines the flow of the game;\nplayer 1 only plays if the coin comes up Heads, and if so plays first.\nPlayer 2 always plays, but cannot distinguish whether the coin came up Heads or Tails.\nEach player receives a payoff of 1 for a correct guess and 0 otherwise.\nThis game can be timed by letting player 1 play at time 1 and player 2 at time 2.",
+      "title": "Jakobsen et al. (2016), Figure 1(b)",
+      "description": "A game that has an exact deterministic timing.  A coin toss determines the flow of the game;\nplayer 1 only plays if the coin comes up Heads, and if so plays first.\nPlayer 2 always plays, but cannot distinguish whether the coin came up Heads or Tails.\nEach player receives a payoff of 1 for a correct guess and 0 otherwise.\nThis game can be timed by letting player 1 play at time 1 and player 2 at time 2.",
       "format": "efg",
       "game": "conf/itcs/jakobsen2016/fig1b/fig1b.efg",
       "drawings": [
@@ -402,16 +579,28 @@
           "path": "conf/itcs/jakobsen2016/fig1b/fig1b.ef"
         }
       ],
-      "category": "Conferences",
-      "group": "Jakobsen et al. (2016)",
+      "source": {
+        "key": "JakSorCon16",
+        "locator": "Figure 1(b)",
+        "citation": "Jakobsen et al. (2016)",
+        "authors": [
+          "S. K. Jakobsen",
+          "T. B. Sørensen",
+          "V. Conitzer"
+        ],
+        "year": 2016,
+        "title": "Timeability of Extensive-Form Games",
+        "kind": "inproceedings",
+        "venue": "Proceedings of the Seventh Innovations in Theoretical Computer Science Conference"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 4
     },
     {
       "slug": "conf/itcs/jakobsen2016/fig1c",
-      "title": "Jakobsen, Sorensen, Conitzer (2016) Figure 1(c)",
-      "description": "An example from (Jakobsen et al. 2016) illustrating a game\nthat is not exactly timeable. A coin toss determines the order of players.\nThe player moving second is only offered a bet if the player moving first guessed correctly.\nEach player receives a payoff of 1 for a correct guess and 0 otherwise.\nNo deterministic or randomized timing can implement this game without leaking information.",
+      "title": "Jakobsen et al. (2016), Figure 1(c)",
+      "description": "A game that is not exactly timeable. A coin toss determines the order of players.\nThe player moving second is only offered a bet if the player moving first guessed correctly.\nEach player receives a payoff of 1 for a correct guess and 0 otherwise.\nNo deterministic or randomized timing can implement this game without leaking information.",
       "format": "efg",
       "game": "conf/itcs/jakobsen2016/fig1c/fig1c.efg",
       "drawings": [
@@ -421,16 +610,28 @@
           "path": "conf/itcs/jakobsen2016/fig1c/fig1c.ef"
         }
       ],
-      "category": "Conferences",
-      "group": "Jakobsen et al. (2016)",
+      "source": {
+        "key": "JakSorCon16",
+        "locator": "Figure 1(c)",
+        "citation": "Jakobsen et al. (2016)",
+        "authors": [
+          "S. K. Jakobsen",
+          "T. B. Sørensen",
+          "V. Conitzer"
+        ],
+        "year": 2016,
+        "title": "Timeability of Extensive-Form Games",
+        "kind": "inproceedings",
+        "venue": "Proceedings of the Seventh Innovations in Theoretical Computer Science Conference"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 4
     },
     {
       "slug": "conf/itcs/jakobsen2016/fig3",
-      "title": "Jakobsen, Sorensen, Conitzer (2016) Figure 3",
-      "description": "An example from (Jakobsen et al. 2016) illustrating\nthe extensive form of an onion routing game that is not exactly timeable.\nChance chooses a sender by drawing a signal from {0, 1, 2, 3} with equal probability.\nThe sender does not make a strategic choice; only the two intermediary players act.\nFor signal i:\n(a) the sender is the player whose index (mod 4) equals i,\n(b) the recipient is the player whose index (mod 4) equals i-1.\nThe first intermediary is Player i+2 (mod 4) and the second is Player i+1.\nThe full mapping is as follows:\nSignal 0: Player 4 sends to Player 3.  Player 2 acts first, then Player 1.\nSignal 1: Player 1 sends to Player 4.  Player 3 acts first, then Player 2.\nSignal 2: Player 2 sends to Player 1.  Player 4 acts first, then Player 3.\nSignal 3: Player 3 sends to Player 2.  Player 1 acts first, then Player 4.\nEach player has one information set with two member nodes, that is, they cannot distinguish which position they are at.\nEach intermediary chooses to either forward the envelope or obstruct by keeping it.\nEach player wants to obstruct the protocol if they are the first intermediary, but wants to help if they are the second.\nIf both intermediaries forward, the message is delivered.\nIn that case, the first intermediary receives -1 and the second intermediary receives 1+epsilon.\nAll other players receive 0.\nIf either intermediary obstructs, the message is not delivered and all players receive 0.\nWith epsilon set to 0.01, the payoffs for successful delivery are:\nSignal 0: (1.01, -1, 0, 0).\nSignal 1: (0, 1.01, -1, 0).\nSignal 2: (0, 0, 1.01, -1).\nSignal 3: (-1, 0, 0, 1.01).",
+      "title": "Jakobsen et al. (2016), Figure 3",
+      "description": "The extensive form of an onion routing game that is not exactly timeable.\nChance chooses a sender by drawing a signal from {0, 1, 2, 3} with equal probability.\nThe sender does not make a strategic choice; only the two intermediary players act.\nFor signal i:\n(a) the sender is the player whose index (mod 4) equals i,\n(b) the recipient is the player whose index (mod 4) equals i-1.\nThe first intermediary is Player i+2 (mod 4) and the second is Player i+1.\nThe full mapping is as follows:\nSignal 0: Player 4 sends to Player 3.  Player 2 acts first, then Player 1.\nSignal 1: Player 1 sends to Player 4.  Player 3 acts first, then Player 2.\nSignal 2: Player 2 sends to Player 1.  Player 4 acts first, then Player 3.\nSignal 3: Player 3 sends to Player 2.  Player 1 acts first, then Player 4.\nEach player has one information set with two member nodes, that is, they cannot distinguish which position they are at.\nEach intermediary chooses to either forward the envelope or obstruct by keeping it.\nEach player wants to obstruct the protocol if they are the first intermediary, but wants to help if they are the second.\nIf both intermediaries forward, the message is delivered.\nIn that case, the first intermediary receives -1 and the second intermediary receives 1+epsilon.\nAll other players receive 0.\nIf either intermediary obstructs, the message is not delivered and all players receive 0.\nWith epsilon set to 0.01, the payoffs for successful delivery are:\nSignal 0: (1.01, -1, 0, 0).\nSignal 1: (0, 1.01, -1, 0).\nSignal 2: (0, 0, 1.01, -1).\nSignal 3: (-1, 0, 0, 1.01).",
       "format": "efg",
       "game": "conf/itcs/jakobsen2016/fig3/fig3.efg",
       "drawings": [
@@ -440,42 +641,594 @@
           "path": "conf/itcs/jakobsen2016/fig3/fig3.ef"
         }
       ],
-      "category": "Conferences",
-      "group": "Jakobsen et al. (2016)",
+      "source": {
+        "key": "JakSorCon16",
+        "locator": "Figure 3",
+        "citation": "Jakobsen et al. (2016)",
+        "authors": [
+          "S. K. Jakobsen",
+          "T. B. Sørensen",
+          "V. Conitzer"
+        ],
+        "year": 2016,
+        "title": "Timeability of Extensive-Form Games",
+        "kind": "inproceedings",
+        "venue": "Proceedings of the Seventh Innovations in Theoretical Computer Science Conference"
+      },
       "n_players": 4,
       "is_const_sum": false,
       "n_strategies": 8
     },
     {
+      "slug": "journals/aer/seltenchmura2008/game1",
+      "title": "Selten and Chmura (2008), Game 1",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game1/game1.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 1",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game10",
+      "title": "Selten and Chmura (2008), Game 10",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game10/game10.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 10",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game11",
+      "title": "Selten and Chmura (2008), Game 11",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game11/game11.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 11",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game12",
+      "title": "Selten and Chmura (2008), Game 12",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game12/game12.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 12",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game2",
+      "title": "Selten and Chmura (2008), Game 2",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game2/game2.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 2",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game3",
+      "title": "Selten and Chmura (2008), Game 3",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game3/game3.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 3",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game4",
+      "title": "Selten and Chmura (2008), Game 4",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game4/game4.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 4",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game5",
+      "title": "Selten and Chmura (2008), Game 5",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game5/game5.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 5",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game6",
+      "title": "Selten and Chmura (2008), Game 6",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game6/game6.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 6",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game7",
+      "title": "Selten and Chmura (2008), Game 7",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game7/game7.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 7",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game8",
+      "title": "Selten and Chmura (2008), Game 8",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game8/game8.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 8",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/aer/seltenchmura2008/game9",
+      "title": "Selten and Chmura (2008), Game 9",
+      "description": "One of a set of 12 games intended to investigate experimentally differences in\npredictions among five stationary concepts: Nash equilibrium, quantal response equilibrium,\naction-sampling equilibrium, payoff-sampling equilibrium, and impulse-balance equilibrium.",
+      "format": "nfg",
+      "game": "journals/aer/seltenchmura2008/game9/game9.nfg",
+      "drawings": [],
+      "source": {
+        "key": "Sel08",
+        "locator": "Game 9",
+        "citation": "Selten and Chmura (2008)",
+        "authors": [
+          "R. Selten",
+          "T. Chmura"
+        ],
+        "year": 2008,
+        "title": "Stationary concepts for experimental 2x2-games",
+        "kind": "article",
+        "venue": "American Economic Review"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
       "slug": "journals/dcg/vonstengel1999/6x6_game_with_75_eq",
-      "title": "von Stengel's 6x6 bimatrix game with 75 equilibria",
-      "description": "The example from (von Stengel 1997) as referenced in (von Stengel 1999).\nIt is a 6x6 bimatrix game with 75 equilibria,\nwhich is more than the previously conjectured bound of :math:`2^6 - 1 = 63`.",
+      "title": "von Stengel (1999)",
+      "description": "A 6x6 bimatrix game with 75 equilibria,\nwhich is more than the previously conjectured bound of :math:`2^6 - 1 = 63`.\nThe example first appeared in (von Stengel 1997).",
       "format": "nfg",
       "game": "journals/dcg/vonstengel1999/6x6_game_with_75_eq/6x6_game_with_75_eq.nfg",
       "drawings": [],
-      "category": "Journals",
-      "group": "von Stengel (1999)",
+      "source": {
+        "key": "vS99",
+        "citation": "von Stengel (1999)",
+        "authors": [
+          "B. von Stengel"
+        ],
+        "year": 1999,
+        "title": "New Maximal Numbers of Equilibria in Bimatrix Games",
+        "kind": "article",
+        "venue": "Discrete Comput. Geom."
+      },
+      "origin": {
+        "key": "vS97",
+        "citation": "von Stengel (1997)",
+        "authors": [
+          "B. von Stengel"
+        ],
+        "year": 1997,
+        "title": "New lower bounds for the number of equilibria in bimatrix games",
+        "kind": "techreport"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 12
     },
     {
       "slug": "journals/dcg/vonstengel1999/6x6_game_with_75_eq_small_payoffs",
-      "title": "von Stengel's 6x6 bimatrix game with 75 equilibria (small payoffs)",
-      "description": "Taken from (Savani and von Stengel 2006), this version has much smaller payoffs than the original version from\n(von Stengel 1997) and referenced in (von Stengel 1999), which is also in this folder of the catalog.\nIt is a 6x6 bimatrix game with 75 equilibria,\nwhich is more than the previously conjectured bound of :math:`2^6 - 1 = 63`.",
+      "title": "Savani and von Stengel (2006)",
+      "description": "A version of the 6x6 bimatrix game with 75 equilibria of (von Stengel 1997) and (von Stengel 1999),\nwith much smaller payoffs than the original, which is also in this folder of the catalog.\n75 equilibria is more than the previously conjectured bound of :math:`2^6 - 1 = 63`.",
       "format": "nfg",
       "game": "journals/dcg/vonstengel1999/6x6_game_with_75_eq_small_payoffs/6x6_game_with_75_eq_small_payoffs.nfg",
       "drawings": [],
-      "category": "Journals",
-      "group": "von Stengel (1999)",
+      "source": {
+        "key": "SvS06",
+        "citation": "Savani and von Stengel (2006)",
+        "authors": [
+          "R. Savani",
+          "B. von Stengel"
+        ],
+        "year": 2006,
+        "title": "Hard-to-Solve Bimatrix Games",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "origin": {
+        "key": "vS99",
+        "citation": "von Stengel (1999)",
+        "authors": [
+          "B. von Stengel"
+        ],
+        "year": 1999,
+        "title": "New Maximal Numbers of Equilibria in Bimatrix Games",
+        "kind": "article",
+        "venue": "Discrete Comput. Geom.",
+        "note": "payoffs made much smaller"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 12
     },
     {
+      "slug": "journals/econometrica/mckelveypalfrey1992/fig1",
+      "title": "McKelvey and Palfrey (1992), Figure 1: Centipede game",
+      "name": "Centipede game",
+      "description": "A 4-move centipede game, reanalyzed using agent quantal response equilibrium in (McKelvey and Palfrey 1998).",
+      "format": "efg",
+      "game": "journals/econometrica/mckelveypalfrey1992/fig1/fig1.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/mckelveypalfrey1992/fig1/fig1.ef"
+        }
+      ],
+      "source": {
+        "key": "McKPal92",
+        "locator": "Figure 1",
+        "citation": "McKelvey and Palfrey (1992)",
+        "authors": [
+          "R. D. McKelvey",
+          "T. R. Palfrey"
+        ],
+        "year": 1992,
+        "title": "An experimental study of the centipede game",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/econometrica/mckelveypalfrey1992/fig2",
+      "title": "McKelvey and Palfrey (1992), Figure 2: Centipede game",
+      "name": "Centipede game",
+      "description": "A 6-move centipede game, reanalyzed using agent quantal response equilibrium in (McKelvey and Palfrey 1998).",
+      "format": "efg",
+      "game": "journals/econometrica/mckelveypalfrey1992/fig2/fig2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/mckelveypalfrey1992/fig2/fig2.ef"
+        }
+      ],
+      "source": {
+        "key": "McKPal92",
+        "locator": "Figure 2",
+        "citation": "McKelvey and Palfrey (1992)",
+        "authors": [
+          "R. D. McKelvey",
+          "T. R. Palfrey"
+        ],
+        "year": 1992,
+        "title": "An experimental study of the centipede game",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/econometrica/mckelveypalfrey1992/fig8_4move",
+      "title": "McKelvey and Palfrey (1992), Figure 8 (4-move game): Centipede game",
+      "name": "Centipede game",
+      "description": "The 4-move centipede game, extended with the incomplete-information\naltruism model: each player is independently a rational payoff-maximizer with probability\n19/20, or an altruist who always chooses PASS with probability 1/20. This\nfixed parameterization is kept as an illustrative example, since Gambit's file\nformats do not yet support symbolic payoffs or probabilities.",
+      "format": "efg",
+      "game": "journals/econometrica/mckelveypalfrey1992/fig8_4move/fig8_4move.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/mckelveypalfrey1992/fig8_4move/fig8_4move.ef"
+        }
+      ],
+      "source": {
+        "key": "McKPal92",
+        "locator": "Figure 8 (4-move game)",
+        "citation": "McKelvey and Palfrey (1992)",
+        "authors": [
+          "R. D. McKelvey",
+          "T. R. Palfrey"
+        ],
+        "year": 1992,
+        "title": "An experimental study of the centipede game",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/econometrica/mckelveypalfrey1992/fig8_4move_nfg",
+      "title": "McKelvey and Palfrey (1992), Figure 8 (4-move game, reduced normal form): Centipede game",
+      "name": "Centipede game",
+      "description": "Reduced normal form of the 4-move centipede game with the\nincomplete-information altruism model, with each player independently altruistic with probability 1/20.\nThis fixed parameterization is kept as an illustrative example, since Gambit's\nfile formats do not yet support symbolic payoffs or probabilities.",
+      "format": "nfg",
+      "game": "journals/econometrica/mckelveypalfrey1992/fig8_4move_nfg/fig8_4move_nfg.nfg",
+      "drawings": [],
+      "source": {
+        "key": "McKPal92",
+        "locator": "Figure 8 (4-move game, reduced normal form)",
+        "citation": "McKelvey and Palfrey (1992)",
+        "authors": [
+          "R. D. McKelvey",
+          "T. R. Palfrey"
+        ],
+        "year": 1992,
+        "title": "An experimental study of the centipede game",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/econometrica/mckelveypalfrey1992/fig8_6move",
+      "title": "McKelvey and Palfrey (1992), Figure 8 (6-move game): Centipede game",
+      "name": "Centipede game",
+      "description": "The 6-move centipede game, extended with the incomplete-information\naltruism model: each player is independently a rational payoff-maximizer with probability\n99/100, or an altruist who always chooses PASS with probability 1/100. This\nfixed parameterization is kept as an illustrative example, since Gambit's file\nformats do not yet support symbolic payoffs or probabilities.",
+      "format": "efg",
+      "game": "journals/econometrica/mckelveypalfrey1992/fig8_6move/fig8_6move.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/econometrica/mckelveypalfrey1992/fig8_6move/fig8_6move.ef"
+        }
+      ],
+      "source": {
+        "key": "McKPal92",
+        "locator": "Figure 8 (6-move game)",
+        "citation": "McKelvey and Palfrey (1992)",
+        "authors": [
+          "R. D. McKelvey",
+          "T. R. Palfrey"
+        ],
+        "year": 1992,
+        "title": "An experimental study of the centipede game",
+        "kind": "article",
+        "venue": "Econometrica"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/expecon/mckelveypalfrey1998/fig1a",
+      "title": "McKelvey and Palfrey (1998), Figure 1(a): Chainstore paradox",
+      "name": "Chainstore paradox",
+      "description": "The one-shot chainstore paradox stage game (sequential version). Player 1 is the entrant (N = Not Enter,\nE = Enter) and player 2 is the incumbent (F = Fight, A = Acquiesce).",
+      "format": "efg",
+      "game": "journals/expecon/mckelveypalfrey1998/fig1a/fig1a.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/expecon/mckelveypalfrey1998/fig1a/fig1a.ef"
+        }
+      ],
+      "source": {
+        "key": "McKPal98",
+        "locator": "Figure 1(a)",
+        "citation": "McKelvey and Palfrey (1998)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1998,
+        "title": "Quantal response equilibria for extensive form games",
+        "kind": "article",
+        "venue": "Experimental Economics"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/expecon/mckelveypalfrey1998/fig1b",
+      "title": "McKelvey and Palfrey (1998), Figure 1(b): Chainstore paradox",
+      "name": "Chainstore paradox",
+      "description": "The 'strategic' version of the one-shot chainstore paradox stage game: the incumbent (player 2) must\ncommit to Fight or Acquiesce without observing the entrant's move, represented\nhere as a single information set spanning both of the entrant's actions. This\ngame is strategically equivalent to the sequential version in Figure 1(a), and\nis used to illustrate the sensitivity of the logit agent quantal response\nequilibrium correspondence to a game's extensive-form representation.",
+      "format": "efg",
+      "game": "journals/expecon/mckelveypalfrey1998/fig1b/fig1b.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/expecon/mckelveypalfrey1998/fig1b/fig1b.ef"
+        }
+      ],
+      "source": {
+        "key": "McKPal98",
+        "locator": "Figure 1(b)",
+        "citation": "McKelvey and Palfrey (1998)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1998,
+        "title": "Quantal response equilibria for extensive form games",
+        "kind": "article",
+        "venue": "Experimental Economics"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
       "slug": "journals/geb/bagwell1995",
-      "title": "Bagwell (GEB 1995) commitment and (un)observability",
-      "description": "This is a Stackelberg-type game with imperfectly observed commitment, following the\nanalysis of (Bagwell 1995).  The outcomes and payoffs are the same as in Bagwell's\nmodel.  This example sets the probability that the follower 'correctly' observes the\nleader's action as .99 (99/100).  The key result is that the only pure-strategy\nequilibrium that survives if observability is imperfect is the one in which players\nchoose the actions that would form an equilibrium if the game was a *simultaneous-move*\ngame.  There is an equilibrium in which the 'Stackelberg' action is played with high\nprobability, but strictly less than one.",
+      "title": "Bagwell (1995)",
+      "description": "A Stackelberg-type game with imperfectly observed commitment.\nThe outcomes and payoffs are the same as in Bagwell's\nmodel.  This example sets the probability that the follower 'correctly' observes the\nleader's action as .99 (99/100).  The key result is that the only pure-strategy\nequilibrium that survives if observability is imperfect is the one in which players\nchoose the actions that would form an equilibrium if the game was a *simultaneous-move*\ngame.  There is an equilibrium in which the 'Stackelberg' action is played with high\nprobability, but strictly less than one.",
       "format": "efg",
       "game": "journals/geb/bagwell1995/bagwell1995.efg",
       "drawings": [
@@ -485,16 +1238,274 @@
           "path": "journals/geb/bagwell1995/bagwell1995.ef"
         }
       ],
-      "category": "Journals",
-      "group": "Games and Economic Behavior (GEB)",
+      "source": {
+        "key": "Bag1995",
+        "citation": "Bagwell (1995)",
+        "authors": [
+          "K. Bagwell"
+        ],
+        "year": 1995,
+        "title": "Commitment and observability in games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 6
     },
     {
+      "slug": "journals/geb/bankscamererporter1994/game1",
+      "title": "Banks et al. (1994), Game 1",
+      "description": "A sender-receiver signaling game with a unique Bayes-Nash equilibrium (a pooling equilibrium), used as\na baseline test of Nash behavior.",
+      "format": "efg",
+      "game": "journals/geb/bankscamererporter1994/game1/game1.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/bankscamererporter1994/game1/game1.ef"
+        }
+      ],
+      "source": {
+        "key": "BanCamPor94",
+        "locator": "Game 1",
+        "citation": "Banks et al. (1994)",
+        "authors": [
+          "J. Banks",
+          "C. Camerer",
+          "D. Porter"
+        ],
+        "year": 1994,
+        "title": "An Experimental Analysis of Nash Refinements in Signaling Games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 36
+    },
+    {
+      "slug": "journals/geb/bankscamererporter1994/game10",
+      "title": "Banks et al. (1994), Game 10",
+      "description": "A sender-receiver signaling game. The authors\noriginally believed this game had a unique separating Nash equilibrium, but a\nreferee found a second separating equilibrium (plus a continuum of nearby\nmixed-strategy equilibria); the authors report this game but do not analyze it\nfurther, restricting their main analysis to games with pooling equilibria.",
+      "format": "efg",
+      "game": "journals/geb/bankscamererporter1994/game10/game10.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/bankscamererporter1994/game10/game10.ef"
+        }
+      ],
+      "source": {
+        "key": "BanCamPor94",
+        "locator": "Game 10",
+        "citation": "Banks et al. (1994)",
+        "authors": [
+          "J. Banks",
+          "C. Camerer",
+          "D. Porter"
+        ],
+        "year": 1994,
+        "title": "An Experimental Analysis of Nash Refinements in Signaling Games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 36
+    },
+    {
+      "slug": "journals/geb/bankscamererporter1994/game2",
+      "title": "Banks et al. (1994), Game 2",
+      "description": "A sender-receiver signaling game, reanalyzed using agent quantal response equilibrium in (McKelvey and Palfrey 1998).",
+      "format": "efg",
+      "game": "journals/geb/bankscamererporter1994/game2/game2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/bankscamererporter1994/game2/game2.ef"
+        }
+      ],
+      "source": {
+        "key": "BanCamPor94",
+        "locator": "Game 2",
+        "citation": "Banks et al. (1994)",
+        "authors": [
+          "J. Banks",
+          "C. Camerer",
+          "D. Porter"
+        ],
+        "year": 1994,
+        "title": "An Experimental Analysis of Nash Refinements in Signaling Games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 36
+    },
+    {
+      "slug": "journals/geb/bankscamererporter1994/game3",
+      "title": "Banks et al. (1994), Game 3",
+      "description": "A sender-receiver signaling game, reanalyzed using agent quantal response equilibrium in (McKelvey and Palfrey 1998).",
+      "format": "efg",
+      "game": "journals/geb/bankscamererporter1994/game3/game3.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/bankscamererporter1994/game3/game3.ef"
+        }
+      ],
+      "source": {
+        "key": "BanCamPor94",
+        "locator": "Game 3",
+        "citation": "Banks et al. (1994)",
+        "authors": [
+          "J. Banks",
+          "C. Camerer",
+          "D. Porter"
+        ],
+        "year": 1994,
+        "title": "An Experimental Analysis of Nash Refinements in Signaling Games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 36
+    },
+    {
+      "slug": "journals/geb/bankscamererporter1994/game4",
+      "title": "Banks et al. (1994), Game 4",
+      "description": "A sender-receiver signaling game, reanalyzed using agent quantal response equilibrium in (McKelvey and Palfrey 1998).",
+      "format": "efg",
+      "game": "journals/geb/bankscamererporter1994/game4/game4.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/bankscamererporter1994/game4/game4.ef"
+        }
+      ],
+      "source": {
+        "key": "BanCamPor94",
+        "locator": "Game 4",
+        "citation": "Banks et al. (1994)",
+        "authors": [
+          "J. Banks",
+          "C. Camerer",
+          "D. Porter"
+        ],
+        "year": 1994,
+        "title": "An Experimental Analysis of Nash Refinements in Signaling Games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 36
+    },
+    {
+      "slug": "journals/geb/bankscamererporter1994/game5",
+      "title": "Banks et al. (1994), Game 5",
+      "description": "A sender-receiver signaling game used to test the discriminatory power of universal divinity relative to divinity.",
+      "format": "efg",
+      "game": "journals/geb/bankscamererporter1994/game5/game5.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/bankscamererporter1994/game5/game5.ef"
+        }
+      ],
+      "source": {
+        "key": "BanCamPor94",
+        "locator": "Game 5",
+        "citation": "Banks et al. (1994)",
+        "authors": [
+          "J. Banks",
+          "C. Camerer",
+          "D. Porter"
+        ],
+        "year": 1994,
+        "title": "An Experimental Analysis of Nash Refinements in Signaling Games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 36
+    },
+    {
+      "slug": "journals/geb/bankscamererporter1994/game6",
+      "title": "Banks et al. (1994), Game 6",
+      "description": "A sender-receiver signaling game used to test the discriminatory power of the never-a-weak-best-response\n(NWBR) criterion relative to universal divinity.",
+      "format": "efg",
+      "game": "journals/geb/bankscamererporter1994/game6/game6.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/bankscamererporter1994/game6/game6.ef"
+        }
+      ],
+      "source": {
+        "key": "BanCamPor94",
+        "locator": "Game 6",
+        "citation": "Banks et al. (1994)",
+        "authors": [
+          "J. Banks",
+          "C. Camerer",
+          "D. Porter"
+        ],
+        "year": 1994,
+        "title": "An Experimental Analysis of Nash Refinements in Signaling Games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 36
+    },
+    {
+      "slug": "journals/geb/bankscamererporter1994/game7",
+      "title": "Banks et al. (1994), Game 7",
+      "description": "A sender-receiver signaling game used to test the discriminatory power of stability relative to the NWBR\ncriterion.",
+      "format": "efg",
+      "game": "journals/geb/bankscamererporter1994/game7/game7.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/bankscamererporter1994/game7/game7.ef"
+        }
+      ],
+      "source": {
+        "key": "BanCamPor94",
+        "locator": "Game 7",
+        "citation": "Banks et al. (1994)",
+        "authors": [
+          "J. Banks",
+          "C. Camerer",
+          "D. Porter"
+        ],
+        "year": 1994,
+        "title": "An Experimental Analysis of Nash Refinements in Signaling Games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 36
+    },
+    {
       "slug": "journals/geb/gilboa1997/fig1",
-      "title": "Absent-Minded Driver (Gilboa 1997, GEB, Figure 2)",
-      "description": "The original absent-minded driver problem from\n(Gilboa 1997)",
+      "title": "Gilboa (1997), Figure 1: Absent-minded driver",
+      "name": "Absent-minded driver",
+      "description": "The absent-minded driver problem of (Piccione and Rubinstein 1997).",
       "format": "efg",
       "game": "journals/geb/gilboa1997/fig1/fig1.efg",
       "drawings": [
@@ -504,16 +1515,38 @@
           "path": "journals/geb/gilboa1997/fig1/fig1.ef"
         }
       ],
-      "category": "Journals",
-      "group": "Gilboa (1997)",
+      "source": {
+        "key": "Gil97",
+        "locator": "Figure 1",
+        "citation": "Gilboa (1997)",
+        "authors": [
+          "I. Gilboa"
+        ],
+        "year": 1997,
+        "title": "A Comment on the Absent-Minded Driver Paradox",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "origin": {
+        "key": "PicRub97",
+        "citation": "Piccione and Rubinstein (1997)",
+        "authors": [
+          "M. Piccione",
+          "A. Rubinstein"
+        ],
+        "year": 1997,
+        "title": "On the Interpretation of Decision Problems with Imperfect Recall",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
       "n_players": 1,
       "is_const_sum": false,
       "n_strategies": 2
     },
     {
       "slug": "journals/geb/gilboa1997/fig2",
-      "title": "Two-Selves Absent-Minded Driver (Gilboa 1997, GEB, Figure 2)",
-      "description": "A reformulation of the absent-minded driver problem from\n(Gilboa 1997)\nusing a multi-self approach.  A chance move determines the order in which two selves act,\neach facing a binary choice.  Neither self knows the order of play, capturing absent-mindedness\nthrough information sets that cross the chance branches rather than through imperfect recall.",
+      "title": "Gilboa (1997), Figure 2",
+      "description": "A reformulation of the absent-minded driver problem\nusing a multi-self approach.  A chance move determines the order in which two selves act,\neach facing a binary choice.  Neither self knows the order of play, capturing absent-mindedness\nthrough information sets that cross the chance branches rather than through imperfect recall.",
       "format": "efg",
       "game": "journals/geb/gilboa1997/fig2/fig2.efg",
       "drawings": [
@@ -523,16 +1556,494 @@
           "path": "journals/geb/gilboa1997/fig2/fig2.ef"
         }
       ],
-      "category": "Journals",
-      "group": "Gilboa (1997)",
+      "source": {
+        "key": "Gil97",
+        "locator": "Figure 2",
+        "citation": "Gilboa (1997)",
+        "authors": [
+          "I. Gilboa"
+        ],
+        "year": 1997,
+        "title": "A Comment on the Absent-Minded Driver Paradox",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
       "n_players": 1,
       "is_const_sum": false,
       "n_strategies": 4
     },
     {
+      "slug": "journals/geb/mckelveypalfrey1995/lieberman1960",
+      "title": "McKelvey and Palfrey (1995), First example game",
+      "description": "A zero-sum game with data from (Lieberman 1960).",
+      "format": "nfg",
+      "game": "journals/geb/mckelveypalfrey1995/lieberman1960/lieberman1960.nfg",
+      "drawings": [],
+      "source": {
+        "key": "McKPal95",
+        "locator": "First example game",
+        "citation": "McKelvey and Palfrey (1995)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1995,
+        "title": "Quantal response equilibria for normal form games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "origin": {
+        "key": "Lie60",
+        "citation": "Lieberman (1960)",
+        "authors": [
+          "B. Lieberman"
+        ],
+        "year": 1960,
+        "title": "Human behavior in a strictly determined 3x3 matrix game",
+        "kind": "article",
+        "venue": "Behavioral Science"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/geb/mckelveypalfrey1995/ochs1995v1",
+      "title": "McKelvey and Palfrey (1995), Fourth example game (payoff at (A1, B1) = 1)",
+      "description": "A zero-sum game with data from (Ochs 1995).\nThis variant sets the row player's payoff from (A1, B1) to 1.",
+      "format": "nfg",
+      "game": "journals/geb/mckelveypalfrey1995/ochs1995v1/ochs1995v1.nfg",
+      "drawings": [],
+      "source": {
+        "key": "McKPal95",
+        "locator": "Fourth example game (payoff at (A1, B1) = 1)",
+        "citation": "McKelvey and Palfrey (1995)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1995,
+        "title": "Quantal response equilibria for normal form games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "origin": {
+        "key": "Och95",
+        "citation": "Ochs (1995)",
+        "authors": [
+          "J. Ochs"
+        ],
+        "year": 1995,
+        "title": "Games with unique, mixed strategy equilibria: an experimental study",
+        "kind": "article",
+        "venue": "Games and Economic Behavior",
+        "note": "row player's payoff at (A1, B1) set to 1"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/geb/mckelveypalfrey1995/ochs1995v2",
+      "title": "McKelvey and Palfrey (1995), Fourth example game (payoff at (A1, B1) = 9)",
+      "description": "A zero-sum game with data from (Ochs 1995).\nThis variant sets the row player's payoff from (A1, B1) to 9.",
+      "format": "nfg",
+      "game": "journals/geb/mckelveypalfrey1995/ochs1995v2/ochs1995v2.nfg",
+      "drawings": [],
+      "source": {
+        "key": "McKPal95",
+        "locator": "Fourth example game (payoff at (A1, B1) = 9)",
+        "citation": "McKelvey and Palfrey (1995)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1995,
+        "title": "Quantal response equilibria for normal form games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "origin": {
+        "key": "Och95",
+        "citation": "Ochs (1995)",
+        "authors": [
+          "J. Ochs"
+        ],
+        "year": 1995,
+        "title": "Games with unique, mixed strategy equilibria: an experimental study",
+        "kind": "article",
+        "venue": "Games and Economic Behavior",
+        "note": "row player's payoff at (A1, B1) set to 9"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/geb/mckelveypalfrey1995/ochs1995v3",
+      "title": "McKelvey and Palfrey (1995), Fourth example game (payoff at (A1, B1) = 4)",
+      "description": "A zero-sum game with data from (Ochs 1995).\nThis variant sets the row player's payoff from (A1, B1) to 4.",
+      "format": "nfg",
+      "game": "journals/geb/mckelveypalfrey1995/ochs1995v3/ochs1995v3.nfg",
+      "drawings": [],
+      "source": {
+        "key": "McKPal95",
+        "locator": "Fourth example game (payoff at (A1, B1) = 4)",
+        "citation": "McKelvey and Palfrey (1995)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1995,
+        "title": "Quantal response equilibria for normal form games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "origin": {
+        "key": "Och95",
+        "citation": "Ochs (1995)",
+        "authors": [
+          "J. Ochs"
+        ],
+        "year": 1995,
+        "title": "Games with unique, mixed strategy equilibria: an experimental study",
+        "kind": "article",
+        "venue": "Games and Economic Behavior",
+        "note": "row player's payoff at (A1, B1) set to 4"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/geb/mckelveypalfrey1995/oneill1987",
+      "title": "McKelvey and Palfrey (1995), Second example game",
+      "description": "A zero-sum game with data from (O'Neill 1987).",
+      "format": "nfg",
+      "game": "journals/geb/mckelveypalfrey1995/oneill1987/oneill1987.nfg",
+      "drawings": [],
+      "source": {
+        "key": "McKPal95",
+        "locator": "Second example game",
+        "citation": "McKelvey and Palfrey (1995)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1995,
+        "title": "Quantal response equilibria for normal form games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "origin": {
+        "key": "ON87",
+        "citation": "O'Neill (1987)",
+        "authors": [
+          "B. O'Neill"
+        ],
+        "year": 1987,
+        "title": "Nonmetric test of the minimax theory of two-person zerosum games",
+        "kind": "article",
+        "venue": "Proceedings of the National Academy of Sciences USA"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 8
+    },
+    {
+      "slug": "journals/geb/mckelveypalfrey1995/rapoport1992v1",
+      "title": "McKelvey and Palfrey (1995), Third example game (W = $10, L = -$6)",
+      "description": "A zero-sum game with data from (Rapoport and Boebel 1992).\nThis variant sets the payoff to the 'W' outcome at $10 and the 'L' outcome at -$6.",
+      "format": "nfg",
+      "game": "journals/geb/mckelveypalfrey1995/rapoport1992v1/rapoport1992v1.nfg",
+      "drawings": [],
+      "source": {
+        "key": "McKPal95",
+        "locator": "Third example game (W = $10, L = -$6)",
+        "citation": "McKelvey and Palfrey (1995)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1995,
+        "title": "Quantal response equilibria for normal form games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "origin": {
+        "key": "Rap92",
+        "citation": "Rapoport and Boebel (1992)",
+        "authors": [
+          "A. Rapoport",
+          "R. Boebel"
+        ],
+        "year": 1992,
+        "title": "Mixed strategies in strictly competitive games: a further test of the minimax hypothesis",
+        "kind": "article",
+        "venue": "Games and Economic Behavior",
+        "note": "'W' payoff set to $10, 'L' payoff to -$6"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 10
+    },
+    {
+      "slug": "journals/geb/mckelveypalfrey1995/rapoport1992v2",
+      "title": "McKelvey and Palfrey (1995), Third example game (W = $15, L = -$1)",
+      "description": "A zero-sum game with data from (Rapoport and Boebel 1992).\nThis variant sets the payoff to the 'W' outcome at $15 and the 'L' outcome at -$1.",
+      "format": "nfg",
+      "game": "journals/geb/mckelveypalfrey1995/rapoport1992v2/rapoport1992v2.nfg",
+      "drawings": [],
+      "source": {
+        "key": "McKPal95",
+        "locator": "Third example game (W = $15, L = -$1)",
+        "citation": "McKelvey and Palfrey (1995)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1995,
+        "title": "Quantal response equilibria for normal form games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "origin": {
+        "key": "Rap92",
+        "citation": "Rapoport and Boebel (1992)",
+        "authors": [
+          "A. Rapoport",
+          "R. Boebel"
+        ],
+        "year": 1992,
+        "title": "Mixed strategies in strictly competitive games: a further test of the minimax hypothesis",
+        "kind": "article",
+        "venue": "Games and Economic Behavior",
+        "note": "'W' payoff set to $15, 'L' payoff to -$1"
+      },
+      "n_players": 2,
+      "is_const_sum": true,
+      "n_strategies": 10
+    },
+    {
+      "slug": "journals/geb/mckelveypalfrey1995/table1v100",
+      "title": "McKelvey and Palfrey (1995), Figure 1 (A = B = 100)",
+      "description": "A game in which the limiting logit equilibrium is different\nfrom the unique perfect equilibrium. This version sets the parameters A=B=100.",
+      "format": "nfg",
+      "game": "journals/geb/mckelveypalfrey1995/table1v100/table1v100.nfg",
+      "drawings": [],
+      "source": {
+        "key": "McKPal95",
+        "locator": "Figure 1 (A = B = 100)",
+        "citation": "McKelvey and Palfrey (1995)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1995,
+        "title": "Quantal response equilibria for normal form games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/geb/mckelveypalfrey1995/table1v5",
+      "title": "McKelvey and Palfrey (1995), Figure 1 (A = B = 5)",
+      "description": "A game in which the limiting logit equilibrium is different\nfrom the unique perfect equilibrium. This version sets the parameters A=B=5.",
+      "format": "nfg",
+      "game": "journals/geb/mckelveypalfrey1995/table1v5/table1v5.nfg",
+      "drawings": [],
+      "source": {
+        "key": "McKPal95",
+        "locator": "Figure 1 (A = B = 5)",
+        "citation": "McKelvey and Palfrey (1995)",
+        "authors": [
+          "R. McKelvey",
+          "T. Palfrey"
+        ],
+        "year": 1995,
+        "title": "Quantal response equilibria for normal form games",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/geb/schotterweigeltwilson1994/problem1",
+      "title": "Schotter et al. (1994), Problem 1",
+      "description": "The sequential version of a game used in a framing experiment.\nA generic 2x2 game of perfect information based on this structure (with payoffs\nrelabeled A, B, C, D) is discussed as an example in (McKelvey and Palfrey 1998), Figure 4.",
+      "format": "efg",
+      "game": "journals/geb/schotterweigeltwilson1994/problem1/problem1.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/schotterweigeltwilson1994/problem1/problem1.ef"
+        }
+      ],
+      "source": {
+        "key": "SchWeiWil94",
+        "locator": "Problem 1",
+        "citation": "Schotter et al. (1994)",
+        "authors": [
+          "A. Schotter",
+          "K. Weigelt",
+          "C. Wilson"
+        ],
+        "year": 1994,
+        "title": "A laboratory investigation of multiperson rationality and presentation effects",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/geb/schotterweigeltwilson1994/problem1m",
+      "title": "Schotter et al. (1994), Problem 1M",
+      "description": "The matrix version of a game used in a framing experiment.\nA generic 2x2 game of perfect information based on this structure (with payoffs\nrelabeled A, B, C, D) is discussed as an example in (McKelvey and Palfrey 1998), Figure 4.",
+      "format": "nfg",
+      "game": "journals/geb/schotterweigeltwilson1994/problem1m/problem1m.nfg",
+      "drawings": [],
+      "source": {
+        "key": "SchWeiWil94",
+        "locator": "Problem 1M",
+        "citation": "Schotter et al. (1994)",
+        "authors": [
+          "A. Schotter",
+          "K. Weigelt",
+          "C. Wilson"
+        ],
+        "year": 1994,
+        "title": "A laboratory investigation of multiperson rationality and presentation effects",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 4
+    },
+    {
+      "slug": "journals/geb/schotterweigeltwilson1994/problem2",
+      "title": "Schotter et al. (1994), Problem 2",
+      "description": "The sequential version of a game designed to test the\nexplanatory power of subgame perfection in the absence of iterated dominance.",
+      "format": "efg",
+      "game": "journals/geb/schotterweigeltwilson1994/problem2/problem2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/schotterweigeltwilson1994/problem2/problem2.ef"
+        }
+      ],
+      "source": {
+        "key": "SchWeiWil94",
+        "locator": "Problem 2",
+        "citation": "Schotter et al. (1994)",
+        "authors": [
+          "A. Schotter",
+          "K. Weigelt",
+          "C. Wilson"
+        ],
+        "year": 1994,
+        "title": "A laboratory investigation of multiperson rationality and presentation effects",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/geb/schotterweigeltwilson1994/problem2m",
+      "title": "Schotter et al. (1994), Problem 2M",
+      "description": "The matrix version of a game designed to test the\nexplanatory power of subgame perfection in the absence of iterated dominance.",
+      "format": "nfg",
+      "game": "journals/geb/schotterweigeltwilson1994/problem2m/problem2m.nfg",
+      "drawings": [],
+      "source": {
+        "key": "SchWeiWil94",
+        "locator": "Problem 2M",
+        "citation": "Schotter et al. (1994)",
+        "authors": [
+          "A. Schotter",
+          "K. Weigelt",
+          "C. Wilson"
+        ],
+        "year": 1994,
+        "title": "A laboratory investigation of multiperson rationality and presentation effects",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/geb/schotterweigeltwilson1994/problem3",
+      "title": "Schotter et al. (1994), Problem 3",
+      "description": "The sequential version of a game designed to test the\nexplanatory power of iterated dominance in the absence of backward induction.",
+      "format": "efg",
+      "game": "journals/geb/schotterweigeltwilson1994/problem3/problem3.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/geb/schotterweigeltwilson1994/problem3/problem3.ef"
+        }
+      ],
+      "source": {
+        "key": "SchWeiWil94",
+        "locator": "Problem 3",
+        "citation": "Schotter et al. (1994)",
+        "authors": [
+          "A. Schotter",
+          "K. Weigelt",
+          "C. Wilson"
+        ],
+        "year": 1994,
+        "title": "A laboratory investigation of multiperson rationality and presentation effects",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
+      "slug": "journals/geb/schotterweigeltwilson1994/problem3m",
+      "title": "Schotter et al. (1994), Problem 3M",
+      "description": "The matrix version of a game designed to test the\nexplanatory power of iterated dominance in the absence of backward induction.",
+      "format": "nfg",
+      "game": "journals/geb/schotterweigeltwilson1994/problem3m/problem3m.nfg",
+      "drawings": [],
+      "source": {
+        "key": "SchWeiWil94",
+        "locator": "Problem 3M",
+        "citation": "Schotter et al. (1994)",
+        "authors": [
+          "A. Schotter",
+          "K. Weigelt",
+          "C. Wilson"
+        ],
+        "year": 1994,
+        "title": "A laboratory investigation of multiperson rationality and presentation effects",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 6
+    },
+    {
       "slug": "journals/geb/wichardt2008",
-      "title": "Wichardt (2008): 2 players, imperfect recall",
-      "description": "The first counterexample showing that finite extensive-form games\nwith imperfect recall need not have a Nash equilibrium in behaviour strategies",
+      "title": "Wichardt (2008)",
+      "description": "The first counterexample showing that finite extensive-form games\nwith imperfect recall need not have a Nash equilibrium in behavior strategies.",
       "format": "efg",
       "game": "journals/geb/wichardt2008/wichardt2008.efg",
       "drawings": [
@@ -542,68 +2053,277 @@
           "path": "journals/geb/wichardt2008/wichardt2008.ef"
         }
       ],
-      "category": "Journals",
-      "group": "Games and Economic Behavior (GEB)",
+      "source": {
+        "key": "Wic08",
+        "citation": "Wichardt (2008)",
+        "authors": [
+          "P. C. Wichardt"
+        ],
+        "year": 2008,
+        "title": "Existence of Nash Equilibria in Finite Extensive Form Games with Imperfect Recall: A Counterexample",
+        "kind": "article",
+        "venue": "Games and Economic Behavior"
+      },
       "n_players": 2,
       "is_const_sum": true,
       "n_strategies": 6
     },
     {
+      "slug": "journals/ijgt/brandtsholt1993/game1",
+      "title": "Brandts and Holt (1993), Game 1",
+      "description": "A sender-receiver signaling game with the same payoff structure as game 3 in (Banks et al. 1994),\nwith a third message (never sent by either type in equilibrium) removed.",
+      "format": "efg",
+      "game": "journals/ijgt/brandtsholt1993/game1/game1.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/ijgt/brandtsholt1993/game1/game1.ef"
+        }
+      ],
+      "source": {
+        "key": "BraHol93",
+        "locator": "Game 1",
+        "citation": "Brandts and Holt (1993)",
+        "authors": [
+          "J. Brandts",
+          "C. A. Holt"
+        ],
+        "year": 1993,
+        "title": "Adjustment patterns and equilibrium selection in experimental signaling games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 13
+    },
+    {
+      "slug": "journals/ijgt/brandtsholt1993/game2",
+      "title": "Brandts and Holt (1993), Game 2",
+      "description": "A sender-receiver signaling game that is a modification of game 1 (with the same pair of Nash equilibria) designed so\nthat naive best-response reasoning based on row and column payoff sums favors\nconvergence to the less-refined, nonsequential equilibrium rather than the\nsequential one.",
+      "format": "efg",
+      "game": "journals/ijgt/brandtsholt1993/game2/game2.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/ijgt/brandtsholt1993/game2/game2.ef"
+        }
+      ],
+      "source": {
+        "key": "BraHol93",
+        "locator": "Game 2",
+        "citation": "Brandts and Holt (1993)",
+        "authors": [
+          "J. Brandts",
+          "C. A. Holt"
+        ],
+        "year": 1993,
+        "title": "Adjustment patterns and equilibrium selection in experimental signaling games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 13
+    },
+    {
+      "slug": "journals/ijgt/brandtsholt1993/game3",
+      "title": "Brandts and Holt (1993), Game 3",
+      "description": "A sender-receiver signaling game, reanalyzed using agent quantal response equilibrium in (McKelvey and Palfrey 1998).",
+      "format": "efg",
+      "game": "journals/ijgt/brandtsholt1993/game3/game3.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/ijgt/brandtsholt1993/game3/game3.ef"
+        }
+      ],
+      "source": {
+        "key": "BraHol93",
+        "locator": "Game 3",
+        "citation": "Brandts and Holt (1993)",
+        "authors": [
+          "J. Brandts",
+          "C. A. Holt"
+        ],
+        "year": 1993,
+        "title": "Adjustment patterns and equilibrium selection in experimental signaling games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 13
+    },
+    {
+      "slug": "journals/ijgt/brandtsholt1993/game4",
+      "title": "Brandts and Holt (1993), Game 4",
+      "description": "A sender-receiver signaling game, reanalyzed using agent quantal response equilibrium in (McKelvey and Palfrey 1998).",
+      "format": "efg",
+      "game": "journals/ijgt/brandtsholt1993/game4/game4.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/ijgt/brandtsholt1993/game4/game4.ef"
+        }
+      ],
+      "source": {
+        "key": "BraHol93",
+        "locator": "Game 4",
+        "citation": "Brandts and Holt (1993)",
+        "authors": [
+          "J. Brandts",
+          "C. A. Holt"
+        ],
+        "year": 1993,
+        "title": "Adjustment patterns and equilibrium selection in experimental signaling games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 13
+    },
+    {
+      "slug": "journals/ijgt/brandtsholt1993/game5",
+      "title": "Brandts and Holt (1993), Game 5",
+      "description": "A sender-receiver signaling game sharing game 3's equilibrium payoffs and game 4's reversed type-dependence\npattern, used to further probe how naive adjustment processes select between\nthe sequential and nonsequential equilibria.",
+      "format": "efg",
+      "game": "journals/ijgt/brandtsholt1993/game5/game5.efg",
+      "drawings": [
+        {
+          "key": "default",
+          "label": "Default",
+          "path": "journals/ijgt/brandtsholt1993/game5/game5.ef"
+        }
+      ],
+      "source": {
+        "key": "BraHol93",
+        "locator": "Game 5",
+        "citation": "Brandts and Holt (1993)",
+        "authors": [
+          "J. Brandts",
+          "C. A. Holt"
+        ],
+        "year": 1993,
+        "title": "Adjustment patterns and equilibrium selection in experimental signaling games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
+      "n_players": 2,
+      "is_const_sum": false,
+      "n_strategies": 13
+    },
+    {
       "slug": "journals/ijgt/nau2004/sec3",
-      "title": "Battle of the Sexes",
-      "description": "The coordination game known as Battle of the Sexes (section 3 of (Nau et al. 2004)). Has three Nash equilibria: two pure-strategy (TL and BR) and one completely mixed.",
+      "title": "Nau et al. (2004), Section 3: Battle of the Sexes",
+      "name": "Battle of the Sexes",
+      "description": "The coordination game known as Battle of the Sexes. It has three Nash equilibria: two pure-strategy (TL and BR) and one completely mixed.",
       "format": "nfg",
       "game": "journals/ijgt/nau2004/sec3/sec3.nfg",
       "drawings": [],
-      "category": "Journals",
-      "group": "Nau et al. (2004)",
+      "source": {
+        "key": "Nau2004",
+        "locator": "Section 3",
+        "citation": "Nau et al. (2004)",
+        "authors": [
+          "R. Nau",
+          "S. Gomez Canovas",
+          "P. Hansen"
+        ],
+        "year": 2004,
+        "title": "On the geometry of Nash equilibria and correlated equilibria",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 4
     },
     {
       "slug": "journals/ijgt/nau2004/sec4",
-      "title": "Three-player game with a unique Nash solution in irrational strategies",
-      "description": "A three-player game with a unique Nash equilibrium in irrational mixed strategies (section 4 of (Nau et al. 2004)). The correlated equilibrium polytope is seven-dimensional with 33 vertices.",
+      "title": "Nau et al. (2004), Section 4",
+      "description": "A three-player game with a unique Nash equilibrium in irrational mixed strategies. The correlated equilibrium polytope is seven-dimensional with 33 vertices.",
       "format": "nfg",
       "game": "journals/ijgt/nau2004/sec4/sec4.nfg",
       "drawings": [],
-      "category": "Journals",
-      "group": "Nau et al. (2004)",
+      "source": {
+        "key": "Nau2004",
+        "locator": "Section 4",
+        "citation": "Nau et al. (2004)",
+        "authors": [
+          "R. Nau",
+          "S. Gomez Canovas",
+          "P. Hansen"
+        ],
+        "year": 2004,
+        "title": "On the geometry of Nash equilibria and correlated equilibria",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
       "n_players": 3,
       "is_const_sum": false,
       "n_strategies": 6
     },
     {
       "slug": "journals/ijgt/nau2004/sec5",
-      "title": "Game with a continuum of completely mixed-strategy Nash equilibria",
-      "description": "A three-player 2x2x2 game with 3 pure, 2 incompletely mixed, and a continuum of completely mixed Nash equilibria (section 5 of (Nau et al. 2004)). The correlated equilibrium polytope is seven-dimensional with 8 vertices.",
+      "title": "Nau et al. (2004), Section 5",
+      "description": "A three-player 2x2x2 game with 3 pure, 2 incompletely mixed, and a continuum of completely mixed Nash equilibria. The correlated equilibrium polytope is seven-dimensional with 8 vertices.",
       "format": "nfg",
       "game": "journals/ijgt/nau2004/sec5/sec5.nfg",
       "drawings": [],
-      "category": "Journals",
-      "group": "Nau et al. (2004)",
+      "source": {
+        "key": "Nau2004",
+        "locator": "Section 5",
+        "citation": "Nau et al. (2004)",
+        "authors": [
+          "R. Nau",
+          "S. Gomez Canovas",
+          "P. Hansen"
+        ],
+        "year": 2004,
+        "title": "On the geometry of Nash equilibria and correlated equilibria",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
       "n_players": 3,
       "is_const_sum": false,
       "n_strategies": 6
     },
     {
       "slug": "journals/ijgt/nau2004/sec6",
-      "title": "2x2x4 game with Nash equilibria in the relative interior of the correlated equilibrium polytope",
-      "description": "A three-player 2x2x4 game (section 6 of (Nau et al. 2004)). The correlated equilibrium polytope is four-dimensional with six vertices. The set of Nash equilibria is a line segment in the relative interior of the polytope.",
+      "title": "Nau et al. (2004), Section 6",
+      "description": "A three-player 2x2x4 game. The correlated equilibrium polytope is four-dimensional with six vertices. The set of Nash equilibria is a line segment in the relative interior of the polytope.",
       "format": "nfg",
       "game": "journals/ijgt/nau2004/sec6/sec6.nfg",
       "drawings": [],
-      "category": "Journals",
-      "group": "Nau et al. (2004)",
+      "source": {
+        "key": "Nau2004",
+        "locator": "Section 6",
+        "citation": "Nau et al. (2004)",
+        "authors": [
+          "R. Nau",
+          "S. Gomez Canovas",
+          "P. Hansen"
+        ],
+        "year": 2004,
+        "title": "On the geometry of Nash equilibria and correlated equilibria",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
       "n_players": 3,
       "is_const_sum": false,
       "n_strategies": 8
     },
     {
       "slug": "journals/ijgt/selten1975/fig1",
-      "title": "Selten's horse (Selten IJGT 1975, Figure 1)",
-      "description": "This is a three-player game presented in (Selten 1975), commonly referred\nto as \"Selten's horse\" owing to the layout in which it can be drawn.\nIt is the motivating example for his definition of (trembling-hand)\nperfect equilibrium, by showing a game that has an equilibrium which\nis \"unreasonable\", but which is not ruled out by subgame perfection because\nthis game has no proper subgames.",
+      "title": "Selten (1975), Figure 1: Selten's horse",
+      "name": "Selten's horse",
+      "description": "A three-player game, commonly referred\nto as \"Selten's horse\" owing to the layout in which it can be drawn.\nIt is the motivating example for his definition of (trembling-hand)\nperfect equilibrium, by showing a game that has an equilibrium which\nis \"unreasonable\", but which is not ruled out by subgame perfection because\nthis game has no proper subgames.",
       "format": "efg",
       "game": "journals/ijgt/selten1975/fig1/fig1.efg",
       "drawings": [
@@ -613,16 +2333,26 @@
           "path": "journals/ijgt/selten1975/fig1/fig1.ef"
         }
       ],
-      "category": "Journals",
-      "group": "Selten (1975)",
+      "source": {
+        "key": "Sel75",
+        "locator": "Figure 1",
+        "citation": "Selten (1975)",
+        "authors": [
+          "R. Selten"
+        ],
+        "year": 1975,
+        "title": "Reexamination of the perfectness concept for equilibrium points in extensive games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
       "n_players": 3,
       "is_const_sum": false,
       "n_strategies": 6
     },
     {
       "slug": "journals/ijgt/selten1975/fig2",
-      "title": "Selten (IJGT 1975) Figure 2",
-      "description": "This is a counterexample presented in (Selten 1975), to show that extensive and\nnormal form concepts of perfectness do not coincide.  This game has one\nperfect equilibrium in the extensive from, but a distinct (pure) strategy\nequilibrium is also perfect in the normal form.",
+      "title": "Selten (1975), Figure 2",
+      "description": "A counterexample to show that extensive and\nnormal form concepts of perfectness do not coincide.  This game has one\nperfect equilibrium in the extensive form, but a distinct (pure) strategy\nequilibrium is also perfect in the normal form.",
       "format": "efg",
       "game": "journals/ijgt/selten1975/fig2/fig2.efg",
       "drawings": [
@@ -632,16 +2362,26 @@
           "path": "journals/ijgt/selten1975/fig2/fig2.ef"
         }
       ],
-      "category": "Journals",
-      "group": "Selten (1975)",
+      "source": {
+        "key": "Sel75",
+        "locator": "Figure 2",
+        "citation": "Selten (1975)",
+        "authors": [
+          "R. Selten"
+        ],
+        "year": 1975,
+        "title": "Reexamination of the perfectness concept for equilibrium points in extensive games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 5
     },
     {
       "slug": "journals/ijgt/selten1975/fig3",
-      "title": "Selten (IJGT 1975) Figure 3",
-      "description": "This is a counterexample presented in (Selten 1975), to show that extensive and\nnormal form concepts of perfectness do not coincide.   Specifically, there\nare two equilibria which are perfect in the normal form but not perfect\nin the extensive form.",
+      "title": "Selten (1975), Figure 3",
+      "description": "A counterexample to show that extensive and\nnormal form concepts of perfectness do not coincide.   Specifically, there\nare two equilibria which are perfect in the normal form but not perfect\nin the extensive form.",
       "format": "efg",
       "game": "journals/ijgt/selten1975/fig3/fig3.efg",
       "drawings": [
@@ -651,16 +2391,26 @@
           "path": "journals/ijgt/selten1975/fig3/fig3.ef"
         }
       ],
-      "category": "Journals",
-      "group": "Selten (1975)",
+      "source": {
+        "key": "Sel75",
+        "locator": "Figure 3",
+        "citation": "Selten (1975)",
+        "authors": [
+          "R. Selten"
+        ],
+        "year": 1975,
+        "title": "Reexamination of the perfectness concept for equilibrium points in extensive games",
+        "kind": "article",
+        "venue": "International Journal of Game Theory"
+      },
       "n_players": 3,
       "is_const_sum": false,
       "n_strategies": 7
     },
     {
       "slug": "journals/mor/vonstengelforges2008/fig1",
-      "title": "Figure 1 from von Stengel and Forges (2008)",
-      "description": "Figure 1 from (von Stengel and Forges 2008).\nIt is a kind of a kind of signaling game.",
+      "title": "von Stengel and Forges (2008), Figure 1",
+      "description": "A signaling game in which, in every Nash equilibrium, the signal gives player 2 no information.",
       "format": "efg",
       "game": "journals/mor/vonstengelforges2008/fig1/fig1.efg",
       "drawings": [
@@ -675,16 +2425,27 @@
           "path": "journals/mor/vonstengelforges2008/fig1/fig1__Original_Layout.ef"
         }
       ],
-      "category": "Journals",
-      "group": "von Stengel & Forges (2008)",
+      "source": {
+        "key": "vSF08",
+        "locator": "Figure 1",
+        "citation": "von Stengel and Forges (2008)",
+        "authors": [
+          "B. von Stengel",
+          "F. Forges"
+        ],
+        "year": 2008,
+        "title": "Extensive-form correlated equilibrium: Definition and computational complexity",
+        "kind": "article",
+        "venue": "Mathematics of Operations Research"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 8
     },
     {
       "slug": "journals/mor/vonstengelforges2008/fig6",
-      "title": "Figure 6 from von Stengel and Forges (2008)",
-      "description": "Figure 6 from (von Stengel and Forges 2008).\nThis game has perfect recall and no chance moves, yet it has a circular precedence structure among\nthe information sets of the two players. The payoffs are not important.",
+      "title": "von Stengel and Forges (2008), Figure 6",
+      "description": "A game with perfect recall and no chance moves which nonetheless has a circular precedence structure among\nthe information sets of the two players. The payoffs are not important.",
       "format": "efg",
       "game": "journals/mor/vonstengelforges2008/fig6/fig6.efg",
       "drawings": [
@@ -699,16 +2460,27 @@
           "path": "journals/mor/vonstengelforges2008/fig6/fig6__Original_Layout.ef"
         }
       ],
-      "category": "Journals",
-      "group": "von Stengel & Forges (2008)",
+      "source": {
+        "key": "vSF08",
+        "locator": "Figure 6",
+        "citation": "von Stengel and Forges (2008)",
+        "authors": [
+          "B. von Stengel",
+          "F. Forges"
+        ],
+        "year": 2008,
+        "title": "Extensive-form correlated equilibrium: Definition and computational complexity",
+        "kind": "article",
+        "venue": "Mathematics of Operations Research"
+      },
       "n_players": 2,
       "is_const_sum": true,
       "n_strategies": 8
     },
     {
       "slug": "journals/mor/vonstengelforges2008/fig9",
-      "title": "Figure 9 from von Stengel and Forges (2008)",
-      "description": "Figure 9 from (von Stengel and Forges 2008).\nIt encodes the SAT formula :math:`x\\wedge (\\neg x \\vee y) \\wedge (\\neg x \\vee \\neg y)`\n(writing $-x$ for :math:`\\neg x`).\nThe formula is satisfiable (which here it is not) if and only\nif the players can ensure a payoff of 1 in any Nash Equilibrium, Correlated Equilibrium,\nor Extensive-Form Correlated Equilibrium,\nwith a strategy of player 1 representing the corresponding truth assignment.",
+      "title": "von Stengel and Forges (2008), Figure 9",
+      "description": "It encodes the SAT formula :math:`x\\wedge (\\neg x \\vee y) \\wedge (\\neg x \\vee \\neg y)`\n(writing -x for :math:`\\neg x`).\nThe formula is satisfiable (which here it is not) if and only\nif the players can ensure a payoff of 1 in any Nash Equilibrium, Correlated Equilibrium,\nor Extensive-Form Correlated Equilibrium,\nwith a strategy of player 1 representing the corresponding truth assignment.",
       "format": "efg",
       "game": "journals/mor/vonstengelforges2008/fig9/fig9.efg",
       "drawings": [
@@ -723,16 +2495,28 @@
           "path": "journals/mor/vonstengelforges2008/fig9/fig9__Original_Layout.ef"
         }
       ],
-      "category": "Journals",
-      "group": "von Stengel & Forges (2008)",
+      "source": {
+        "key": "vSF08",
+        "locator": "Figure 9",
+        "citation": "von Stengel and Forges (2008)",
+        "authors": [
+          "B. von Stengel",
+          "F. Forges"
+        ],
+        "year": 2008,
+        "title": "Extensive-form correlated equilibrium: Definition and computational complexity",
+        "kind": "article",
+        "venue": "Mathematics of Operations Research"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 8
     },
     {
       "slug": "journals/other/reiley2008/fig1",
-      "title": "Stripped-down poker (Reiley et al 2008)",
-      "description": "This is a one-card poker game used in (Reiley et al. 2008) as a teaching exercise.\n\nSee also (Myerson 1991)\n    Another one-card poker game with slightly different rules.",
+      "title": "Reiley et al. (2008), Figure 1: Stripped-down poker",
+      "name": "Stripped-down poker",
+      "description": "A one-card poker game used as a teaching exercise.\n\nSee also (Myerson 1991)\n    Another one-card poker game with slightly different rules.",
       "format": "efg",
       "game": "journals/other/reiley2008/fig1/fig1.efg",
       "drawings": [
@@ -742,34 +2526,66 @@
           "path": "journals/other/reiley2008/fig1/fig1.ef"
         }
       ],
-      "category": "Journals",
-      "group": "Reiley (2008)",
+      "source": {
+        "key": "Rei2008",
+        "locator": "Figure 1",
+        "citation": "Reiley et al. (2008)",
+        "authors": [
+          "D. H. Reiley",
+          "M. B. Urbancic",
+          "M. Walker"
+        ],
+        "year": 2008,
+        "title": "Stripped-down poker: a classroom game with signaling and bluffing",
+        "kind": "article",
+        "venue": "The Journal of Economic Education"
+      },
       "n_players": 2,
       "is_const_sum": true,
       "n_strategies": 6
     },
     {
       "slug": "journals/other/shapley1974/fig2",
-      "title": "Fig 2 from 'A Note on the Lemke-Howson Algorithm' (Shapley 1974)",
-      "description": "Fig 2 from (Shapley 1974). This bimatrix game is used to demonstrate the Lemke-Howson algorithm.",
+      "title": "Shapley (1974), Figure 2",
+      "description": "A bimatrix game used to demonstrate the Lemke-Howson algorithm.",
       "format": "nfg",
       "game": "journals/other/shapley1974/fig2/fig2.nfg",
       "drawings": [],
-      "category": "Journals",
-      "group": "Shapley (1974)",
+      "source": {
+        "key": "Shap74",
+        "locator": "Figure 2",
+        "citation": "Shapley (1974)",
+        "authors": [
+          "L. S. Shapley"
+        ],
+        "year": 1974,
+        "title": "A note on the Lemke-Howson algorithm",
+        "kind": "inbook",
+        "venue": "Pivoting and Extension: Mathematical Programming Studies"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 6
     },
     {
       "slug": "journals/other/shapley1974/fig3",
-      "title": "Fig 3 from 'A Note on the Lemke-Howson Algorithm' (Shapley 1974)",
-      "description": "Fig 3 from (Shapley 1974). This bimatrix game has a pair of mixed-strategy equilibria\nthat are inaccessible to the Lemke-Howson algorithm. That is, the two equilibria in this\npair are connected to each other for all dropped labels, and can thus not be reached by\nany concatenation of paths from the artifical equilibrium, where the Lemke-Howson algorithm\nstarts.",
+      "title": "Shapley (1974), Figure 3",
+      "description": "A bimatrix game with a pair of mixed-strategy equilibria\nthat are inaccessible to the Lemke-Howson algorithm. That is, the two equilibria in this\npair are connected to each other for all dropped labels, and can thus not be reached by\nany concatenation of paths from the artificial equilibrium, where the Lemke-Howson algorithm\nstarts.",
       "format": "nfg",
       "game": "journals/other/shapley1974/fig3/fig3.nfg",
       "drawings": [],
-      "category": "Journals",
-      "group": "Shapley (1974)",
+      "source": {
+        "key": "Shap74",
+        "locator": "Figure 3",
+        "citation": "Shapley (1974)",
+        "authors": [
+          "L. S. Shapley"
+        ],
+        "year": 1974,
+        "title": "A note on the Lemke-Howson algorithm",
+        "kind": "inbook",
+        "venue": "Pivoting and Extension: Mathematical Programming Studies"
+      },
       "n_players": 2,
       "is_const_sum": false,
       "n_strategies": 6

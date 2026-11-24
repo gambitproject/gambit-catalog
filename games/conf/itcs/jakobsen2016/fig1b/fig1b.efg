@@ -1,6 +1,5 @@
-EFG 2 R "Jakobsen, Sorensen, Conitzer (2016) Figure 1(b)" { "Player 1" "Player 2" }
-"An example from :cite:p:`JakSorCon16` illustrating a game
-that has an exact deterministic timing.  A coin toss determines the flow of the game;
+EFG 2 R "Jakobsen et al. (2016), Figure 1(b)" { "Player 1" "Player 2" }
+"A game that has an exact deterministic timing.  A coin toss determines the flow of the game;
 player 1 only plays if the coin comes up Heads, and if so plays first.
 Player 2 always plays, but cannot distinguish whether the coin came up Heads or Tails.
 Each player receives a payoff of 1 for a correct guess and 0 otherwise.

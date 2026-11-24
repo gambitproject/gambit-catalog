@@ -1,7 +1,5 @@
-EFG 2 R "Figure 10.1 from von Stengel (2022)" { "I" "II" }
-"
-Figure 10.1 from :cite:p:`vS22`.
-It is essentially a type of poker game.
+EFG 2 R "von Stengel (2022), Figure 10.1" { "I" "II" }
+"Essentially a type of poker game.
 Its description as a competition between software firms is due to
 :cite:p:`TvS02`.
 "

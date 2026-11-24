@@ -1,10 +1,10 @@
-NFG 1 R "Three-player game with a unique Nash solution in irrational strategies" { "Player 1" "Player 2" "Player 3" }
+NFG 1 R "Nau et al. (2004), Section 4" { "Player 1" "Player 2" "Player 3" }
 
 { { "Top" "Bottom" }
 { "Left" "Right" }
 { "1" "2" }
 }
-"A three-player game with a unique Nash equilibrium in irrational mixed strategies (section 4 of :cite:p:`Nau2004`). The correlated equilibrium polytope is seven-dimensional with 33 vertices."
+"A three-player game with a unique Nash equilibrium in irrational mixed strategies. The correlated equilibrium polytope is seven-dimensional with 33 vertices."
 
 {
 { "" 3, 0, 2 }

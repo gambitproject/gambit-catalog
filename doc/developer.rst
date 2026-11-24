@@ -27,18 +27,22 @@ Currently supported representations are:
 
    Use either `pygambit <https://gambitproject.readthedocs.io/en/latest/pygambit.html>`_, the Gambit `CLI <https://gambitproject.readthedocs.io/en/latest/tools.html>`_ or `GUI <https://gambitproject.readthedocs.io/en/latest/gui.html>`_ to create (or edit) and save game in a valid representation `format <https://gambitproject.readthedocs.io/en/latest/formats.html>`_.
    Make sure the game includes a description, with any citations referencing the catalog's bibliography, ``references.bib``, using the ``:cite:p:`key``` format, e.g. ``:cite:p:`Rei2008```.
+   You do not need to set the game's title: it is derived from the game's source (step 2).
+   For how to write descriptions and name games, see the :doc:`style guide <style>`.
 
    .. important::
 
       If no bibliography entry exists, add one to ``references.bib``.
+      Every source and origin must have an entry with an author (or editor), a year and a title.
 
 2. **Add the game(s) to the repo:**
 
    Create a new branch in the ``gambit-catalog`` repo.
    Each game is an *entry*: a directory inside ``games`` holding exactly one game file, named after
-   the directory, together with that game's drawings.
+   the directory, together with that game's drawings and its ``source.yaml``.
    Add a new entry and commit it, or edit an existing game.
-   The catalog uses a hierarchical folder structure that groups games by publication type and venue:
+   Directories are conventionally grouped by publication type and venue, but the grouping carries
+   no meaning of its own:
 
    .. code-block:: text
 
@@ -47,28 +51,52 @@ Currently supported representations are:
         journals/{venue}/{author-year}/{game}/{game}.efg   # games from journals (venue = geb, ijgt, mor, …)
         conf/{venue}/{author-year}/{game}/{game}.efg       # games from conferences
 
-   The entry's directory path is the game's slug, used by the load function:
+   The entry's directory path is the game's *slug*, used by the load function of the catalog module:
 
    .. code-block:: python
 
       pygambit.catalog.load("books/watson2013/exercise29_6")
       pygambit.catalog.load("journals/geb/bagwell1995")
 
-   .. note::
+   Each entry also holds a ``source.yaml`` recording where the game comes from:
 
-      When adding a game from a **new** journal, conference, or other top-level category,
-      add a human-readable label for the new hierarchy node(s) to
-      ``hierarchy.yaml``.
-      The catalog documentation page groups and labels games based on this file.
-      Nodes without an entry fall back to a title-cased version of the folder name.
+   .. code-block:: yaml
 
-   .. important::
+      source:
+        key: Sel75          # required: the work's key in references.bib
+        locator: Figure 2   # optional: where in the work
+      origin:               # optional: earlier work the game itself comes from
+        key: Lie60          # required within origin
+        locator: Table 1    # optional
+        note: payoffs rescaled   # optional
+      name: Selten's horse  # optional: the game's conventional name, only if it has one
 
-      The entry's directory path determines its "slug", used by the load function of the catalog module:
+   Only ``source`` with its ``key`` is required; unknown keys and values of the wrong type are
+   rejected, naming the file.
+   The catalog documentation page groups games by their source work, and the manifest records the
+   source and origin with the work's authors, year and title taken from ``references.bib``.
 
-      .. code-block:: python
+   **Titles are derived.**
+   A game's title, the string in the first line of its file (``game.title`` in pygambit), must be
+   ``<citation>, <locator>: <name>``, built from ``source.yaml``, where the citation is the work's
+   authors' surnames and year: "Selten (1975)", "Smith and Jones (1992)" or "Jakobsen et al. (2016)".
+   The locator and the name are left out, with their punctuation, when the entry has none, e.g.
 
-         pygambit.catalog.load("books/watson2013/exercise29_6")
+   .. code-block:: text
+
+      Selten (1975), Figure 2
+      Selten (1975), Figure 1: Selten's horse
+      Bagwell (1995)
+
+   You do not write titles by hand.
+   After creating or changing ``source.yaml``, run
+
+   .. code-block:: bash
+
+      python build.py --sync-titles
+
+   which rewrites the title in each game file that differs, and changes nothing else in the file.
+   ``python build.py --check-titles`` lists the games whose title differs without changing them.
 
 3. **Add the game's drawing:**
 
@@ -115,6 +143,9 @@ Currently supported representations are:
 
        python build.py --build
 
+   The build fails, listing every offender, if a game has no ``source.yaml`` or an invalid one,
+   a source or origin key is missing from ``references.bib``, or a game's title is not the derived one.
+
    .. note::
 
       You can use the ``--regenerate-images`` flag when building the docs locally for a second time to force any changes to be picked up.
@@ -122,7 +153,7 @@ Currently supported representations are:
    .. warning::
 
       - The ``--build`` flag regenerates ``games/manifest.json``, the catalog's index: for each
-        entry its game file and drawings, title, citation-resolved description, hierarchy grouping,
+        entry its game file and drawings, title, name, source and origin, citation-resolved description,
         and structural stats. Consumers such as pygambit and the GUI find files through it. It's a **committed** file, unlike
         ``doc/_table.rst``, since it needs to physically ship alongside the game files. A
         CI check fails if it's out of sync with the current catalog.
@@ -158,7 +189,7 @@ Currently supported representations are:
 6. **Submit a pull request to GitHub with all changes.**
 
    Submit a PR according to Gambit's `usual workflow <https://gambitproject.readthedocs.io/en/latest/developer.contributing.html#submit-contribution>`_.
-   Ensure that any additions and changes to game files, ``references.bib``, ``hierarchy.yaml``, drawings, ``build.py`` and ``games/manifest.json`` are included.
+   Ensure that any additions and changes to game files, ``references.bib``, every entry's ``source.yaml``, drawings, ``build.py`` and ``games/manifest.json`` are included.
 
    .. important::
 
@@ -189,7 +220,11 @@ The manifest
 ``games/manifest.json`` is the catalog's index, generated by ``build.py --build`` and committed,
 so every commit and release describes itself.
 Its format is defined by the JSON Schema ``schema/manifest.schema.json``,
-and ``schema_version`` in the manifest is the catalog's major version.
+and ``schema_version`` in the manifest is the version of that schema, an integer bumped on a
+breaking change to the manifest; it is independent of the catalog's own version.
+Each game's ``source`` and ``origin`` describe the work they refer to (``key``, ``locator``,
+``citation``, ``authors``, ``year``, ``title``, ``venue`` for a work in a journal or volume,
+and ``kind``, the BibTeX entry type), and ``name`` is present when the game has a conventional name.
 All paths in the manifest are relative to ``games/``.
 The schema describes one release exactly; programs reading the manifest should ignore properties
 they do not recognise, since a minor release may add some.

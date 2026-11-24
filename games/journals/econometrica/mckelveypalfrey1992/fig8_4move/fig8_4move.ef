@@ -1,0 +1,41 @@
+player 1 name Player~1
+player 2 name Player~2
+level 0 node 1 player 0
+level 4 node 2 player 0 xshift -6.53125 from 1 move 1=rational~(\frac{19}{20})
+level 8 node 3 xshift -4.8125 from 2 move 2=rational~(\frac{19}{20})
+level 24 node 4 xshift -1.875 from 3 move t payoffs 0.40 0.10
+level 12 node 5 xshift 1.875 from 3 move p
+level 24 node 6 xshift -1.75 from 5 move t payoffs 0.20 0.80
+level 16 node 7 xshift 1.75 from 5 move p
+level 24 node 8 xshift -1.5 from 7 move t payoffs 1.60 0.40
+level 20 node 9 xshift 1.5 from 7 move p
+level 24 node 10 xshift -1 from 9 move t payoffs 0.80 3.20
+level 24 node 11 xshift 1 from 9 move p payoffs 6.40 1.60
+level 8 node 12 xshift 4.8125 from 2 move 2=altruist~(\frac{1}{20})
+level 24 node 13 xshift -1.5 from 12 move t payoffs 0.40 0.10
+level 12 node 14 xshift 1.5 from 12 move p
+level 16 node 15 xshift 0 from 14 move p
+level 24 node 16 xshift -1 from 15 move t payoffs 1.60 0.40
+level 20 node 17 xshift 1 from 15 move p
+level 24 node 18 xshift 0 from 17 move p payoffs 6.40 1.60
+level 4 node 19 player 0 xshift 6.53125 from 1 move 1=altruist~(\frac{1}{20})
+level 8 node 20 xshift -2.25 from 19 move 2=rational~(\frac{19}{20})
+level 12 node 21 xshift 0 from 20 move p
+level 24 node 22 xshift -1.5 from 21 move t payoffs 0.20 0.80
+level 16 node 23 xshift 1.5 from 21 move p
+level 20 node 24 xshift 0 from 23 move p
+level 24 node 25 xshift -1 from 24 move t payoffs 0.80 3.20
+level 24 node 26 xshift 1 from 24 move p payoffs 6.40 1.60
+level 8 node 27 xshift 2.25 from 19 move 2=altruist~(\frac{1}{20})
+level 12 node 28 xshift 0 from 27 move p
+level 16 node 29 xshift 0 from 28 move p
+level 20 node 30 xshift 0 from 29 move p
+level 24 node 31 xshift 0 from 30 move p payoffs 6.40 1.60
+iset 3 12 player 1
+iset 5 21 player 2
+iset 7 15 player 1
+iset 9 24 player 2
+iset 14 28 player 2
+iset 17 30 player 2
+iset 20 27 player 1
+iset 23 29 player 1

@@ -8,9 +8,8 @@
   "additionalProperties": false,
   "properties": {
     "schema_version": {
-      "description": "Major version of this schema; equal to the catalog's major version.",
-      "type": "integer",
-      "minimum": 0
+      "description": "Version of this schema; bumped on a breaking change to the manifest. A manifest of another version is described by that version's schema.",
+      "const": 1
     },
     "catalog_version": {
       "description": "Version of the catalog this manifest describes (semantic versioning).",
@@ -27,11 +26,64 @@
       "type": "string",
       "pattern": "^[A-Za-z0-9_.-]+(/[A-Za-z0-9_.-]+)*$"
     },
+    "work": {
+      "description": "A work in the catalog's bibliography: the fields shared by a source and an origin.",
+      "type": "object",
+      "required": ["key", "citation", "authors", "year", "title", "kind"],
+      "properties": {
+        "key": {"description": "Citation key in references.bib.", "type": "string", "minLength": 1},
+        "locator": {
+          "description": "Where in the work (e.g. Figure 2).",
+          "type": "string",
+          "minLength": 1
+        },
+        "citation": {
+          "description": "Short form: Author (Year), Author and Author (Year), or Author et al. (Year).",
+          "type": "string",
+          "minLength": 1
+        },
+        "authors": {
+          "description": "Full names of the authors, or of the editors if the work has none.",
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "year": {"type": "integer"},
+        "title": {"description": "Title of the work, as plain text.", "type": "string", "minLength": 1},
+        "venue": {
+          "description": "Journal or, for a work in a volume, the volume's title; absent for a book.",
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "description": "BibTeX entry type, in lower case (article, book, inproceedings, ...).",
+          "type": "string",
+          "pattern": "^[a-z]+$"
+        }
+      }
+    },
+    "source": {
+      "description": "The work the game is taken from.",
+      "$ref": "#/$defs/work",
+      "unevaluatedProperties": false
+    },
+    "origin": {
+      "description": "Earlier work the game itself comes from, where the source took it from elsewhere.",
+      "$ref": "#/$defs/work",
+      "properties": {
+        "note": {
+          "description": "Remark on how the game differs from the game in the origin.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "unevaluatedProperties": false
+    },
     "game": {
       "type": "object",
       "required": [
         "slug", "title", "description", "format", "game", "drawings",
-        "category", "group", "n_players", "is_const_sum", "n_strategies"
+        "source", "n_players", "is_const_sum", "n_strategies"
       ],
       "additionalProperties": false,
       "properties": {
@@ -39,7 +91,16 @@
           "description": "Canonical name of the game; also its directory under games/.",
           "$ref": "#/$defs/relpath"
         },
-        "title": {"type": "string"},
+        "title": {
+          "description": "Title of the game: its citation, locator and name, as <citation>, <locator>: <name>.",
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "description": "Conventional name of the game, when it has one.",
+          "type": "string",
+          "minLength": 1
+        },
         "description": {
           "description": "Plain-text description, with citations resolved to (Author Year).",
           "type": "string",
@@ -67,14 +128,8 @@
             }
           }
         },
-        "category": {
-          "description": "Label of the game's top-level group (e.g. Books).",
-          "type": "string"
-        },
-        "group": {
-          "description": "Label of the game's innermost group (e.g. its source).",
-          "type": "string"
-        },
+        "source": {"$ref": "#/$defs/source"},
+        "origin": {"$ref": "#/$defs/origin"},
         "n_players": {"type": "integer", "minimum": 1},
         "is_const_sum": {"type": "boolean"},
         "n_strategies": {

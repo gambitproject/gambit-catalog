@@ -1,6 +1,5 @@
-EFG 2 R "Absent-Minded Driver (Gilboa 1997, GEB, Figure 2)" { "Player 1" }
-"The original absent-minded driver problem from
-:cite:p:`Gil97`"
+EFG 2 R "Gilboa (1997), Figure 1: Absent-minded driver" { "Player 1" }
+"The absent-minded driver problem of :cite:p:`PicRub97`."
 
 p "" 1 1 "" { "B" "E" } 0
 p "" 1 1 "" { "B" "E" } 0

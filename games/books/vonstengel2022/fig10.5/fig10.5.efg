@@ -1,7 +1,5 @@
-EFG 2 R "Figure 10.5 from von Stengel (2022)" { "I" "II" }
-"
-Figure 10.5 from :cite:p:`vS22`.
-Player II has four reduced strategies in this game, compared to eight unreduced strategies.
+EFG 2 R "von Stengel (2022), Figure 10.5" { "I" "II" }
+"Player II has four reduced strategies in this game, compared to eight unreduced strategies.
 "
 
 

@@ -1,5 +1,5 @@
-EFG 2 R "Stripped-down poker (Reiley et al 2008)" { "Professor" "Student" }
-"This is a one-card poker game used in :cite:p:`Rei2008` as a teaching exercise.
+EFG 2 R "Reiley et al. (2008), Figure 1: Stripped-down poker" { "Professor" "Student" }
+"A one-card poker game used as a teaching exercise.
 
 See also :cite:p:`Mye91`
     Another one-card poker game with slightly different rules.

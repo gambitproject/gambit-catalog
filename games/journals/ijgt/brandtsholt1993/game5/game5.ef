@@ -1,0 +1,23 @@
+player 1 name Player~1
+player 2 name Player~2
+level 0 node 1 player 0
+level 4 node 2 player 1 xshift -6 from 1 move Type~A~(\frac{1}{2})
+level 8 node 3 xshift -3 from 2 move I
+level 12 node 4 xshift -2 from 3 move C payoffs 45 30
+level 12 node 5 xshift 0 from 3 move D payoffs 0 0
+level 12 node 6 xshift 2 from 3 move E payoffs 0 15
+level 8 node 7 xshift 3 from 2 move S
+level 12 node 8 xshift -2 from 7 move C payoffs 30 90
+level 12 node 9 xshift 0 from 7 move D payoffs 30 15
+level 12 node 10 xshift 2 from 7 move E payoffs 60 60
+level 4 node 11 player 1 xshift 6 from 1 move Type~B~(\frac{1}{2})
+level 8 node 12 xshift -3 from 11 move I
+level 12 node 13 xshift -2 from 12 move C payoffs 30 30
+level 12 node 14 xshift 0 from 12 move D payoffs 30 45
+level 12 node 15 xshift 2 from 12 move E payoffs 30 0
+level 8 node 16 xshift 3 from 11 move S
+level 12 node 17 xshift -2 from 16 move C payoffs 45 0
+level 12 node 18 xshift 0 from 16 move D payoffs 0 30
+level 12 node 19 xshift 2 from 16 move E payoffs 0 15
+iset 3 12 player 2
+iset 7 16 player 2

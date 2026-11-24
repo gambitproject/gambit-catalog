@@ -1,8 +1,6 @@
-EFG 2 R "Figure 9 from von Stengel and Forges (2008)" { "1" "2" }
-"
-Figure 9 from :cite:p:`vSF08`.
-It encodes the SAT formula :math:`x\wedge (\neg x \vee y) \wedge (\neg x \vee \neg y)`
-(writing $-x$ for :math:`\neg x`).
+EFG 2 R "von Stengel and Forges (2008), Figure 9" { "1" "2" }
+"It encodes the SAT formula :math:`x\wedge (\neg x \vee y) \wedge (\neg x \vee \neg y)`
+(writing -x for :math:`\neg x`).
 The formula is satisfiable (which here it is not) if and only
 if the players can ensure a payoff of 1 in any Nash Equilibrium, Correlated Equilibrium,
 or Extensive-Form Correlated Equilibrium,

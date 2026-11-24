@@ -1,8 +1,6 @@
-EFG 2 R "Figure 10.7 from von Stengel (2022)" { "I" "II" }
-"
-Figure 10.7 from :cite:p:`vS22`.
-It is a game with imperfect recall, but it has the same strategic form as the game in Figure 10.5
-from the same book.
+EFG 2 R "von Stengel (2022), Figure 10.7" { "I" "II" }
+"A game with imperfect recall which has the same strategic form as the game in Figure 10.5
+of the same book.
 One equilibrium strategy of player II as computed from the strategic form is not realization
 equivalent to any behavior strategy, namely the mixed strategy (0, 2/5, 3/5, 0)
 for (la, lb, ra, rb).
