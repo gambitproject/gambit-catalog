@@ -1,8 +1,6 @@
-EFG 2 R "Fig 5.10 from Shoham and Leyton-Brown (2008)" { "1" "2" }
+EFG 2 R "Shoham and Leyton-Brown (2008), Figure 5.10" { "1" "2" }
 
-"
-Figure 5.10 from :cite:p:`ShoLeyB08`.
-This is an example of an imperfect-information game.
+"An imperfect-information game in which player 1 moves again without observing player 2's choice.
 "
 
 p "" 1 2 "" { "L" "R" } 0

@@ -1,0 +1,9 @@
+EFG 2 R "McKelvey and Palfrey (1998), Figure 1(a): Chainstore paradox" { "Entrant" "Incumbent" }
+"The one-shot chainstore paradox stage game (sequential version). Player 1 is the entrant (N = Not Enter,
+E = Enter) and player 2 is the incumbent (F = Fight, A = Acquiesce)."
+
+p "" 1 1 "" { "N" "E" } 0
+t "" 1 "Not Enter" { 2, 2 }
+p "" 2 1 "" { "F" "A" } 0
+t "" 2 "Fight" { 0, 0 }
+t "" 3 "Acquiesce" { 3, 1 }

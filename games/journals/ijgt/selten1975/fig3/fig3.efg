@@ -1,5 +1,5 @@
-EFG 2 R "Selten (IJGT 1975) Figure 3" { "Player 1" "Player 2" "Player 3" }
-"This is a counterexample presented in :cite:p:`Sel75`, to show that extensive and
+EFG 2 R "Selten (1975), Figure 3" { "Player 1" "Player 2" "Player 3" }
+"A counterexample to show that extensive and
 normal form concepts of perfectness do not coincide.   Specifically, there
 are two equilibria which are perfect in the normal form but not perfect
 in the extensive form.

@@ -1,6 +1,5 @@
-EFG 2 R "Jakobsen, Sorensen, Conitzer (2016) Figure 1(a)" { "Player 1" "Player 2" }
-"An example from :cite:p:`JakSorCon16` illustrating a game
-that is not exactly timeable.  A coin toss determines which player moves first.
+EFG 2 R "Jakobsen et al. (2016), Figure 1(a)" { "Player 1" "Player 2" }
+"A game that is not exactly timeable.  A coin toss determines which player moves first.
 Each player guesses whether she went first, without distinguishing going first from going second.
 Each player receives a payoff of 1 for a correct guess and 0 otherwise.
 No deterministic or randomized timing can implement this game without leaking information.

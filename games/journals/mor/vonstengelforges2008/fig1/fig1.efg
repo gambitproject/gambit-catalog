@@ -1,7 +1,5 @@
-EFG 2 R "Figure 1 from von Stengel and Forges (2008)" { "1" "2" }
-"
-Figure 1 from :cite:p:`vSF08`.
-It is a kind of a kind of signaling game.
+EFG 2 R "von Stengel and Forges (2008), Figure 1" { "1" "2" }
+"A signaling game in which, in every Nash equilibrium, the signal gives player 2 no information.
 "
 
 c "" 1 "" { "1/2" 1/2 "1/2" 1/2 } 0

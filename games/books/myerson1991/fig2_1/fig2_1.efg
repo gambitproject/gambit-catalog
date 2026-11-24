@@ -1,6 +1,5 @@
-EFG 2 R "A simple Poker game" { "Fred" "Alice" }
-"This is a simple game of one-card poker from :cite:p:`Mye91`, used as the
-introductory example for game models.
+EFG 2 R "Myerson (1991), Figure 2.1" { "Fred" "Alice" }
+"A simple game of one-card poker, used as the introductory example for game models.
 
 Note that as specified in the text, the game has the slightly unusual feature
 that folding with the high (red) card results in the player winning rather than

@@ -1,12 +1,11 @@
-NFG 1 R "von Stengel's 6x6 bimatrix game with 75 equilibria (small payoffs)" { "1" "2" }
+NFG 1 R "Savani and von Stengel (2006)" { "1" "2" }
 
 { { "1" "2" "3" "4" "5" "6" }
 { "1" "2" "3" "4" "5" "6" }
 }
-"Taken from :cite:p:`SvS06`, this version has much smaller payoffs than the original version from
-:cite:p:`vS97` and referenced in :cite:p:`vS99`, which is also in this folder of the catalog.
-It is a 6x6 bimatrix game with 75 equilibria,
-which is more than the previously conjectured bound of :math:`2^6 - 1 = 63`."
+"A version of the 6x6 bimatrix game with 75 equilibria of :cite:p:`vS97` and :cite:p:`vS99`,
+with much smaller payoffs than the original, which is also in this folder of the catalog.
+75 equilibria is more than the previously conjectured bound of :math:`2^6 - 1 = 63`."
 
 {
 { "" -81, 72 }

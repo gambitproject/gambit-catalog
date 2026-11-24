@@ -1,8 +1,6 @@
-EFG 2 R "Fig 6.8 from Shoham and Leyton-Brown (2008)" { "1" "2" }
+EFG 2 R "Shoham and Leyton-Brown (2008), Figure 6.8" { "1" "2" }
 
-"
-Figure 6.8 from :cite:p:`ShoLeyB08`.
-This is a Bayesian game, represented in EFG with Nature deciding the types.
+"A Bayesian game, represented in extensive form with chance choosing the players' types.
 "
 
 c "" 5 "" { "MP" 1/4 "PD" 1/4 "Coord" 1/4 "BoS" 1/4 } 0

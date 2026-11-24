@@ -1,8 +1,6 @@
-EFG 2 R "Fig 5.2 from Shoham and Leyton-Brown (2008)" { "1" "2" }
+EFG 2 R "Shoham and Leyton-Brown (2008), Figure 5.2" { "1" "2" }
 
-"
-Figure 5.2 from :cite:p:`ShoLeyB08`.
-This is an example of a perfect-information game in extensive form.
+"A perfect-information game with a Nash equilibrium that is not subgame perfect.
 "
 
 p "" 1 1 "" { "A" "B" } 0

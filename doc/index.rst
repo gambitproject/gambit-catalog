@@ -24,3 +24,4 @@ References
    :hidden:
 
    developer
+   style

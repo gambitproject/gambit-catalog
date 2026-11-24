@@ -1,0 +1,10 @@
+player 1 name Entrant
+player 2 name Incumbent
+level 0 node 1 player 1
+level 4 node 2 xshift -2 from 1 move N
+level 8 node 3 xshift -1 from 2 move F payoffs 2 2
+level 8 node 4 xshift 1 from 2 move A payoffs 2 2
+level 4 node 5 xshift 2 from 1 move E
+level 8 node 6 xshift -1 from 5 move F payoffs 0 0
+level 8 node 7 xshift 1 from 5 move A payoffs 3 1
+iset 2 5 player 2

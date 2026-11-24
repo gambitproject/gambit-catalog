@@ -4,6 +4,7 @@ import io
 import json
 import re
 import sys
+import unicodedata
 import zipfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -21,11 +22,12 @@ CATALOG_DIR = Path(__file__).parent / "games"
 CATALOG_MANIFEST = Path(__file__).parent / "games" / "manifest.json"
 MANIFEST_SCHEMA = Path(__file__).parent / "schema" / "manifest.schema.json"
 VERSION_FILE = Path(__file__).parent / "VERSION"
-CATALOG_HIERARCHY_CONFIG = Path(__file__).parent / "hierarchy.yaml"
 REFERENCES_BIB = Path(__file__).parent / "references.bib"
 SUPPORTED_GAME_FORMATS = {"efg", "nfg"}
 GAME_READERS = {".efg": gbt.read_efg, ".nfg": gbt.read_nfg}
 _CITE_RE = re.compile(r":cite:p:`([^`]+)`")
+SCHEMA_VERSION = 1
+SOURCE_FILE = "source.yaml"
 
 HOUSE_STYLE = Style(
     color_scheme="colorblind",
@@ -50,6 +52,14 @@ class Entry:
     @property
     def format(self) -> str:
         return self.game_path.suffix[1:]
+
+    @property
+    def source_path(self) -> Path:
+        return self.game_path.parent / SOURCE_FILE
+
+
+class CatalogError(ValueError):
+    """The catalog's content is invalid; the message names the files concerned."""
 
 
 def _entry_drawings(entry_dir: Path, stem: str, catalog_dir: Path) -> list[dict]:
@@ -121,11 +131,21 @@ def read_game(entry: Entry) -> gbt.Game:
     return GAME_READERS[entry.game_path.suffix](str(entry.game_path))
 
 
-def _catalog_games(catalog_dir: Path | None = None) -> pd.DataFrame:
-    """Return one row per catalog entry, with its title, description, game file and drawings."""
+def _catalog_games(catalog_dir: Path | None = None, bib_path: Path | None = None) -> pd.DataFrame:
+    """Return one row per catalog entry: title, description, source, game file and drawings.
+
+    Raises
+    ------
+    CatalogError
+        If an entry's ``source.yaml`` is missing or invalid.
+    """
     catalog_dir = catalog_dir or CATALOG_DIR
+    entries = discover_entries(catalog_dir)
+    sources, problems = _load_sources(entries, bib_path)
+    if problems:
+        raise CatalogError("\n".join(problems))
     records = []
-    for entry in discover_entries(catalog_dir):
+    for entry in entries:
         game = read_game(entry)
         records.append(
             {
@@ -135,10 +155,13 @@ def _catalog_games(catalog_dir: Path | None = None) -> pd.DataFrame:
                 "Format": entry.format,
                 "Path": entry.game_path.relative_to(catalog_dir).as_posix(),
                 "Drawings": entry.drawings,
+                "Source": sources[entry.slug]["source"],
+                "Name": sources[entry.slug].get("name"),
             }
         )
     return pd.DataFrame.from_records(
-        records, columns=["Game", "Title", "Description", "Format", "Path", "Drawings"]
+        records,
+        columns=["Game", "Title", "Description", "Format", "Path", "Drawings", "Source", "Name"],
     )
 
 
@@ -189,30 +212,11 @@ def render_image(
         compile_to(str(source), save_to=str(base), style=HOUSE_STYLE)
 
 
-def load_hierarchy_labels() -> dict[str, str]:
-    """Return the human-readable label mapping for catalog hierarchy nodes."""
-    with open(CATALOG_HIERARCHY_CONFIG, encoding="utf-8") as f:
-        config = yaml.safe_load(f)
-    return config.get("labels", {})
-
-
-def _node_label(prefix: str, labels: dict[str, str]) -> str:
-    """Return the display label for a catalog hierarchy node.
-
-    Falls back to title-casing the last path component when the prefix is not
-    listed in the YAML config.
-    """
-    if prefix in labels:
-        return labels[prefix]
-    return Path(prefix).name.replace("_", " ").title()
-
-
 def _warn_missing_descriptions(df: pd.DataFrame) -> None:
     """Print a warning to stderr for each game that lacks a description.
 
-    Games without descriptions are silently excluded from the catalog page by
-    ``_build_slug_tree``.  This function makes that visible so contributors
-    know to add a description before the game will appear.
+    Games without descriptions are excluded from the catalog page; this makes that visible
+    so contributors know to add a description before the game will appear.
     """
     for _, row in df.iterrows():
         if str(row.get("Description", "")).strip():
@@ -224,25 +228,31 @@ def _warn_missing_descriptions(df: pd.DataFrame) -> None:
         )
 
 
-def _build_slug_tree(df: pd.DataFrame) -> dict:
-    """Build a nested dict tree from the slugs in *df*.
+def _entry_heading(row: pd.Series) -> str:
+    """Return the heading of a game under its work: locator and name, else the game's title."""
+    locator = row["Source"].get("locator")
+    name = row.get("Name")
+    name = name if isinstance(name, str) else None
+    if locator and name:
+        return f"{locator}: {name}"
+    return locator or name or str(row.get("Title", "")).strip()
 
-    Intermediate nodes are plain ``dict``s.  Leaf nodes (individual games) store
-    the corresponding ``pd.Series`` row.  Slugs are split on ``"/"`` to produce
-    the nesting.
+
+def _group_by_work(df: pd.DataFrame) -> list[tuple[dict, list[pd.Series]]]:
+    """Group the games in *df* by source work.
+
+    Works are sorted by citation, games within a work by slug. Games in an unsupported format
+    or without a description are left out.
     """
-    tree: dict = {}
-    for _, row in df.iterrows():
+    works: dict[str, tuple[dict, list[pd.Series]]] = {}
+    for _, row in df.sort_values("Game").iterrows():
         if row.get("Format") not in SUPPORTED_GAME_FORMATS:
             continue
         if not str(row.get("Description", "")).strip():
             continue
-        parts = row["Game"].split("/")
-        node = tree
-        for part in parts[:-1]:
-            node = node.setdefault(part, {})
-        node[parts[-1]] = row
-    return tree
+        source = row["Source"]
+        works.setdefault(source["key"], (source, []))[1].append(row)
+    return sorted(works.values(), key=lambda w: (w[0]["citation"], w[0]["key"]))
 
 
 def _write_game_entry(
@@ -259,7 +269,7 @@ def _write_game_entry(
     i2 = indent + "      "  # nested directives (Download, tab-set)
     i3 = indent + "         "  # content inside nested directives
 
-    title = str(row.get("Title", "")).strip()
+    title = _entry_heading(row)
     description = str(row.get("Description", "")).strip()
     images = _images(slug, row["Format"], row["Drawings"])
     for image in images:
@@ -304,91 +314,142 @@ def _write_game_entry(
         f.write(f"{i1}\n")
 
 
-def _write_tree_level(
-    f,
-    subtree: dict,
-    path_prefix: str,
-    labels: dict[str, str],
-    catalog_dir: Path,
-    indent: str,
-    regenerate_images: bool = False,
-) -> None:
-    """Recursively write RST nested dropdowns for *subtree*.
-
-    Intermediate nodes (``dict`` values) become collapsible ``.. dropdown::``
-    sections.  Top-level nodes (those whose ``path_prefix`` contains no ``/``)
-    are rendered open by default so the first level of the hierarchy is
-    immediately visible.  Leaf nodes (``pd.Series`` values) are individual
-    games rendered via :func:`_write_game_entry`.
-    """
-    for key in sorted(subtree):
-        value = subtree[key]
-        child_prefix = f"{path_prefix}/{key}" if path_prefix else key
-
-        if isinstance(value, dict):
-            label = _node_label(child_prefix, labels)
-            is_top_level = "/" not in child_prefix
-            f.write(f"{indent}.. dropdown:: {label}\n")
-            if is_top_level:
-                f.write(f"{indent}   :open:\n")
-            f.write(f"{indent}\n")
-            _write_tree_level(
-                f,
-                value,
-                child_prefix,
-                labels,
-                catalog_dir,
-                indent + "   ",
-                regenerate_images=regenerate_images,
-            )
-            f.write(f"{indent}\n")
-        else:
-            _write_game_entry(
-                f,
-                value,
-                child_prefix,
-                catalog_dir,
-                indent,
-                regenerate_images=regenerate_images,
-            )
-
-
 def generate_rst_table(
     df: pd.DataFrame,
     rst_path: Path,
     regenerate_images: bool = False,
     catalog_dir: Path | None = None,
 ):
-    """Generate RST output with nested dropdowns grouped by catalog hierarchy."""
+    """Generate RST output with one dropdown per source work, holding that work's games."""
     catalog_dir = catalog_dir or CATALOG_DIR
-    labels = load_hierarchy_labels()
-    tree = _build_slug_tree(df)
     with open(rst_path, "w", encoding="utf-8") as f:
-        _write_tree_level(
-            f, tree, "", labels, catalog_dir, indent="", regenerate_images=regenerate_images
-        )
+        for source, rows in _group_by_work(df):
+            f.write(f".. dropdown:: {source['citation']}: {source['title']}\n\n")
+            for row in rows:
+                _write_game_entry(
+                    f,
+                    row,
+                    row["Game"],
+                    catalog_dir,
+                    "   ",
+                    regenerate_images=regenerate_images,
+                )
+            f.write("\n")
+
+
+_TEX_LETTERS = {
+    "o": "\u00f8",
+    "O": "\u00d8",
+    "ae": "\u00e6",
+    "AE": "\u00c6",
+    "aa": "\u00e5",
+    "AA": "\u00c5",
+    "ss": "\u00df",
+    "l": "\u0142",
+    "L": "\u0141",
+    "i": "\u0131",
+}
+_TEX_ACCENTS = {
+    '"': "\u0308",
+    "'": "\u0301",
+    "`": "\u0300",
+    "^": "\u0302",
+    "~": "\u0303",
+    "=": "\u0304",
+    ".": "\u0307",
+    "c": "\u0327",
+    "v": "\u030c",
+}
+_TEX_ACCENT_RE = re.compile(r"\\([\"'`^~=.]|[cv](?![A-Za-z]))\s*\{?\\?([A-Za-z])\}?")
+_TEX_LETTER_RE = re.compile(
+    r"\\(" + "|".join(sorted(_TEX_LETTERS, key=len, reverse=True)) + r")(?![A-Za-z])\s*"
+)
+
+
+def _plain(text: str) -> str:
+    """Return *text* from a BibTeX field with LaTeX accents and braces turned into plain text."""
+    text = _TEX_ACCENT_RE.sub(lambda m: m.group(2) + _TEX_ACCENTS[m.group(1)], text)
+    text = _TEX_LETTER_RE.sub(lambda m: _TEX_LETTERS[m.group(1)], text)
+    text = re.sub(r"\\([&%$#_])", r"\1", text)
+    text = text.replace("{", "").replace("}", "")
+    return unicodedata.normalize("NFC", " ".join(text.split()))
+
+
+def _bib_persons(entry: pybtex.database.Entry) -> list[pybtex.database.Person]:
+    """Return the authors of *entry*, or its editors if it has none."""
+    return list(entry.persons.get("author", [])) or list(entry.persons.get("editor", []))
+
+
+def _surnames(entry: pybtex.database.Entry) -> list[str]:
+    persons = _bib_persons(entry)
+    return [_plain(" ".join(p.prelast_names + p.last_names)) for p in persons if p.last_names]
+
+
+def _author_text(surnames: list[str]) -> str:
+    """Return "Smith", "Smith and Jones", or "Smith et al." for a list of surnames."""
+    if len(surnames) == 0:
+        return ""
+    if len(surnames) == 1:
+        return surnames[0]
+    if len(surnames) == 2:
+        return f"{surnames[0]} and {surnames[1]}"
+    return f"{surnames[0]} et al."
 
 
 def _format_citation(entry: pybtex.database.Entry) -> str:
     """Return a short "(Author Year)" citation string for a single bibtex entry."""
-    persons = entry.persons.get("author", [])
-    last_names = [
-        " ".join(str(part) for part in p.prelast_names + p.last_names)
-        for p in persons
-        if p.last_names
-    ]
-    if len(last_names) == 0:
-        author_text = ""
-    elif len(last_names) == 1:
-        author_text = last_names[0]
-    elif len(last_names) == 2:
-        author_text = f"{last_names[0]} and {last_names[1]}"
-    else:
-        author_text = f"{last_names[0]} et al."
+    author_text = _author_text(_surnames(entry))
     year = entry.fields.get("year", "")
     if author_text and year:
         return f"({author_text} {year})"
     return f"({author_text or year})"
+
+
+def short_citation(entry: pybtex.database.Entry) -> str:
+    """Return the "Author (Year)" form of a bibtex entry's citation, as used in titles."""
+    author_text = _author_text(_surnames(entry))
+    year = entry.fields.get("year", "")
+    return f"{author_text} ({year})"
+
+
+def describe_work(entry: pybtex.database.Entry) -> dict:
+    """Return the manifest's description of the work a bibtex entry stands for.
+
+    The result has ``citation``, ``authors``, ``year``, ``title``, ``kind`` and, for an
+    entry in a journal or a volume, ``venue``.
+
+    Raises
+    ------
+    ValueError
+        If the entry lacks an author or editor, a year or a title.
+    """
+    persons = _bib_persons(entry)
+    year = entry.fields.get("year", "")
+    title = _plain(entry.fields.get("title", ""))
+    if not persons or not re.fullmatch(r"\d+", year.strip()) or not title:
+        raise ValueError("needs an author or editor, a numeric year and a title")
+    work = {
+        "citation": short_citation(entry),
+        "authors": [
+            _plain(
+                " ".join(
+                    p.first_names
+                    + p.middle_names
+                    + p.prelast_names
+                    + p.last_names
+                    + p.lineage_names
+                )
+            )
+            for p in persons
+        ],
+        "year": int(year),
+        "title": title,
+        "kind": entry.type.lower(),
+    }
+    venue = entry.fields.get("journal") or entry.fields.get("booktitle")
+    if venue:
+        work["venue"] = _plain(venue)
+    return work
 
 
 def load_citation_texts(bib_path: Path | None = None) -> dict[str, str]:
@@ -398,23 +459,210 @@ def load_citation_texts(bib_path: Path | None = None) -> dict[str, str]:
     return {key: _format_citation(entry) for key, entry in bib_data.entries.items()}
 
 
+def cited_keys(description: str) -> list[str]:
+    """Return the citation keys of every ``:cite:p:`key``` in *description*, in order."""
+    return _CITE_RE.findall(description)
+
+
 def resolve_citations(description: str, citation_texts: dict[str, str]) -> str:
     """Replace every ``:cite:p:`key``` occurrence in *description* with a short citation string.
 
-    Falls back to ``(key)`` for a key not found in *citation_texts*, so a manifest build
-    never silently drops a citation just because the bib entry couldn't be resolved.
+    Raises
+    ------
+    CatalogError
+        If a cited key is not in *citation_texts*.
     """
-    return _CITE_RE.sub(lambda m: citation_texts.get(m.group(1), f"({m.group(1)})"), description)
+    missing = [key for key in cited_keys(description) if key not in citation_texts]
+    if missing:
+        cited = ", ".join(map(repr, missing))
+        raise CatalogError(f"description cites {cited}, not in references.bib")
+    return _CITE_RE.sub(lambda m: citation_texts[m.group(1)], description)
 
 
-def _hierarchy_breadcrumbs(slug: str, labels: dict[str, str]) -> list[str]:
-    """Return the human-readable label for each ancestor group of *slug*, root to leaf."""
-    breadcrumbs = []
-    prefix = ""
-    for part in slug.split("/")[:-1]:
-        prefix = f"{prefix}/{part}" if prefix else part
-        breadcrumbs.append(_node_label(prefix, labels))
-    return breadcrumbs
+def _check_mapping(path: Path, where: str, value, required: set, optional: set) -> None:
+    if not isinstance(value, dict):
+        raise CatalogError(f"{path}: '{where}' must be a mapping")
+    for field in sorted(required - value.keys()):
+        raise CatalogError(f"{path}: '{where}' needs a '{field}'")
+    for field in sorted(value.keys() - required - optional, key=str):
+        raise CatalogError(f"{path}: unknown key '{field}' in '{where}'")
+    for field, text in value.items():
+        if not isinstance(text, str) or not text.strip():
+            raise CatalogError(f"{path}: '{where}.{field}' must be a non-empty string")
+
+
+def read_source_file(path: Path) -> dict:
+    """Read and validate a ``source.yaml`` file.
+
+    Returns
+    -------
+    dict
+        With ``source`` (``key`` and optional ``locator``) and, when present, ``origin``
+        (``key``, optional ``locator`` and ``note``) and ``name``.
+
+    Raises
+    ------
+    CatalogError
+        If the file is not valid YAML, lacks ``source``, or has unknown keys or values of
+        the wrong type; the message names the file.
+    """
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    except yaml.YAMLError as e:
+        raise CatalogError(f"{path}: not valid YAML ({e})") from e
+    if not isinstance(data, dict):
+        raise CatalogError(f"{path}: must be a mapping with a 'source'")
+    if "source" not in data:
+        raise CatalogError(f"{path}: needs a 'source'")
+    unknown = sorted(data.keys() - {"source", "origin", "name"}, key=str)
+    if unknown:
+        raise CatalogError(f"{path}: unknown key '{unknown[0]}'")
+    _check_mapping(path, "source", data["source"], {"key"}, {"locator"})
+    if "origin" in data:
+        _check_mapping(path, "origin", data["origin"], {"key"}, {"locator", "note"})
+    if "name" in data and (not isinstance(data["name"], str) or not data["name"].strip()):
+        raise CatalogError(f"{path}: 'name' must be a non-empty string")
+    return data
+
+
+def load_references(bib_path: Path | None = None) -> dict[str, pybtex.database.Entry]:
+    """Return the bibliography's entries by citation key."""
+    bib_path = bib_path or REFERENCES_BIB
+    return dict(pybtex.database.parse_file(str(bib_path), bib_format="bibtex").entries)
+
+
+def _resolve_work(path: Path, where: str, block: dict, refs: dict) -> dict:
+    key = block["key"]
+    if key not in refs:
+        raise CatalogError(f"{path}: '{where}.key' {key!r} is not in references.bib")
+    try:
+        work = describe_work(refs[key])
+    except ValueError as e:
+        raise CatalogError(f"references.bib entry {key!r} (used by {path}) {e}") from e
+    resolved = {"key": key}
+    if "locator" in block:
+        resolved["locator"] = block["locator"]
+    resolved.update(work)
+    if "note" in block:
+        resolved["note"] = block["note"]
+    return resolved
+
+
+def resolve_source(path: Path, refs: dict) -> dict:
+    """Read ``source.yaml`` at *path* and resolve its keys against *refs*.
+
+    Returns a dict with ``source`` and, when present, ``origin`` and ``name``; each work
+    is described as in the manifest.
+
+    Raises
+    ------
+    CatalogError
+        If the file is missing or invalid, or a key is not in the bibliography.
+    """
+    if not path.is_file():
+        raise CatalogError(f"{path}: missing")
+    data = read_source_file(path)
+    resolved = {"source": _resolve_work(path, "source", data["source"], refs)}
+    if "origin" in data:
+        resolved["origin"] = _resolve_work(path, "origin", data["origin"], refs)
+    if "name" in data:
+        resolved["name"] = data["name"].strip()
+    return resolved
+
+
+def derived_title(resolved: dict) -> str:
+    """Return the title a game must carry: ``<citation>[, <locator>][: <name>]``.
+
+    *resolved* is the result of :func:`resolve_source`.
+    """
+    source = resolved["source"]
+    title = source["citation"]
+    if "locator" in source:
+        title += f", {source['locator']}"
+    if "name" in resolved:
+        title += f": {resolved['name']}"
+    return title
+
+
+def _load_sources(
+    entries: list[Entry], bib_path: Path | None = None
+) -> tuple[dict[str, dict], list[str]]:
+    """Resolve every entry's ``source.yaml``; return the results by slug and the problems found."""
+    refs = load_references(bib_path)
+    sources, problems = {}, []
+    for entry in entries:
+        try:
+            sources[entry.slug] = resolve_source(entry.source_path, refs)
+        except CatalogError as e:
+            problems.append(str(e))
+    return sources, problems
+
+
+def catalog_problems(catalog_dir: Path | None = None, bib_path: Path | None = None) -> list[str]:
+    """Return every problem in the catalog's sources and titles, one message each.
+
+    A problem is a missing or invalid ``source.yaml``, a key in it or in the game's
+    description that is absent from the bibliography, or a game whose title differs from the
+    one derived from its source.
+    """
+    entries = discover_entries(catalog_dir or CATALOG_DIR)
+    sources, problems = _load_sources(entries, bib_path)
+    refs = load_references(bib_path)
+    for entry in entries:
+        game = read_game(entry)
+        for key in cited_keys(str(game.description)):
+            if key not in refs:
+                problems.append(f"{entry.slug}: description cites {key!r}, not in references.bib")
+        if entry.slug not in sources:
+            continue
+        expected = derived_title(sources[entry.slug])
+        if game.title != expected:
+            problems.append(f"{entry.slug}: title is {game.title!r}, expected {expected!r}")
+    return problems
+
+
+_HEADER_RE = re.compile(r'\A((?:EFG|NFG) \d+ [A-Za-z]+ )"((?:[^"\\\n]|\\.)*)"')
+
+
+def _set_header_title(text: str, title: str) -> str:
+    escaped = title.replace("\\", "\\\\").replace('"', '\\"')
+    new, n = _HEADER_RE.subn(lambda m: f'{m.group(1)}"{escaped}"', text, count=1)
+    if n != 1:
+        raise CatalogError("the header line does not have the expected form")
+    return new
+
+
+def sync_titles(
+    catalog_dir: Path | None = None, bib_path: Path | None = None, write: bool = True
+) -> list[str]:
+    """Set each game's title to the one derived from its source; return the slugs that differed.
+
+    Only the title string in the file's header line is changed; with ``write=False`` nothing
+    is written.
+
+    Raises
+    ------
+    CatalogError
+        If any entry's ``source.yaml`` is missing or invalid.
+    """
+    entries = discover_entries(catalog_dir or CATALOG_DIR)
+    sources, problems = _load_sources(entries, bib_path)
+    if problems:
+        raise CatalogError("\n".join(problems))
+    changed = []
+    for entry in entries:
+        expected = derived_title(sources[entry.slug])
+        if read_game(entry).title == expected:
+            continue
+        changed.append(entry.slug)
+        if write:
+            text = entry.game_path.read_bytes().decode("utf-8")
+            try:
+                text = _set_header_title(text, expected)
+            except CatalogError as e:
+                raise CatalogError(f"{entry.game_path}: {e}") from e
+            entry.game_path.write_bytes(text.encode("utf-8"))
+    return changed
 
 
 def _game_stats(game: gbt.Game) -> dict:
@@ -438,15 +686,24 @@ def build_manifest(
 ) -> dict:
     """Build the catalog manifest, the index of the catalog's games.
 
-    One entry per game, with its game file and drawings, a citation-resolved plain-text
-    description, hierarchy breadcrumbs (for display/filtering), and a subset of structural
-    stats. Does not require gtdraw or a LaTeX toolchain — unlike :func:`generate_rst_table`,
-    it never renders an image.
+    One entry per game, with its game file and drawings, its source (and origin and name,
+    where it has them), a citation-resolved plain-text description, and a subset of
+    structural stats. Does not require gtdraw or a LaTeX toolchain: unlike
+    :func:`generate_rst_table`, it never renders an image.
+
+    Raises
+    ------
+    CatalogError
+        If any game lacks a valid ``source.yaml`` or has a title other than the derived one;
+        the message lists every offender.
     """
     catalog_dir = catalog_dir or CATALOG_DIR
     version = version or catalog_version()
-    labels = load_hierarchy_labels()
+    problems = catalog_problems(catalog_dir, bib_path)
+    if problems:
+        raise CatalogError("\n".join(problems))
     citation_texts = load_citation_texts(bib_path)
+    refs = load_references(bib_path)
 
     games = []
     for entry in discover_entries(catalog_dir):
@@ -454,22 +711,22 @@ def build_manifest(
         description = str(game.description).strip()
         if not description:
             continue
-        breadcrumbs = _hierarchy_breadcrumbs(entry.slug, labels)
-        games.append(
-            {
-                "slug": entry.slug,
-                "title": game.title,
-                "description": resolve_citations(description, citation_texts),
-                "format": entry.format,
-                "game": entry.game_path.relative_to(catalog_dir).as_posix(),
-                "drawings": entry.drawings,
-                "category": breadcrumbs[0] if breadcrumbs else "",
-                "group": breadcrumbs[-1] if breadcrumbs else "",
-                **_game_stats(game),
-            }
-        )
+        resolved = resolve_source(entry.source_path, refs)
+        record = {
+            "slug": entry.slug,
+            "title": game.title,
+            **({"name": resolved["name"]} if "name" in resolved else {}),
+            "description": resolve_citations(description, citation_texts),
+            "format": entry.format,
+            "game": entry.game_path.relative_to(catalog_dir).as_posix(),
+            "drawings": entry.drawings,
+            "source": resolved["source"],
+            **({"origin": resolved["origin"]} if "origin" in resolved else {}),
+            **_game_stats(game),
+        }
+        games.append(record)
     return {
-        "schema_version": int(version.split(".")[0]),
+        "schema_version": SCHEMA_VERSION,
         "catalog_version": version,
         "games": games,
     }
@@ -617,6 +874,19 @@ if __name__ == "__main__":
         ),
     )
     parser.add_argument(
+        "--sync-titles",
+        action="store_true",
+        help=(
+            "Rewrite each game file's title to the one derived from its source.yaml, "
+            "changing nothing else in the file."
+        ),
+    )
+    parser.add_argument(
+        "--check-titles",
+        action="store_true",
+        help="List the games whose title differs from the derived one, and exit.",
+    )
+    parser.add_argument(
         "--regenerate-images",
         action="store_true",
         help=(
@@ -646,16 +916,34 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    if not args.skip_table:
-        # Create RST list-table used by doc/index.rst
-        df = _catalog_games()
-        _warn_missing_descriptions(df)
-        generate_rst_table(df, CATALOG_RST_TABLE, regenerate_images=args.regenerate_images)
-        print(f"Generated {CATALOG_RST_TABLE} for use in local docs build. DO NOT COMMIT.")
-    if args.build:
-        manifest = build_manifest()
-        validate_manifest(manifest)
-        write_manifest(manifest)
+    try:
+        if args.check_titles:
+            problems = catalog_problems()
+            if problems:
+                sys.exit("\n".join(problems))
+            print("All titles are as derived from the sources.")
+            sys.exit(0)
+        if args.sync_titles:
+            changed = sync_titles()
+            print(f"Updated the titles of {len(changed)} game file(s).")
+            for slug in changed:
+                print(f"  {slug}")
+        if args.build or not args.skip_table:
+            problems = catalog_problems()
+            if problems:
+                sys.exit("Cannot build the catalog:\n" + "\n".join(problems))
+        if not args.skip_table:
+            # Create RST list-table used by doc/index.rst
+            df = _catalog_games()
+            _warn_missing_descriptions(df)
+            generate_rst_table(df, CATALOG_RST_TABLE, regenerate_images=args.regenerate_images)
+            print(f"Generated {CATALOG_RST_TABLE} for use in local docs build. DO NOT COMMIT.")
+        if args.build:
+            manifest = build_manifest()
+            validate_manifest(manifest)
+            write_manifest(manifest)
+    except CatalogError as e:
+        sys.exit(str(e))
     if args.release:
         archive = build_release(args.release, regenerate_images=args.regenerate_images)
         print(f"Wrote {archive} and {archive.name}.sha256")

@@ -7,20 +7,15 @@ are completely isolated from the actual catalog on disk.
 
 Monkeypatching strategy
 -----------------------
-``build.py`` depends on three external resources that are replaced in tests:
+``build.py`` depends on two external resources that are replaced in tests:
 
-1. ``CATALOG_HIERARCHY_CONFIG`` (a ``Path``) — swapped for a tmp YAML file so
-   ``load_hierarchy_labels`` reads controlled labels without touching the real
-   ``hierarchy.yaml``.  Swap via ``monkeypatch.setattr(build,
-   "CATALOG_HIERARCHY_CONFIG", yaml_file)``.
-
-2. ``tex`` / ``png`` / ``pdf`` / ``svg``
+1. ``tex`` / ``png`` / ``pdf`` / ``svg``
    (functions imported from ``gtdraw``) — replaced with no-ops, call-tracking
    lambdas, or a stub that writes a small PNG.  This lets us test RST and release
    generation without invoking LaTeX, and assert whether image generation was
    triggered at all.
 
-3. ``catalog_dir`` (an argument to ``generate_rst_table`` and ``build_release``) —
+2. ``catalog_dir`` (an argument to ``generate_rst_table`` and ``build_release``) —
    tests pass a ``tmp_path``-based directory, keeping all file I/O inside pytest's
    temporary directory and avoiding any reads from or writes to the repo.
 """
@@ -84,7 +79,122 @@ def _write_nfg_game(path, title="Test NFG Game", description=""):
     return path
 
 
-def _efg_row(slug, title="Test EFG Game", description="A description.", drawings=None):
+_TEST_BIB = textwrap.dedent("""\
+    @article{Solo2020,
+      author = {Solo, A.},
+      title = {A {Solo} Paper},
+      journal = {Journal of Tests},
+      year = {2020},
+    }
+    @article{Duo2019,
+      author = {First, A. and Second, B.},
+      title = {Two Authors},
+      journal = {Journal of Tests},
+      year = {2019},
+    }
+    @article{Trio2018,
+      author = {One, A. and Two, B. and Three, C.},
+      title = {Three Authors},
+      journal = {Journal of Tests},
+      year = {2018},
+    }
+    @article{VonParticle2021,
+      author = {von Particle, X. Y.},
+      title = {A Particle},
+      journal = {Journal of Tests},
+      year = {2021},
+    }
+    @book{Book2010,
+      author = {Writer, W.},
+      title = {The Book},
+      publisher = {Press},
+      year = {2010},
+    }
+    @inproceedings{Conf2016,
+      author = {S{\\o}rensen, T. B. and Other, O. and Third, T.},
+      title = {Proceedings Paper: \\"Uber Games},
+      booktitle = {Proceedings of the Test Conference},
+      year = {2016},
+    }
+    @book{Edited2005,
+      editor = {Editor, E.},
+      title = {Edited Volume},
+      publisher = {Press},
+      year = {2005},
+    }
+    @article{NoYear,
+      author = {Nobody, N.},
+      title = {Undated},
+    }
+""")
+
+# Titles of the fixture games' works, as derived from the bibliography above.
+_CITATIONS = {"Solo2020": "Solo (2020)", "Duo2019": "First and Second (2019)"}
+
+
+def _write_bib(path, content=_TEST_BIB):
+    path.write_text(content, encoding="utf-8")
+    return path
+
+
+def _write_source(entry_dir, key="Solo2020", locator=None, name=None, origin=None, extra=""):
+    """Write a ``source.yaml`` into *entry_dir*."""
+    lines = ["source:", f"  key: {key}"]
+    if locator:
+        lines.append(f"  locator: {locator}")
+    if origin:
+        lines.append("origin:")
+        lines.extend(f"  {k}: {v}" for k, v in origin.items())
+    if name:
+        lines.append(f"name: {name}")
+    entry_dir.mkdir(parents=True, exist_ok=True)
+    path = entry_dir / "source.yaml"
+    path.write_text("\n".join(lines) + "\n" + extra, encoding="utf-8")
+    return path
+
+
+def _add_game(
+    catalog_dir,
+    slug,
+    key="Solo2020",
+    locator=None,
+    name=None,
+    origin=None,
+    title=None,
+    description="A description.",
+    fmt="efg",
+):
+    """Add an entry with a source.yaml; its title is the derived one unless *title* is given."""
+    entry_dir = catalog_dir / slug
+    _write_source(entry_dir, key, locator, name, origin)
+    if title is None:
+        title = (
+            _CITATIONS[key] + (f", {locator}" if locator else "") + (f": {name}" if name else "")
+        )
+    writer = _write_efg_game if fmt == "efg" else _write_nfg_game
+    return writer(
+        entry_dir / f"{slug.rsplit('/', 1)[-1]}.{fmt}", title=title, description=description
+    )
+
+
+_FAKE_SOURCE = {
+    "key": "Fake2000",
+    "citation": "Fake (2000)",
+    "authors": ["A. Fake"],
+    "year": 2000,
+    "title": "A Fake Work",
+    "kind": "book",
+}
+
+
+def _efg_row(
+    slug,
+    title="Test EFG Game",
+    description="A description.",
+    drawings=None,
+    source=None,
+    name=None,
+):
     """Return a dict representing one row of the DataFrame produced by
     ``build._catalog_games`` for an extensive-form game.
 
@@ -100,10 +210,12 @@ def _efg_row(slug, title="Test EFG Game", description="A description.", drawings
         "Format": "efg",
         "Path": f"{slug}/{stem}.efg",
         "Drawings": drawings,
+        "Source": source or _FAKE_SOURCE,
+        "Name": name,
     }
 
 
-def _nfg_row(slug, title="Test NFG Game", description="A description."):
+def _nfg_row(slug, title="Test NFG Game", description="A description.", source=None, name=None):
     """Return a dict representing one row of the DataFrame for a normal-form game."""
     stem = slug.rsplit("/", 1)[-1]
     return {
@@ -113,6 +225,8 @@ def _nfg_row(slug, title="Test NFG Game", description="A description."):
         "Format": "nfg",
         "Path": f"{slug}/{stem}.nfg",
         "Drawings": [],
+        "Source": source or _FAKE_SOURCE,
+        "Name": name,
     }
 
 
@@ -204,22 +318,25 @@ class TestDiscoverEntries:
         with pytest.raises(ValueError, match="exactly one game file"):
             build.discover_entries(catalog_dir)
 
-    def test_catalog_games_reads_title_and_description(self, tmp_path):
+    def test_catalog_games_reads_title_description_and_source(self, tmp_path):
         catalog_dir = tmp_path / "catalog"
-        _write_efg_game(
-            catalog_dir / "src2000" / "fig1" / "fig1.efg", title="T", description="D"
+        _add_game(
+            catalog_dir, "src2000/fig1", locator="Figure 1", name="The game", description="D"
         )
-        df = build._catalog_games(catalog_dir)
-        assert df.to_dict("records") == [
-            {
-                "Game": "src2000/fig1",
-                "Title": "T",
-                "Description": "D",
-                "Format": "efg",
-                "Path": "src2000/fig1/fig1.efg",
-                "Drawings": [],
-            }
-        ]
+        df = build._catalog_games(catalog_dir, _write_bib(tmp_path / "refs.bib"))
+        (row,) = df.to_dict("records")
+        assert row["Game"] == "src2000/fig1"
+        assert row["Title"] == "Solo (2020), Figure 1: The game"
+        assert row["Description"] == "D"
+        assert row["Source"]["key"] == "Solo2020"
+        assert row["Source"]["locator"] == "Figure 1"
+        assert row["Name"] == "The game"
+
+    def test_catalog_games_fails_without_source(self, tmp_path):
+        catalog_dir = tmp_path / "catalog"
+        _write_efg_game(catalog_dir / "src2000" / "fig1" / "fig1.efg")
+        with pytest.raises(build.CatalogError, match="source.yaml: missing"):
+            build._catalog_games(catalog_dir, _write_bib(tmp_path / "refs.bib"))
 
 
 # ---------------------------------------------------------------------------
@@ -346,164 +463,75 @@ class TestGenerateRstTable:
 
 
 # ---------------------------------------------------------------------------
-# Tests for hierarchy helpers and hierarchical RST output
+# Tests for grouping by work
 # ---------------------------------------------------------------------------
 
-# A minimal hierarchy.yaml used by hierarchy tests.
-_HIERARCHY_YAML = textwrap.dedent("""\
-    labels:
-      cat: "My Category"
-      cat/src: "My Source"
-""")
+
+def _source(key, citation, title="A Work"):
+    return {**_FAKE_SOURCE, "key": key, "citation": citation, "title": title}
 
 
 @pytest.mark.catalog_update
-class TestHierarchyHelpers:
-    """Unit tests for ``load_hierarchy_labels``, ``_node_label``, and ``_build_slug_tree``."""
+class TestGroupByWork:
+    """Tests for ``_group_by_work`` and the RST ``generate_rst_table`` writes from it."""
 
-    def test_load_hierarchy_labels_returns_dict(self, tmp_path, monkeypatch):
-        """``load_hierarchy_labels`` returns the labels dict from the YAML."""
-        yaml_file = tmp_path / "hier.yaml"
-        yaml_file.write_text(_HIERARCHY_YAML, encoding="utf-8")
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", yaml_file)
-        labels = build.load_hierarchy_labels()
-        assert labels["cat"] == "My Category"
-        assert labels["cat/src"] == "My Source"
+    def test_games_grouped_by_source_key(self):
+        a = _source("A", "Alpha (2001)")
+        df = _make_df(_efg_row("x/g2", source=a), _efg_row("y/g1", source=a), _efg_row("z/g3"))
+        works = build._group_by_work(df)
+        assert [(w["key"], [r["Game"] for r in rows]) for w, rows in works] == [
+            ("A", ["x/g2", "y/g1"]),
+            ("Fake2000", ["z/g3"]),
+        ]
 
-    def test_node_label_uses_yaml(self, tmp_path, monkeypatch):
-        """``_node_label`` returns the YAML label when the prefix is present."""
-        yaml_file = tmp_path / "hier.yaml"
-        yaml_file.write_text(_HIERARCHY_YAML, encoding="utf-8")
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", yaml_file)
-        labels = build.load_hierarchy_labels()
-        assert build._node_label("cat", labels) == "My Category"
-
-    def test_node_label_fallback_title_case(self, tmp_path, monkeypatch):
-        """``_node_label`` falls back to title-casing the last component."""
-        yaml_file = tmp_path / "hier.yaml"
-        yaml_file.write_text(_HIERARCHY_YAML, encoding="utf-8")
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", yaml_file)
-        labels = build.load_hierarchy_labels()
-        assert build._node_label("cat/unknownsrc", labels) == "Unknownsrc"
-
-    def test_build_slug_tree_single_game(self):
-        """A single-slug DataFrame builds a 2-level tree."""
-        df = _make_df(_efg_row("cat/src/game1"))
-        tree = build._build_slug_tree(df)
-        assert "cat" in tree
-        assert "src" in tree["cat"]
-        assert "game1" in tree["cat"]["src"]
-
-    def test_build_slug_tree_groups_siblings(self):
-        """Two slugs sharing a prefix are grouped under the same intermediate node."""
-        df = _make_df(_efg_row("cat/src/game1"), _efg_row("cat/src/game2"))
-        tree = build._build_slug_tree(df)
-        assert set(tree["cat"]["src"].keys()) == {"game1", "game2"}
-
-    def test_build_slug_tree_skips_unknown_format(self):
-        """Rows with unrecognised Format are excluded from the tree."""
-        row = {**_efg_row("cat/src/game1"), "Format": "xyz"}
-        df = _make_df(row)
-        assert build._build_slug_tree(df) == {}
-
-    def test_build_slug_tree_skips_empty_description(self):
-        """Rows with an empty description are excluded from the tree."""
-        df = _make_df(_efg_row("cat/src/game1", description=""))
-        assert build._build_slug_tree(df) == {}
-
-
-@pytest.mark.catalog_update
-class TestHierarchicalRstOutput:
-    """Tests that ``generate_rst_table`` produces correctly nested dropdown RST."""
-
-    def _mock_generates(self, monkeypatch):
-        for name in ["tex", "png", "pdf", "svg"]:
-            monkeypatch.setattr(build, name, lambda *a, **k: None)
-
-    def _write_hierarchy_yaml(self, tmp_path, content=_HIERARCHY_YAML):
-        yaml_file = tmp_path / "hier.yaml"
-        yaml_file.write_text(content, encoding="utf-8")
-        return yaml_file
-
-    def test_top_level_dropdown_is_open(self, tmp_path, monkeypatch):
-        """Top-level category dropdowns carry ``:open:`` so the first level is visible."""
-        self._mock_generates(monkeypatch)
-        hier_yaml = self._write_hierarchy_yaml(tmp_path)
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", hier_yaml)
-        catalog_dir = tmp_path / "catalog"
-        slug = "cat/src/game1"
-        _make_image_files(catalog_dir, slug)
-        df = _make_df(_efg_row(slug))
-        rst_path = tmp_path / "out.rst"
-        build.generate_rst_table(df, rst_path, catalog_dir=catalog_dir)
-        rst = rst_path.read_text()
-        assert ".. dropdown:: My Category\n   :open:" in rst
-
-    def test_second_level_dropdown_is_not_open(self, tmp_path, monkeypatch):
-        """Sub-category dropdowns do NOT carry ``:open:`` so they are collapsed by default."""
-        self._mock_generates(monkeypatch)
-        hier_yaml = self._write_hierarchy_yaml(tmp_path)
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", hier_yaml)
-        catalog_dir = tmp_path / "catalog"
-        slug = "cat/src/game1"
-        _make_image_files(catalog_dir, slug)
-        df = _make_df(_efg_row(slug))
-        rst_path = tmp_path / "out.rst"
-        build.generate_rst_table(df, rst_path, catalog_dir=catalog_dir)
-        rst = rst_path.read_text()
-        assert "   .. dropdown:: My Source\n   \n" in rst
-        # Confirm :open: does not immediately follow the second-level dropdown
-        src_idx = rst.index("   .. dropdown:: My Source")
-        assert ":open:" not in rst[src_idx : src_idx + 40]
-
-    def test_game_dropdown_is_open(self, tmp_path, monkeypatch):
-        """Individual game dropdowns carry ``:open:`` so game content is visible on expand."""
-        self._mock_generates(monkeypatch)
-        hier_yaml = self._write_hierarchy_yaml(tmp_path)
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", hier_yaml)
-        catalog_dir = tmp_path / "catalog"
-        slug = "cat/src/game1"
-        _make_image_files(catalog_dir, slug)
-        df = _make_df(_efg_row(slug, title="My Game Title"))
-        rst_path = tmp_path / "out.rst"
-        build.generate_rst_table(df, rst_path, catalog_dir=catalog_dir)
-        rst = rst_path.read_text()
-        assert "      .. dropdown:: My Game Title\n         :open:" in rst
-
-    def test_sibling_games_both_appear_under_source(self, tmp_path, monkeypatch):
-        """Two games sharing a source prefix both appear nested under the source dropdown."""
-        self._mock_generates(monkeypatch)
-        hier_yaml = self._write_hierarchy_yaml(tmp_path)
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", hier_yaml)
-        catalog_dir = tmp_path / "catalog"
-        for slug in ["cat/src/game1", "cat/src/game2"]:
-            _make_image_files(catalog_dir, slug)
+    def test_works_sorted_by_citation_and_games_by_slug(self):
         df = _make_df(
-            _efg_row("cat/src/game1", title="Game One"),
-            _efg_row("cat/src/game2", title="Game Two"),
+            _efg_row("b/g", source=_source("K1", "Zeta (1990)")),
+            _efg_row("a/h", source=_source("K2", "Alpha (2001)")),
+            _efg_row("a/g", source=_source("K2", "Alpha (2001)")),
         )
+        works = build._group_by_work(df)
+        assert [w["citation"] for w, _ in works] == ["Alpha (2001)", "Zeta (1990)"]
+        assert [r["Game"] for r in works[0][1]] == ["a/g", "a/h"]
+
+    def test_skips_unknown_format_and_empty_description(self):
+        df = _make_df(
+            {**_efg_row("a/g"), "Format": "xyz"}, _efg_row("a/h", description=""), _efg_row("a/i")
+        )
+        ((_, rows),) = build._group_by_work(df)
+        assert [r["Game"] for r in rows] == ["a/i"]
+
+    def _rst(self, tmp_path, monkeypatch, *rows):
+        _record_calls(monkeypatch)
         rst_path = tmp_path / "out.rst"
-        build.generate_rst_table(df, rst_path, catalog_dir=catalog_dir)
-        rst = rst_path.read_text()
-        assert ".. dropdown:: My Category" in rst
-        assert "   .. dropdown:: My Source" in rst
-        assert "Game One" in rst
-        assert "Game Two" in rst
+        build.generate_rst_table(_make_df(*rows), rst_path, catalog_dir=tmp_path / "catalog")
+        return rst_path.read_text()
+
+    def test_work_heading_is_citation_and_title(self, tmp_path, monkeypatch):
+        rst = self._rst(
+            tmp_path, monkeypatch, _efg_row("a/g", source=_source("K", "Alpha (2001)", "On Games"))
+        )
+        assert rst.startswith(".. dropdown:: Alpha (2001): On Games\n")
+
+    def test_one_work_dropdown_holds_all_its_games(self, tmp_path, monkeypatch):
+        rst = self._rst(tmp_path, monkeypatch, _efg_row("a/g"), _efg_row("a/h"))
+        assert rst.count(".. dropdown:: Fake (2000): A Fake Work") == 1
+        assert "   .. dropdown:: " in rst
+
+    def test_game_heading_is_locator_and_name(self, tmp_path, monkeypatch):
+        source = {**_FAKE_SOURCE, "locator": "Figure 2"}
+        rst = self._rst(tmp_path, monkeypatch, _efg_row("a/g", source=source, name="The horse"))
+        assert "   .. dropdown:: Figure 2: The horse\n      :open:" in rst
+
+    def test_game_heading_falls_back_to_name_then_title(self, tmp_path, monkeypatch):
+        rst = self._rst(tmp_path, monkeypatch, _efg_row("a/g", name="Only name"))
+        assert "   .. dropdown:: Only name\n" in rst
+        rst = self._rst(tmp_path, monkeypatch, _efg_row("a/g", title="Full title"))
+        assert "   .. dropdown:: Full title\n" in rst
 
     def test_no_list_table_in_output(self, tmp_path, monkeypatch):
-        """The new output does not use ``.. list-table::`` (replaced by nested dropdowns)."""
-        self._mock_generates(monkeypatch)
-        hier_yaml = self._write_hierarchy_yaml(tmp_path)
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", hier_yaml)
-        catalog_dir = tmp_path / "catalog"
-        slug = "cat/src/game1"
-        _make_image_files(catalog_dir, slug)
-        df = _make_df(_efg_row(slug))
-        rst_path = tmp_path / "out.rst"
-        build.generate_rst_table(df, rst_path, catalog_dir=catalog_dir)
-        rst = rst_path.read_text()
+        rst = self._rst(tmp_path, monkeypatch, _efg_row("a/g"))
         assert ".. list-table::" not in rst
-        assert ".. contents::" not in rst
 
 
 @pytest.mark.catalog_update
@@ -533,30 +561,6 @@ class TestWarnMissingDescriptions:
 # ---------------------------------------------------------------------------
 # Tests for the GUI-facing manifest (citation resolution, stats, build/write)
 # ---------------------------------------------------------------------------
-
-_TEST_BIB = textwrap.dedent("""\
-    @article{Solo2020,
-      author = {Solo, A.},
-      year = {2020},
-    }
-    @article{Duo2019,
-      author = {First, A. and Second, B.},
-      year = {2019},
-    }
-    @article{Trio2018,
-      author = {One, A. and Two, B. and Three, C.},
-      year = {2018},
-    }
-    @article{VonParticle2021,
-      author = {von Particle, X.},
-      year = {2021},
-    }
-""")
-
-
-def _write_bib(path, content=_TEST_BIB):
-    path.write_text(content, encoding="utf-8")
-    return path
 
 
 @pytest.mark.catalog_update
@@ -593,9 +597,15 @@ class TestCitationResolution:
         )
         assert result == "Compare (Solo 2020) and (First and Second 2019)."
 
-    def test_resolve_citations_falls_back_for_unknown_key(self):
-        result = build.resolve_citations("See :cite:p:`Missing2099`.", {})
-        assert result == "See (Missing2099)."
+    def test_resolve_citations_rejects_unknown_keys(self, tmp_path):
+        texts = build.load_citation_texts(_write_bib(tmp_path / "refs.bib"))
+        with pytest.raises(build.CatalogError, match="'Missing2099', 'Gone1900'"):
+            build.resolve_citations(
+                ":cite:p:`Missing2099`, :cite:p:`Solo2020` and :cite:p:`Gone1900`.", texts
+            )
+
+    def test_cited_keys_in_order(self):
+        assert build.cited_keys(":cite:p:`B` then :cite:p:`A`; no key here.") == ["B", "A"]
 
     def test_resolve_citations_no_markup_is_unchanged(self):
         assert build.resolve_citations("Plain text, no citations.", {}) == (
@@ -603,34 +613,279 @@ class TestCitationResolution:
         )
 
 
+def _work(tmp_path, key):
+    refs = build.load_references(_write_bib(tmp_path / "refs.bib"))
+    return build.describe_work(refs[key])
+
+
 @pytest.mark.catalog_update
-class TestHierarchyBreadcrumbs:
-    """Tests for ``_hierarchy_breadcrumbs``."""
+class TestDescribeWork:
+    """Tests for ``describe_work``: the manifest's description of a bibliography entry."""
 
-    def test_breadcrumbs_use_yaml_labels(self, tmp_path, monkeypatch):
-        yaml_file = _write_yaml(tmp_path / "hier.yaml", _HIERARCHY_YAML)
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", yaml_file)
-        labels = build.load_hierarchy_labels()
-        assert build._hierarchy_breadcrumbs("cat/src/game1", labels) == [
-            "My Category",
-            "My Source",
+    def test_one_author_article(self, tmp_path):
+        assert _work(tmp_path, "Solo2020") == {
+            "citation": "Solo (2020)",
+            "authors": ["A. Solo"],
+            "year": 2020,
+            "title": "A Solo Paper",
+            "kind": "article",
+            "venue": "Journal of Tests",
+        }
+
+    def test_two_authors_joined_with_and(self, tmp_path):
+        work = _work(tmp_path, "Duo2019")
+        assert work["citation"] == "First and Second (2019)"
+        assert work["authors"] == ["A. First", "B. Second"]
+
+    def test_three_authors_use_et_al_and_markup_is_stripped(self, tmp_path):
+        work = _work(tmp_path, "Conf2016")
+        assert work["citation"] == "S\u00f8rensen et al. (2016)"
+        assert work["authors"][0] == "T. B. S\u00f8rensen"
+        assert len(work["authors"]) == 3
+        assert work["title"] == "Proceedings Paper: \u00dcber Games"
+
+    def test_inproceedings_venue_is_booktitle(self, tmp_path):
+        work = _work(tmp_path, "Conf2016")
+        assert work["kind"] == "inproceedings"
+        assert work["venue"] == "Proceedings of the Test Conference"
+
+    def test_book_has_no_venue(self, tmp_path):
+        work = _work(tmp_path, "Book2010")
+        assert work["kind"] == "book"
+        assert "venue" not in work
+
+    def test_particle_kept_in_citation_and_name(self, tmp_path):
+        work = _work(tmp_path, "VonParticle2021")
+        assert work["citation"] == "von Particle (2021)"
+        assert work["authors"] == ["X. Y. von Particle"]
+
+    def test_editors_stand_in_when_there_are_no_authors(self, tmp_path):
+        work = _work(tmp_path, "Edited2005")
+        assert work["citation"] == "Editor (2005)"
+        assert work["authors"] == ["E. Editor"]
+
+    def test_missing_year_rejected(self, tmp_path):
+        with pytest.raises(ValueError, match="year"):
+            _work(tmp_path, "NoYear")
+
+
+@pytest.mark.catalog_update
+class TestSourceFile:
+    """Tests for ``read_source_file`` and ``resolve_source``."""
+
+    def _read(self, tmp_path, text):
+        path = tmp_path / "source.yaml"
+        path.write_text(textwrap.dedent(text), encoding="utf-8")
+        return build.read_source_file(path)
+
+    def test_full_file(self, tmp_path):
+        data = self._read(
+            tmp_path,
+            """\
+            source:
+              key: Sel75
+              locator: Figure 2
+            origin:
+              key: Lie60
+              locator: Table 1
+              note: payoffs rescaled
+            name: Selten's horse
+            """,
+        )
+        assert data == {
+            "source": {"key": "Sel75", "locator": "Figure 2"},
+            "origin": {"key": "Lie60", "locator": "Table 1", "note": "payoffs rescaled"},
+            "name": "Selten's horse",
+        }
+
+    def test_minimal_file(self, tmp_path):
+        assert self._read(tmp_path, "source:\n  key: Sel75\n") == {"source": {"key": "Sel75"}}
+
+    @pytest.mark.parametrize(
+        ("text", "message"),
+        [
+            ("name: x\n", "needs a 'source'"),
+            ("source:\n  locator: Figure 1\n", "'source' needs a 'key'"),
+            ("source:\n  key: A\n  page: 3\n", "unknown key 'page' in 'source'"),
+            ("source:\n  key: A\nauthor: B\n", "unknown key 'author'"),
+            ("source:\n  key: A\norigin:\n  locator: T\n", "'origin' needs a 'key'"),
+            (
+                "source:\n  key: A\norigin:\n  key: B\n  year: 1\n",
+                "unknown key 'year' in 'origin'",
+            ),
+            ("source:\n  key: A\n  locator: 2\n", "'source.locator' must be a non-empty string"),
+            ("source: A\n", "'source' must be a mapping"),
+            ("source:\n  key: A\nname: [x]\n", "'name' must be a non-empty string"),
+            ("- source\n", "must be a mapping"),
+            ("source: [unclosed\n", "not valid YAML"),
+        ],
+    )
+    def test_invalid_file_rejected_naming_the_file(self, tmp_path, text, message):
+        with pytest.raises(build.CatalogError, match=message) as excinfo:
+            self._read(tmp_path, text)
+        assert str(tmp_path / "source.yaml") in str(excinfo.value)
+
+    def test_resolve_with_origin(self, tmp_path):
+        refs = build.load_references(_write_bib(tmp_path / "refs.bib"))
+        path = _write_source(
+            tmp_path / "g",
+            "Solo2020",
+            "Figure 2",
+            "Horse",
+            origin={"key": "Duo2019", "locator": "Table 1", "note": "rescaled"},
+        )
+        resolved = build.resolve_source(path, refs)
+        assert list(resolved["source"])[:3] == ["key", "locator", "citation"]
+        assert resolved["source"]["citation"] == "Solo (2020)"
+        assert resolved["origin"]["citation"] == "First and Second (2019)"
+        assert resolved["origin"]["note"] == "rescaled"
+        assert resolved["name"] == "Horse"
+
+    def test_resolve_without_origin_or_name(self, tmp_path):
+        refs = build.load_references(_write_bib(tmp_path / "refs.bib"))
+        resolved = build.resolve_source(_write_source(tmp_path / "g"), refs)
+        assert set(resolved) == {"source"}
+        assert "locator" not in resolved["source"]
+
+    def test_unknown_key_rejected(self, tmp_path):
+        refs = build.load_references(_write_bib(tmp_path / "refs.bib"))
+        path = _write_source(tmp_path / "g", "Nope1999")
+        with pytest.raises(build.CatalogError, match="Nope1999.*not in references.bib"):
+            build.resolve_source(path, refs)
+
+    def test_unknown_origin_key_rejected(self, tmp_path):
+        refs = build.load_references(_write_bib(tmp_path / "refs.bib"))
+        path = _write_source(tmp_path / "g", origin={"key": "Nope1999"})
+        with pytest.raises(build.CatalogError, match="origin.key.*Nope1999"):
+            build.resolve_source(path, refs)
+
+    def test_missing_file_rejected(self, tmp_path):
+        with pytest.raises(build.CatalogError, match="source.yaml: missing"):
+            build.resolve_source(tmp_path / "g" / "source.yaml", {})
+
+
+@pytest.mark.catalog_update
+class TestDerivedTitle:
+    """Tests for ``derived_title``."""
+
+    def _title(self, tmp_path, **kwargs):
+        refs = build.load_references(_write_bib(tmp_path / "refs.bib"))
+        return build.derived_title(
+            build.resolve_source(_write_source(tmp_path / "g", **kwargs), refs)
+        )
+
+    def test_locator_only(self, tmp_path):
+        assert self._title(tmp_path, locator="Figure 2") == "Solo (2020), Figure 2"
+
+    def test_locator_and_name(self, tmp_path):
+        title = self._title(tmp_path, locator="Figure 1", name="Selten's horse")
+        assert title == "Solo (2020), Figure 1: Selten's horse"
+
+    def test_citation_only(self, tmp_path):
+        assert self._title(tmp_path) == "Solo (2020)"
+
+    def test_name_without_locator(self, tmp_path):
+        assert self._title(tmp_path, name="Centipede") == "Solo (2020): Centipede"
+
+    def test_origin_does_not_enter_the_title(self, tmp_path):
+        title = self._title(tmp_path, locator="Table 1", origin={"key": "Duo2019"})
+        assert title == "Solo (2020), Table 1"
+
+
+@pytest.mark.catalog_update
+class TestTitleSync:
+    """Tests for ``catalog_problems`` and ``sync_titles``."""
+
+    def _catalog(self, tmp_path):
+        catalog_dir = tmp_path / "catalog"
+        _add_game(catalog_dir, "src/ok", locator="Figure 1")
+        _add_game(catalog_dir, "src/bad", locator="Figure 2", title="Something else")
+        _add_game(catalog_dir, "src/nfg", key="Duo2019", name="Dilemma", fmt="nfg", title="Old")
+        return catalog_dir, _write_bib(tmp_path / "refs.bib")
+
+    def test_problems_list_every_mismatch(self, tmp_path):
+        catalog_dir, bib = self._catalog(tmp_path)
+        problems = build.catalog_problems(catalog_dir, bib)
+        assert len(problems) == 2
+        assert "src/bad" in problems[0]
+        assert "'Something else'" in problems[0]
+        assert "'Solo (2020), Figure 2'" in problems[0]
+        assert "src/nfg" in problems[1]
+
+    def test_problems_list_every_missing_description_key(self, tmp_path):
+        catalog_dir = tmp_path / "catalog"
+        _add_game(catalog_dir, "src/one", description="See :cite:p:`Missing2099`.")
+        _add_game(
+            catalog_dir,
+            "src/two",
+            description=":cite:p:`Duo2019`, :cite:p:`Gone1900` and :cite:p:`Lost1800`.",
+        )
+        problems = build.catalog_problems(catalog_dir, _write_bib(tmp_path / "refs.bib"))
+        assert problems == [
+            "src/one: description cites 'Missing2099', not in references.bib",
+            "src/two: description cites 'Gone1900', not in references.bib",
+            "src/two: description cites 'Lost1800', not in references.bib",
         ]
 
-    def test_breadcrumbs_fallback_for_unknown_prefix(self, tmp_path, monkeypatch):
-        yaml_file = _write_yaml(tmp_path / "hier.yaml", _HIERARCHY_YAML)
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", yaml_file)
-        labels = build.load_hierarchy_labels()
-        assert build._hierarchy_breadcrumbs("other/unknown_group/game1", labels) == [
-            "Other",
-            "Unknown Group",
-        ]
+    def test_build_fails_on_missing_description_key(self, tmp_path):
+        catalog_dir = tmp_path / "catalog"
+        _add_game(catalog_dir, "src/one", description="See :cite:p:`Missing2099`.")
+        with pytest.raises(build.CatalogError, match="Missing2099"):
+            build.build_manifest(catalog_dir, _write_bib(tmp_path / "refs.bib"), "0.1.0")
 
-    def test_breadcrumbs_empty_for_top_level_slug(self, tmp_path, monkeypatch):
-        """A slug with no parent directories has no breadcrumbs."""
-        yaml_file = _write_yaml(tmp_path / "hier.yaml", _HIERARCHY_YAML)
-        monkeypatch.setattr(build, "CATALOG_HIERARCHY_CONFIG", yaml_file)
-        labels = build.load_hierarchy_labels()
-        assert build._hierarchy_breadcrumbs("game1", labels) == []
+    def test_no_problems_when_titles_derived(self, tmp_path):
+        catalog_dir = tmp_path / "catalog"
+        _add_game(catalog_dir, "src/ok", locator="Figure 1")
+        assert build.catalog_problems(catalog_dir, _write_bib(tmp_path / "refs.bib")) == []
+
+    def test_sync_rewrites_only_the_title(self, tmp_path):
+        catalog_dir, bib = self._catalog(tmp_path)
+        efg = catalog_dir / "src/bad/bad.efg"
+        nfg = catalog_dir / "src/nfg/nfg.nfg"
+        efg_before, nfg_before = efg.read_bytes(), nfg.read_bytes()
+        changed = build.sync_titles(catalog_dir, bib)
+        assert changed == ["src/bad", "src/nfg"]
+        assert efg.read_bytes() == efg_before.replace(b"Something else", b"Solo (2020), Figure 2")
+        assert nfg.read_bytes() == nfg_before.replace(
+            b'"Old"', b'"First and Second (2019): Dilemma"'
+        )
+        assert build.catalog_problems(catalog_dir, bib) == []
+
+    def test_sync_leaves_correct_files_untouched(self, tmp_path):
+        catalog_dir, bib = self._catalog(tmp_path)
+        ok = catalog_dir / "src/ok/ok.efg"
+        before = ok.stat().st_mtime_ns
+        build.sync_titles(catalog_dir, bib)
+        assert ok.stat().st_mtime_ns == before
+
+    def test_sync_preserves_line_endings(self, tmp_path):
+        catalog_dir, bib = self._catalog(tmp_path)
+        efg = catalog_dir / "src/bad/bad.efg"
+        efg.write_bytes(efg.read_bytes().replace(b"\n", b"\r\n"))
+        build.sync_titles(catalog_dir, bib)
+        data = efg.read_bytes()
+        assert data.startswith(b'EFG 2 R "Solo (2020), Figure 2" { "P1" "P2" }\r\n')
+        assert data.count(b"\n") == data.count(b"\r\n")
+
+    def test_check_mode_writes_nothing(self, tmp_path):
+        catalog_dir, bib = self._catalog(tmp_path)
+        efg = catalog_dir / "src/bad/bad.efg"
+        before = efg.read_bytes()
+        assert build.sync_titles(catalog_dir, bib, write=False) == ["src/bad", "src/nfg"]
+        assert efg.read_bytes() == before
+
+    def test_title_with_quote_is_escaped(self, tmp_path):
+        catalog_dir = tmp_path / "catalog"
+        _add_game(catalog_dir, "src/g", name='The "game"', title="Old")
+        build.sync_titles(catalog_dir, _write_bib(tmp_path / "refs.bib"))
+        game = build.read_game(build.discover_entries(catalog_dir)[0])
+        assert game.title == 'Solo (2020): The "game"'
+
+    def test_sync_refuses_when_a_source_is_missing(self, tmp_path):
+        catalog_dir, bib = self._catalog(tmp_path)
+        (catalog_dir / "src/ok/source.yaml").unlink()
+        with pytest.raises(build.CatalogError, match="src/ok/source.yaml: missing"):
+            build.sync_titles(catalog_dir, bib)
 
 
 @pytest.mark.catalog_update
@@ -665,14 +920,19 @@ class TestBuildManifest:
     def _make_catalog(self, tmp_path):
         """Build a small fake catalog dir with one EFG and one NFG game."""
         catalog_dir = tmp_path / "catalog"
-        _write_efg_game(
-            catalog_dir / "books" / "author2020" / "game1" / "game1.efg",
-            title="Tree Game",
+        _add_game(
+            catalog_dir,
+            "a/game1",
+            locator="Figure 1",
+            name="Tree game",
+            origin={"key": "Book2010", "locator": "Table 3", "note": "rescaled"},
             description="A tree game from :cite:p:`Solo2020`.",
         )
-        _write_nfg_game(
-            catalog_dir / "journals" / "geb" / "author2019" / "game2" / "game2.nfg",
-            title="Table Game",
+        _add_game(
+            catalog_dir,
+            "b/game2",
+            key="Duo2019",
+            fmt="nfg",
             description="A table game from :cite:p:`Duo2019`.",
         )
         return catalog_dir
@@ -684,30 +944,65 @@ class TestBuildManifest:
 
     def test_build_manifest_versions(self, tmp_path):
         manifest = self._build(self._make_catalog(tmp_path), tmp_path)
-        assert manifest["schema_version"] == 2
+        assert manifest["schema_version"] == build.SCHEMA_VERSION == 1
         assert manifest["catalog_version"] == "2.3.4"
 
     def test_build_manifest_entries(self, tmp_path):
         catalog_dir = self._make_catalog(tmp_path)
         entries = self._build(catalog_dir, tmp_path)["games"]
         by_slug = {e["slug"]: e for e in entries}
-        assert set(by_slug) == {"books/author2020/game1", "journals/geb/author2019/game2"}
+        assert set(by_slug) == {"a/game1", "b/game2"}
 
-        efg_entry = by_slug["books/author2020/game1"]
-        assert efg_entry["title"] == "Tree Game"
+        efg_entry = by_slug["a/game1"]
+        assert efg_entry["title"] == "Solo (2020), Figure 1: Tree game"
+        assert efg_entry["name"] == "Tree game"
         assert efg_entry["description"] == "A tree game from (Solo 2020)."
         assert efg_entry["format"] == "efg"
-        assert efg_entry["game"] == "books/author2020/game1/game1.efg"
+        assert efg_entry["game"] == "a/game1/game1.efg"
         assert efg_entry["drawings"] == []
-        assert efg_entry["category"] == "Books"
+        assert "category" not in efg_entry
+        assert "group" not in efg_entry
 
-        nfg_entry = by_slug["journals/geb/author2019/game2"]
+        nfg_entry = by_slug["b/game2"]
         assert nfg_entry["format"] == "nfg"
         assert nfg_entry["description"] == "A table game from (First and Second 2019)."
 
+    def test_source_and_origin(self, tmp_path):
+        by_slug = {
+            e["slug"]: e for e in self._build(self._make_catalog(tmp_path), tmp_path)["games"]
+        }
+        entry = by_slug["a/game1"]
+        assert entry["source"] == {
+            "key": "Solo2020",
+            "locator": "Figure 1",
+            "citation": "Solo (2020)",
+            "authors": ["A. Solo"],
+            "year": 2020,
+            "title": "A Solo Paper",
+            "venue": "Journal of Tests",
+            "kind": "article",
+        }
+        assert entry["origin"] == {
+            "key": "Book2010",
+            "locator": "Table 3",
+            "citation": "Writer (2010)",
+            "authors": ["W. Writer"],
+            "year": 2010,
+            "title": "The Book",
+            "kind": "book",
+            "note": "rescaled",
+        }
+
+    def test_origin_locator_and_name_omitted_when_absent(self, tmp_path):
+        entry = self._build(self._make_catalog(tmp_path), tmp_path)["games"][1]
+        assert entry["slug"] == "b/game2"
+        assert "origin" not in entry
+        assert "name" not in entry
+        assert "locator" not in entry["source"]
+
     def test_build_manifest_skips_games_without_description(self, tmp_path):
         catalog_dir = tmp_path / "catalog"
-        _write_efg_game(catalog_dir / "nodesc" / "game1" / "game1.efg", description="")
+        _add_game(catalog_dir, "nodesc/game1", description="")
         assert self._build(catalog_dir, tmp_path)["games"] == []
 
     def test_build_manifest_sorted_by_slug(self, tmp_path):
@@ -716,6 +1011,34 @@ class TestBuildManifest:
 
     def test_built_manifest_validates(self, tmp_path):
         build.validate_manifest(self._build(self._make_catalog(tmp_path), tmp_path))
+
+    def test_build_fails_listing_every_missing_source(self, tmp_path):
+        catalog_dir = self._make_catalog(tmp_path)
+        (catalog_dir / "a/game1/source.yaml").unlink()
+        (catalog_dir / "b/game2/source.yaml").unlink()
+        with pytest.raises(build.CatalogError) as excinfo:
+            self._build(catalog_dir, tmp_path)
+        message = str(excinfo.value)
+        assert "a/game1/source.yaml: missing" in message
+        assert "b/game2/source.yaml: missing" in message
+
+    def test_build_fails_on_unknown_key(self, tmp_path):
+        catalog_dir = self._make_catalog(tmp_path)
+        _write_source(catalog_dir / "a/game1", "Nope1999")
+        with pytest.raises(build.CatalogError, match="Nope1999"):
+            self._build(catalog_dir, tmp_path)
+
+    def test_build_fails_on_title_mismatch(self, tmp_path):
+        catalog_dir = self._make_catalog(tmp_path)
+        _write_efg_game(catalog_dir / "a/game1/game1.efg", title="Hand-written", description="D")
+        with pytest.raises(build.CatalogError, match="a/game1: title is 'Hand-written'"):
+            self._build(catalog_dir, tmp_path)
+
+    def test_build_fails_on_invalid_source_file(self, tmp_path):
+        catalog_dir = self._make_catalog(tmp_path)
+        _write_source(catalog_dir / "a/game1", extra="colour: red\n")
+        with pytest.raises(build.CatalogError, match="unknown key 'colour'"):
+            self._build(catalog_dir, tmp_path)
 
     def test_write_manifest_creates_file(self, tmp_path):
         manifest_path = tmp_path / "manifest.json"
@@ -744,29 +1067,97 @@ class TestManifestSchema:
     def _committed(self):
         return json.loads(build.CATALOG_MANIFEST.read_text(encoding="utf-8"))
 
+    def _manifest(self, tmp_path):
+        """Return a manifest built from a small fixture catalog, with an origin and a name."""
+        catalog_dir = tmp_path / "catalog"
+        _add_game(
+            catalog_dir,
+            "a/game1",
+            locator="Figure 1",
+            name="Named",
+            origin={"key": "Book2010"},
+            description="D.",
+        )
+        return build.build_manifest(catalog_dir, _write_bib(tmp_path / "refs.bib"), "1.0.0")
+
+    def test_fixture_manifest_validates(self, tmp_path):
+        build.validate_manifest(self._manifest(tmp_path))
+
     def test_committed_manifest_validates(self):
         build.validate_manifest(self._committed())
 
     def test_committed_manifest_matches_version_file(self):
         manifest = self._committed()
         assert manifest["catalog_version"] == build.catalog_version()
-        assert manifest["schema_version"] == int(build.catalog_version().split(".")[0])
+        assert manifest["schema_version"] == build.SCHEMA_VERSION
 
-    def test_missing_required_field_fails(self):
+    def test_committed_manifest_is_up_to_date(self):
         manifest = self._committed()
+        assert manifest == build.build_manifest(version=manifest["catalog_version"])
+
+    def test_missing_required_field_fails(self, tmp_path):
+        manifest = self._manifest(tmp_path)
         del manifest["games"][0]["format"]
         with pytest.raises(jsonschema.ValidationError, match="format"):
             build.validate_manifest(manifest)
 
-    def test_unknown_field_fails(self):
-        manifest = self._committed()
+    def test_unknown_field_fails(self, tmp_path):
+        manifest = self._manifest(tmp_path)
         manifest["games"][0]["thumbnail"] = "img/x.png"
         with pytest.raises(jsonschema.ValidationError):
             build.validate_manifest(manifest)
 
-    def test_empty_description_fails(self):
-        manifest = self._committed()
+    def test_dropped_fields_fail(self, tmp_path):
+        manifest = self._manifest(tmp_path)
+        manifest["games"][0]["category"] = "Books"
+        with pytest.raises(jsonschema.ValidationError):
+            build.validate_manifest(manifest)
+
+    def test_missing_source_fails(self, tmp_path):
+        manifest = self._manifest(tmp_path)
+        del manifest["games"][0]["source"]
+        with pytest.raises(jsonschema.ValidationError, match="source"):
+            build.validate_manifest(manifest)
+
+    def test_unknown_source_field_fails(self, tmp_path):
+        manifest = self._manifest(tmp_path)
+        manifest["games"][0]["source"]["page"] = 3
+        with pytest.raises(jsonschema.ValidationError):
+            build.validate_manifest(manifest)
+
+    def test_empty_description_fails(self, tmp_path):
+        manifest = self._manifest(tmp_path)
         manifest["games"][0]["description"] = ""
+        with pytest.raises(jsonschema.ValidationError):
+            build.validate_manifest(manifest)
+
+    def test_empty_title_fails(self, tmp_path):
+        manifest = self._manifest(tmp_path)
+        manifest["games"][0]["title"] = ""
+        with pytest.raises(jsonschema.ValidationError):
+            build.validate_manifest(manifest)
+
+    @pytest.mark.parametrize("version", [0, 2, "1"])
+    def test_other_schema_version_fails(self, tmp_path, version):
+        manifest = self._manifest(tmp_path)
+        manifest["schema_version"] = version
+        with pytest.raises(jsonschema.ValidationError, match="schema_version|1 was expected"):
+            build.validate_manifest(manifest)
+
+    def test_note_on_source_fails(self, tmp_path):
+        manifest = self._manifest(tmp_path)
+        manifest["games"][0]["source"]["note"] = "payoffs rescaled"
+        with pytest.raises(jsonschema.ValidationError):
+            build.validate_manifest(manifest)
+
+    def test_note_on_origin_validates(self, tmp_path):
+        manifest = self._manifest(tmp_path)
+        manifest["games"][0]["origin"]["note"] = "payoffs rescaled"
+        build.validate_manifest(manifest)
+
+    def test_unknown_origin_field_fails(self, tmp_path):
+        manifest = self._manifest(tmp_path)
+        manifest["games"][0]["origin"]["page"] = 3
         with pytest.raises(jsonschema.ValidationError):
             build.validate_manifest(manifest)
 
@@ -791,19 +1182,14 @@ class TestBuildRelease:
     def _make_repo(self, tmp_path, monkeypatch, version="0.9.1"):
         root = tmp_path / "repo"
         catalog_dir = root / "games"
-        _write_efg_game(
-            catalog_dir / "src2000" / "fig1" / "fig1.efg", title="Tree", description="A tree."
-        )
+        _add_game(catalog_dir, "src2000/fig1", description="A tree.")
         (catalog_dir / "src2000" / "fig1" / "fig1.ef").write_text("level 0 node 1\n")
-        _write_nfg_game(
-            catalog_dir / "src2000" / "tab1" / "tab1.nfg", title="Table", description="A table."
-        )
+        _add_game(catalog_dir, "src2000/tab1", fmt="nfg", description="A table.")
         for name in ["LICENSE", "README.md", "LICENSES/CC-BY-4.0.txt"]:
             (root / name).parent.mkdir(parents=True, exist_ok=True)
             (root / name).write_text(name)
         (root / "schema").mkdir()
         (root / "schema" / "manifest.schema.json").write_bytes(build.MANIFEST_SCHEMA.read_bytes())
-        monkeypatch.setattr(build, "load_hierarchy_labels", lambda: {})
         bib = _write_bib(tmp_path / "refs.bib")
         monkeypatch.setattr(build, "REFERENCES_BIB", bib)
         manifest = build.build_manifest(catalog_dir, bib_path=bib, version=version)
@@ -878,6 +1264,6 @@ class TestBuildRelease:
 
     def test_stale_manifest_fails(self, tmp_path, monkeypatch):
         catalog_dir = self._make_repo(tmp_path, monkeypatch)
-        _write_efg_game(catalog_dir / "src2000" / "new" / "new.efg", description="New.")
+        _add_game(catalog_dir, "src2000/new", description="New.")
         with pytest.raises(RuntimeError, match="out of date"):
             build.build_release(tmp_path / "out", catalog_dir=catalog_dir)

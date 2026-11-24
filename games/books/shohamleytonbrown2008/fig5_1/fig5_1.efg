@@ -1,8 +1,6 @@
-EFG 2 R "Fig 5.1 from Shoham and Leyton-Brown (2008)" { "1" "2" }
+EFG 2 R "Shoham and Leyton-Brown (2008), Figure 5.1: Sharing game" { "1" "2" }
 
-"
-Figure 5.1 from :cite:p:`ShoLeyB08`.
-This is a sharing game. Imagine a brother and sister sharing two indivisible and identical presents
+"Imagine a brother and sister sharing two indivisible and identical presents
 from their parents. First the brother suggests a split, which can be one of three: he
 keeps both, she keeps both, or they each keep one. Then the sister chooses whether
 to accept or reject the split. If she accepts they each get their allocated present(s),

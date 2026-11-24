@@ -1,0 +1,6 @@
+source:
+  key: McKPal95
+  locator: "Fourth example game (payoff at (A1, B1) = 4)"
+origin:
+  key: Och95
+  note: "row player's payoff at (A1, B1) set to 4"

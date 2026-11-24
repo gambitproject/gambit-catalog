@@ -1,0 +1,32 @@
+player 1 name Player~1
+player 2 name Player~2
+level 0 node 1 player 0
+level 4 node 2 player 1 xshift -9 from 1 move type~1~(\frac{1}{2})
+level 8 node 3 xshift -6 from 2 move m1
+level 12 node 4 xshift -2 from 3 move a1 payoffs 2 1
+level 12 node 5 xshift 0 from 3 move a2 payoffs 2 0
+level 12 node 6 xshift 2 from 3 move a3 payoffs 0 2
+level 8 node 7 xshift 0 from 2 move m2
+level 12 node 8 xshift -2 from 7 move a1 payoffs 3 1
+level 12 node 9 xshift 0 from 7 move a2 payoffs 1 0
+level 12 node 10 xshift 2 from 7 move a3 payoffs 0 0
+level 8 node 11 xshift 6 from 2 move m3
+level 12 node 12 xshift -2 from 11 move a1 payoffs 1 2
+level 12 node 13 xshift 0 from 11 move a2 payoffs 1 1
+level 12 node 14 xshift 2 from 11 move a3 payoffs 3 0
+level 4 node 15 player 1 xshift 9 from 1 move type~2~(\frac{1}{2})
+level 8 node 16 xshift -6 from 15 move m1
+level 12 node 17 xshift -2 from 16 move a1 payoffs 1 3
+level 12 node 18 xshift 0 from 16 move a2 payoffs 2 0
+level 12 node 19 xshift 2 from 16 move a3 payoffs 2 1
+level 8 node 20 xshift 0 from 15 move m2
+level 12 node 21 xshift -2 from 20 move a1 payoffs 2 1
+level 12 node 22 xshift 0 from 20 move a2 payoffs 0 0
+level 12 node 23 xshift 2 from 20 move a3 payoffs 0 6
+level 8 node 24 xshift 6 from 15 move m3
+level 12 node 25 xshift -2 from 24 move a1 payoffs 0 2
+level 12 node 26 xshift 0 from 24 move a2 payoffs 3 1
+level 12 node 27 xshift 2 from 24 move a3 payoffs 1 1
+iset 3 16 player 2
+iset 7 20 player 2
+iset 11 24 player 2
